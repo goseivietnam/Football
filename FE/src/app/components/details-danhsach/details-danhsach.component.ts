@@ -87,7 +87,7 @@ export class DetailsDanhsachComponent {
             phone: value.team.phone,
             fieldName: value.team.fieldName,
             fieldAddress: value.team.fieldAddress,
-            fieldCreatedDate: value.team.fieldCreatedDate,
+            rentalPeriod: value.team.rentalPeriod,
             accepted: value.accepted,
           });
         }
@@ -121,7 +121,7 @@ export class DetailsDanhsachComponent {
           ageMyteam: v1.inviteTeam.age,
           fieldName: v1.team.fieldName,
           fieldAddress: v1.team.fieldAddress,
-          fieldCreatedDate: v1.team.fieldCreatedDate
+          rentalPeriod: v1.team.rentalPeriod
         });
       }
       console.log(newResult, 'newResult');

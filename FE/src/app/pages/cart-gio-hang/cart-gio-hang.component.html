@@ -1,5 +1,3 @@
-
-
 <section class="h-100 h-custom">
 
   <div class=" py-5 h-100">
@@ -10,25 +8,28 @@
             <div class="">
               <div>
                 <div class="p-5">
-                  <div *ngIf="popUpConfirm" class="modal" style="display: block !important;" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Bạn có muốn đăng ký team chờ thi đấu không </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" [routerLink]="'/create-team'" (click)="handelClosePopup()" class="btn btn-primary">Đồng ý</button>
-        <button (click)="handelClosePopup()" type="button" class="btn btn-secondary" data-dismiss="modal">Từ chối</button>
-      </div>
-    </div>
-  </div>
-</div>
+                  <div *ngIf="popUpConfirm" class="modal" style="display: block !important;" tabindex="-1"
+                    role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Bạn có muốn đăng ký team chờ thi đấu không </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" [routerLink]="'/create-team'" (click)="handelClosePopup()"
+                            class="btn btn-primary">Đồng ý</button>
+                          <button (click)="handelClosePopup()" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Từ chối</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">{{titleCheck}}</h1>
                     <h6 class="mb-0 text-muted">
@@ -56,7 +57,7 @@
                       </thead>
                       <tbody>
                         <tr *ngFor="let item of dataUserBooking; let i = index">
-                          <td  style="border-right:1px solid #ccc">
+                          <td style="border-right:1px solid #ccc">
                             {{i + 1}}
                           </td>
                           <td style="border-right:1px solid #ccc">
@@ -84,19 +85,20 @@
 
                           </td>
                           <td style="border-right:1px solid #ccc">
-                          <div>
-                             <button [routerLink]="'/details-book/' +  item.id" [queryParams]="{ user: 1 }"  style="margin-top:10px; background-color:#ccc;margin-bottom:4px;width: 100%;" type="button"
-                                class=" btn btn-dark">
+                            <div>
+                              <button [routerLink]="'/details-book/' +  item.id" [queryParams]="{ user: 1 }"
+                                style="margin-top:10px; background-color:#ccc;margin-bottom:4px;width: 100%;"
+                                type="button" class=" btn btn-dark">
                                 chi tiết
                               </button>
-                          </div>
+                            </div>
                             <div *ngIf="item.status  !== 'Pair'" class="">
                               <button (click)="handelPaymentVNPay(item.id)"
                                 style="margin-top:10px; background-color:#ccc;margin-bottom:4px" type="button"
                                 class="button-buy-fast button">
                                 Thanh toán VNPAY
-                              </button> <br/>
-                               <button *ngIf="item.deposited  !== true" (click)="handelStatePayment(item.id)"
+                              </button> <br />
+                              <button *ngIf="item.deposited  !== true" (click)="handelStatePayment(item.id)"
                                 style="margin-top:10px; background-color:#ccc;margin-bottom:4px" type="button"
                                 class="button-buy-fast button">
                                 Cọc trước

@@ -22,6 +22,6 @@ namespace N.Service.InviteService.Dto
         /// <summary>
         /// Thời gian thuê sân
         /// </summary>
-        public DateTime FieldCreatedDate { get; set; }
+        public string? RentalPeriod { get; set; }
     }
 }

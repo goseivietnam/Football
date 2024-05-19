@@ -80,11 +80,13 @@ namespace N.Service.TeamService
         }
 
         public DataResponse<TeamDto> GetDto(Guid? id)
-        {            
+        {          
             var query = from q in GetQueryable()
                         .Where(x => x.Id == id)
+                        join book in _bookingRepository.GetQueryable()
+                        on q.UserId equals book.UserId
                         join field in _fieldRepository.GetQueryable()
-                        on q.UserId equals field.UserId
+                        on book.FieldId equals field.Id
                         select new TeamDto()
                         {
                             Id = q.Id,
@@ -97,7 +99,7 @@ namespace N.Service.TeamService
                             Level = q.Level,
                             FieldName = field.Name,
                             FieldAddress = field.Address,
-                            FieldCreatedDate = field.CreatedDate
+                            RentalPeriod = $"{book.Start} - {book.End}"
                         };
 
             var data = query.FirstOrDefault();

@@ -19,6 +19,6 @@ namespace N.Service.TeamService.Dto
         /// <summary>
         /// Thời gian thuê sân
         /// </summary>
-        public DateTime FieldCreatedDate { get; set; }
+        public string? RentalPeriod { get; set; }
     }
 }
