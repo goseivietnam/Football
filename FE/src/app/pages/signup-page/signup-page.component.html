@@ -1,0 +1,113 @@
+<div class="container d-flex align-items-center justify-content-center py-5">
+  <div class="row">
+    <div class="head">
+      <div class="logo mb-4 d-flex justify-content-center">
+        <img src="./assets/images/monkey.png" [width]="121" [height]="156" alt="Logo" />
+      </div>
+      <div class="">
+        <a routerLink="/" class="title text-decoration-none">
+          <h1 class="text-center">Sân bóng hà nội</h1>
+        </a>
+      </div>
+    </div>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="onHandleSubmit()" class="d-flex flex-column align-items-center"
+      autocomplete="off">
+      <div class="form-group mb-3">
+        <label class="mb-3" for="name">name</label>
+        <input formControlName="name" class="form-control" style="border: 1px solid #00b4aa" id="fullname"
+          type="text" placeholder="Please enter your name" />
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('name')?.hasError('required') &&
+            (signUpForm.get('name')?.touched ||
+              signUpForm.get('name')?.dirty)
+          ">
+          name is required
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="mb-3" for="email">Email address</label>
+        <input formControlName="email" class="form-control" style="border: 1px solid #00b4aa" id="email" type="email"
+          placeholder="Please enter your email address" />
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('email')?.hasError('required') &&
+            (signUpForm.get('email')?.touched || signUpForm.get('email')?.dirty)
+          ">
+          Email is required
+        </div>
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('email')?.hasError('email') &&
+            (signUpForm.get('email')?.touched || signUpForm.get('email')?.dirty)
+          ">
+          Email is invalid
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-3" for="gender">Gender</label>
+        <select formControlName="gender" class="form-control" style="border: 1px solid #00b4aa" id="gender">
+          <option [value]="null" disabled selected>Please select your gender</option>
+          <option [value]="'male'">Male</option>
+          <option [value]="'female'">Female</option>
+          <option [value]="'other'">Other</option>
+        </select>
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('gender')?.hasError('required') &&
+            (signUpForm.get('gender')?.touched || signUpForm.get('gender')?.dirty)
+          ">
+          Gender is required
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-3" for="password">Password</label>
+        <div class="position-relative">
+          <input formControlName="password" class="form-control" style="border: 1px solid #00b4aa" type="password"
+            placeholder="Please enter your password" />
+          <i class="fa-solid fa-eye position-absolute translate-middle-y top-50" style="right: 20px"></i>
+        </div>
+
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('password')?.hasError('required') &&
+            (signUpForm.get('password')?.touched ||
+              signUpForm.get('password')?.dirty)
+          ">
+          Password is required
+        </div>
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('password')?.hasError('minlength') &&
+            (signUpForm.get('password')?.touched ||
+              signUpForm.get('password')?.dirty)
+          ">
+          Password must have 6 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="mb-3" for="password">Confirm Password</label>
+        <div class="position-relative">
+          <input formControlName="confirmPassword" class="form-control" style="border: 1px solid #00b4aa"
+            type="password" placeholder="Please enter your confirm password" />
+          <i class="fa-solid fa-eye position-absolute translate-middle-y top-50" style="right: 20px"></i>
+        </div>
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.get('confirmPassword')?.hasError('required') &&
+            (signUpForm.get('confirmPassword')?.touched ||
+              signUpForm.get('confirmPassword')?.dirty)
+          ">
+          Confirm password is required
+        </div>
+        <div class="message-error text-danger pt-2" *ngIf="
+            signUpForm.hasError('notMatch') &&
+            (signUpForm.get('confirmPassword')?.touched ||
+              signUpForm.get('confirmPassword')?.dirty)
+          ">
+          Confirm password is not match
+        </div>
+      </div>
+      <!-- <p>Have already an account? <a routerLink="login-admin">Login</a> </p> -->
+      <div class="form-group" style="margin-top: 60px">
+        <button class="rounded" [disabled]="!signUpForm.valid">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>

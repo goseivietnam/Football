@@ -1,0 +1,19 @@
+.product-list__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px !important;
+  object-fit: cover;
+}
+
+.listname {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
+  cursor: pointer;
+}

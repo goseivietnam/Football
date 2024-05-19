@@ -1,0 +1,42 @@
+<section class="related-posts row">
+  <div class="related-posts-title mb-4">
+    <h2 class="text-23BB86 font-600 text-2xl">sản phẩm liên quan</h2>
+  </div>
+  <div *ngIf="relatedPosts?.length == 0" class="text-center my-5">
+    <h1>Không có sản phẩm liên quan</h1>
+  </div>
+  <div class="col-sm-6 col-md-4 col-lg-3 p-2 mb-5" *ngFor="let post of relatedPosts">
+    <a routerLink="/posts/{{ post?._id }}" class="text-decoration-none">
+      <div class="img mb-4">
+        <img [src]="post.images[0].url" alt="" class="img-fluid mx-auto" style="width: 286px; height: 200px" />
+      </div>
+      <div class="card-content px-3">
+        <div class="d-inline-block font-600 bg-F3EDFF text-6B6B6B rounded-4 text-sm px-3 mb-3">
+          <span>{{ post?.category?.name }}</span>
+        </div>
+
+        <div class="posts-title mb-3" style="min-height: 60px">
+          <h4 class="text-xl font-600 text-black break-word">
+            {{ post?.title }}
+          </h4>
+        </div>
+        <div class="posts-title mb-3" style="min-height: 60px">
+          <h4 class="text-xl font-600 text-black break-word">
+            {{ post?.price }} VND
+          </h4>
+        </div>
+        <div class="info d-flex align-items-center gap-3">
+          <span class="text-6B6B6B text-sm font-600">{{
+            handleFomatDate(post.createdAt)
+            }}</span>
+          <span class="d-inline-block rounded-circle" style="width: 6px; height: 6px; background: #b1b5c3"></span>
+          <span class="text-6B6B6B text-sm font-600" *ngIf="post">
+            {{ post.author ? post.author.username : "anonymous" }}</span>
+        </div>
+        <div>
+          <button routerLink="/posts/{{ post._id }}" class="mt-5 bg-danger p-2 rounded-md text-white">Chi tiết</button>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>

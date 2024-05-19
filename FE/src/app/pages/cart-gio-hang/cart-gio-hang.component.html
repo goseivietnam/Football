@@ -1,0 +1,288 @@
+
+
+<section class="h-100 h-custom">
+
+  <div class=" py-5 h-100">
+    <div class=" h-100">
+      <div class="">
+        <div class="" style="border-radius: 15px">
+          <div class="">
+            <div class="">
+              <div>
+                <div class="p-5">
+                  <div *ngIf="popUpConfirm" class="modal" style="display: block !important;" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn đăng ký team chờ thi đấu không </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" [routerLink]="'/create-team'" (click)="handelClosePopup()" class="btn btn-primary">Đồng ý</button>
+        <button (click)="handelClosePopup()" type="button" class="btn btn-secondary" data-dismiss="modal">Từ chối</button>
+      </div>
+    </div>
+  </div>
+</div>
+                  <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h1 class="fw-bold mb-0 text-black">{{titleCheck}}</h1>
+                    <h6 class="mb-0 text-muted">
+                      {{
+                      dataUserBooking && dataUserBooking.length > 0 ? dataUserBooking.length : 0
+                      }}
+                      bản ghi
+                    </h6>
+                  </div>
+
+                  <hr class="my-4" />
+                  <div *ngIf="dataUserBooking">
+                    <table style="border:1px solid #ccc" class="table">
+                      <thead>
+                        <tr>
+                          <th style="border-right:1px solid #ccc;text-align: center;" scope="col">STT</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">ảnh</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">Tên Sân</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">Giá Sân</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">Giờ bắt đầu</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">Giờ kết thúc</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">Trạng thái</th>
+                          <th style="border-right:1px solid #ccc;text-align: center;">Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of dataUserBooking; let i = index">
+                          <td  style="border-right:1px solid #ccc">
+                            {{i + 1}}
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                            <img style="width: 150px;" src="{{
+                            item.field.picture
+                              ? urlImage + item.field.picture
+                              : 'https://img.thegioithethao.vn/thumbs/san-bong-da/ha-noi/nam-tu-liem/garden-city/garden-city-1_thumb_500.webp'
+                          }}" class="img-fluid rounded-3" alt="Cotton T-shirt" />
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                            <h6 class="text-black mb-0">{{ item.field.name }}</h6>
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                            <h6 class="mb-0">{{ item.price?.toLocaleString() || 0 }} VND</h6>
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                            <h6 class="mb-0">{{ item.start }} </h6>
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                            <h6 class="mb-0">{{ item.end}} </h6>
+
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                            <h6 class="mb-0">{{ item.deposited== true ? "Đã cọc":item.status}} </h6>
+
+                          </td>
+                          <td style="border-right:1px solid #ccc">
+                          <div>
+                             <button [routerLink]="'/details-book/' +  item.id" [queryParams]="{ user: 1 }"  style="margin-top:10px; background-color:#ccc;margin-bottom:4px;width: 100%;" type="button"
+                                class=" btn btn-dark">
+                                chi tiết
+                              </button>
+                          </div>
+                            <div *ngIf="item.status  !== 'Pair'" class="">
+                              <button (click)="handelPaymentVNPay(item.id)"
+                                style="margin-top:10px; background-color:#ccc;margin-bottom:4px" type="button"
+                                class="button-buy-fast button">
+                                Thanh toán VNPAY
+                              </button> <br/>
+                               <button *ngIf="item.deposited  !== true" (click)="handelStatePayment(item.id)"
+                                style="margin-top:10px; background-color:#ccc;margin-bottom:4px" type="button"
+                                class="button-buy-fast button">
+                                Cọc trước
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div *ngIf="!dataUserBooking" class="d-flex justify-content-center align-items-center">
+                    <h5>Lịch sử trống</h5>
+                  </div>
+                  <div class="pt-5">
+                    <h6 class="mb-0">
+                      <a href="#" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Tiếp tục
+                        đặt sân</a>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <!-- <div
+                *ngIf="dataUserBooking && dataUserBooking.length >0"
+                class="col-lg-4 bg-grey"
+              >
+                <div class="p-4">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Thanh toán</h3>
+                  <form [formGroup]="userInfo" (ngSubmit)="handleCheckout()">
+                    <div class="row">
+                      <div class="col-12">
+                        <h3>Thông tin sân đã đặt</h3>
+
+                        <hr class="mt-1" />
+                      </div>
+                      <div class="col-12">
+                        <div class="card-body">
+                          <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername"
+                              >Họ tên</label
+                            >
+                            <input
+                              class="form-control"
+                              id="inputUsername"
+                              type="text"
+                              placeholder="Enter your username"
+                              value="username"
+                              formControlName="username"
+                            />
+                            <div
+                              *ngIf="
+                                checkUsername.invalid &&
+                                (checkUsername.touched || checkUsername.dirty)
+                              "
+                            >
+                              <span
+                                class="text-danger"
+                                *ngIf="checkUsername.errors?.['required']"
+                                >Họ tên là bắt buộc</span
+                              >
+                              <span
+                                class="text-danger"
+                                *ngIf="checkUsername.errors?.['minLength']"
+                                >Họ tên ít nhất 3 kí tự</span
+                              >
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress"
+                              >Email
+                            </label>
+                            <input
+                              class="form-control"
+                              id="inputEmailAddress"
+                              type="email"
+                              placeholder="Enter your email address"
+                              value="name@example.com"
+                              formControlName="email"
+                            />
+                            <div
+                              *ngIf="
+                                checkEmail.invalid &&
+                                (checkEmail.touched || checkEmail.dirty)
+                              "
+                            >
+                              <span
+                                class="text-danger"
+                                *ngIf="checkEmail.errors?.['required']"
+                                >Email là bắt buộc</span
+                              >
+                              <span
+                                class="text-danger"
+                                *ngIf="checkEmail.errors?.['email']"
+                                >Email không đúng định dạng</span
+                              >
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                              <label class="small mb-1" for="inputPhone"
+                                >Địa chỉ</label
+                              >
+                              <input
+                                class="form-control"
+                                type="string"
+                                placeholder="Enter your address"
+                                formControlName="address"
+                              />
+                              <div
+                                *ngIf="
+                                  checkAddress.invalid &&
+                                  (checkAddress.touched || checkAddress.dirty)
+                                "
+                              >
+                                <span
+                                  class="text-danger"
+                                  *ngIf="checkAddress.errors?.['required']"
+                                  >Address là bắt buộc</span
+                                >
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <label class="small mb-1" for="inputBirthday"
+                                >Số ĐT</label
+                              >
+                              <input
+                                class="form-control"
+                                id="inputBirthday"
+                                type="text"
+                                placeholder="Enter your phone number"
+                                formControlName="phone"
+                              />
+                              <div
+                                *ngIf="
+                                  checkPhone.invalid &&
+                                  (checkPhone.touched || checkPhone.dirty)
+                                "
+                              >
+                                <span
+                                  class="text-danger"
+                                  *ngIf="checkPhone.errors?.['required']"
+                                  >Số điện thoại là bắt buộc</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <h5 class=" ">Số tiền :</h5>
+                      <h5>{{ totalCart }} VND</h5>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <h5 class="mb-3">Shipping :</h5>
+
+                      <h5>{{ ship }} VND</h5>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-between mb-5">
+                      <h5 class="text-uppercase">Tổng tiền :</h5>
+                      <h5>{{ totalAll }} VND</h5>
+                    </div>
+
+                    <div>
+                      <button
+                        type="submit"
+                        class="btn btn-dark btn-block btn-lg w-100"
+                        data-mdb-ripple-color="dark"
+                      >
+                        Mua ngay
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

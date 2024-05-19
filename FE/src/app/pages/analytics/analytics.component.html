@@ -1,0 +1,41 @@
+<div class="d-flex items-center justify-content-between">
+  <div>
+<h2>Danh sách sản phẩm đã bán </h2>
+
+  </div>
+  <div class="mr-5">
+    <h3>doanh thu tổng </h3>
+    <div>
+     <h4 class="text-black">{{analyticsList}} VND</h4>
+    </div>
+  </div>
+  </div>
+<!-- // -->
+
+<table class="table mt-5" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Tên khách hàng</th>
+      <th scope="col">Ảnh</th>
+      <th scope="col">Phương thức thanh toán</th>
+      <th scope="col">Tổng tiền</th>
+      <th scope="col">Trạng thái</th>
+      <th scope="col">Tên sản phẩm</th>
+      <th scope="col">Tác vụ</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orderList">
+      <td>{{ order.user.username }}</td>
+      <td><img [src]="order.user.avatar" alt="User Avatar" height="50"></td>
+      <td>{{ order.paymentMethodId }}</td>
+     <td>{{ order.total | currency:'VND':'symbol':'1.0-0' }}</td>
+      <td class="font-weight-bold text-green">{{ order.status }}</td>
+      <td>{{ order.items[0].product.title }}</td>
+      <td>xem</td>
+    </tr>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,165 @@
+<div class="container">
+  <div class="row g-5">
+    <div class="col-6 text-capitalize">
+      <h2>Thêm người dùng</h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/admin/manager-users">Quay lại</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form
+        class="mt-5 form"
+        [formGroup]="userForm"
+        (ngSubmit)="onHandleSubmit()"
+      >
+        <div class="row g-5">
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Username</mat-label>
+              <input type="text" matInput formControlName="username" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                userForm.get('username')?.invalid &&
+                (userForm.get('username')?.dirty ||
+                  userForm.get('username')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="userForm.get('username')?.errors?.['required']">
+                Username is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                userForm.get('email')?.invalid &&
+                (userForm.get('email')?.dirty || userForm.get('email')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="userForm.get('email')?.errors?.['required']">
+                Email is required.
+              </div>
+              <div *ngIf="userForm.get('email')?.errors?.['email']">
+                Email invalid.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Phone Number</mat-label>
+              <input type="text" matInput formControlName="phone" />
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Role</mat-label>
+              <mat-select formControlName="role">
+                <mat-option value="Admin">Admin</mat-option>
+                <mat-option value="Manager">Manager</mat-option>
+                <mat-option value="Staff">Staff</mat-option>
+                <mat-option value="FieldOwner">FieldOwner</mat-option>
+                <mat-option value="EndUser">EndUser</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div
+              *ngIf="
+                userForm.get('role')?.invalid &&
+                (userForm.get('role')?.dirty || userForm.get('role')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="userForm.get('role')?.errors?.['required']">
+                Role is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>gender</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="male">male</mat-option>
+                <mat-option value="girl">gril</mat-option>
+                <mat-option value="other">other</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div
+              *ngIf="
+                userForm.get('gender')?.invalid &&
+                (userForm.get('gender')?.dirty || userForm.get('gender')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="userForm.get('gender')?.errors?.['required']">
+                gender is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="password" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                userForm.get('password')?.invalid &&
+                (userForm.get('password')?.dirty ||
+                  userForm.get('password')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="userForm.get('password')?.errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="userForm.get('password')?.errors?.['minlength']">
+                Password must be 6 characters.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>confirm Password</mat-label>
+              <input type="password" matInput formControlName="cfpassword" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                userForm.get('cfpassword')?.invalid &&
+                (userForm.get('cfpassword')?.dirty ||
+                  userForm.get('cfpassword')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="userForm.get('cfpassword')?.errors?.['required']">
+                cfpassword is required.
+              </div>
+              <div *ngIf="userForm.get('cfpassword')?.errors?.['minlength']">
+                cfpassword must be 6 characters.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- [disabled]="!userForm.valid" -->
+        <button
+
+          type="submit"
+          class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+        >
+          <i class="fa-solid fa-plus mx-2"></i>
+          <span>Thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

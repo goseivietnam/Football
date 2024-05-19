@@ -1,0 +1,93 @@
+<section style="background-color: #eee;">
+  <div class="container my-5 py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="card">
+          <div class="card-body" *ngFor="let comment of comments">
+            <div class="d-flex flex-start align-items-center">
+              <img class="rounded-circle shadow-1-strong me-3" [src]="comment.userId.avatar" alt="avatar" width="60"
+                height="60" style="object-fit: cover;" />
+              <div>
+                <h6 class="fw-bold text-primary mb-1">{{comment.userId.username}}</h6>
+                <p class="text-muted small mb-0">
+                  {{comment.createdAt}}
+                </p>
+              </div>
+            </div>
+
+
+            <p class="mt-3 mb-3"> {{comment.content}}</p>
+
+            <div *ngIf="user._id && user._id === comment.userId._id" class="small d-flex justify-content-start">
+
+              <a (click)="getDetailComment(comment._id)" class="me-3" data-toggle="modal" data-target="#exampleModal"
+                style="cursor: pointer;">
+                <p class="mb-0">Chỉnh sửa</p>
+              </a>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa bình luận</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form [formGroup]="formEditComment">
+                        <textarea formControlName="content" class="form-control" id="textAreaExample" rows="4"
+                          style="background: #fff;">
+                                                  </textarea>
+                        <div *ngIf="checkEditContent.invalid && (checkEditContent.touched || checkEditContent.dirty)">
+                          <span class="text-danger" *ngIf="checkEditContent.errors?.['required']">Content is
+                            required</span>
+                        </div>
+
+                        <div class="float-end mt-2 pt-1">
+                          <button type="submit" [disabled]="!formEditComment.valid" (click)="handleEdit(idComment)"
+                            class="btn btn-primary btn-sm" data-dismiss="modal">
+                            Save comment</button>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <a (click)="handleDelete(comment._id)" class="d-flex align-items-center me-3" style="cursor: pointer;">
+                <p class="mb-0">Xoá</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+            <div class="d-flex flex-start w-100">
+              <img class="rounded-circle shadow-1-strong me-3" [src]="user.avatar || './assets/images/download.png'"
+                alt="avatar" width="40" height="40" style="border-radius: 100rem; object-fit: cover;" />
+              <div class="form-outline w-100">
+                <form [formGroup]="formAddComment" (ngSubmit)="addComment()">
+                  <textarea formControlName="content" class="form-control" id="textAreaExample" rows="4"
+                    style="background: #fff;">
+                                      </textarea>
+                  <div *ngIf="checkAddContent.invalid && (checkAddContent.touched || checkAddContent.dirty)">
+                    <span class="text-danger" *ngIf="checkAddContent.errors?.['required']">Content
+                      is
+                      required</span>
+                  </div>
+
+                  <div class="float-end mt-2 pt-1">
+                    <button type="submit" class="btn btn-primary btn-sm" [disabled]="!formAddComment.valid">Add
+                      comment</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

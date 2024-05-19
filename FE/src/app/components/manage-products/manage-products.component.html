@@ -1,0 +1,13 @@
+<app-layout-manager
+  [title]="title"
+  [theadTable]="theadTable"
+  [posts]="PostsList"
+  (delete)="handleDeletePost($event)"
+  (exportToExcel)="exportToExcel()"
+  [linkActive]="linkActive"
+  [titleModal]="titleModal"
+  [paginationObj]="paginationObj"
+  (gotoPage)="gotoPage($event)"
+  (prevPage)="prevPage($event)"
+  (nextPage)="nextPage($event)"
+/>

@@ -1,0 +1,28 @@
+.container {
+  .title {
+    color: #2ebac1;
+    font-size: 40px;
+  }
+  .head {
+    margin-bottom: 60px;
+  }
+  .form-group {
+    label {
+      font-size: 20px;
+      color: #292d32;
+      font-weight: 600;
+    }
+    .form-control {
+      width: 800px;
+      height: 80px;
+    }
+    button {
+      width: 343px;
+      height: 80px;
+      background: linear-gradient(107.61deg, #00a7b4 15.59%, #a4d96c 87.25%);
+      font-size: 24px;
+      line-height: 36px;
+      color: #ffffff;
+    }
+  }
+}

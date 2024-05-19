@@ -1,0 +1,23 @@
+.search-result {
+  width: 100%;
+  box-shadow: 0 1rem 3rem rgba(black, 0.175);
+  // height: 560px;
+  max-height: 560px;
+  overflow-y: scroll;
+  z-index: 1000;
+  :hover {
+    background: #e8e6e6;
+    transition: all 0.5s ease;
+  }
+  .left {
+    width: 30%;
+    max-width: 30%;
+  }
+  .right {
+    width: 70%;
+    max-width: 70%;
+  }
+}
+.search-result::-webkit-scrollbar {
+  display: none !important;
+}

@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row g-5">
+    <div class="col-6 text-capitalize">
+      <h2>Sửa team</h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/admin/manager-categories">Quay lại</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form (submit)="handleSubmitEditCategoryForm()" [formGroup]="addForm" class="mt-5 form">
+        <div class="form-group mb-5">
+          <input type="text" placeholder="Tên team" formControlName="name" class="form__input">
+          <div *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('name')?.errors?.['required']">
+              Name is required.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['minlength']">
+              Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['forbiddenName']">
+              Name cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" placeholder="mô tả" formControlName="description" class="form__input">
+          <div *ngIf="addForm.get('description')?.invalid && (addForm.get('description')?.dirty || addForm.get('description')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('description')?.errors?.['required']">
+              description is required.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['minlength']">
+              description must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['forbiddendescription']">
+              description cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" placeholder="level" formControlName="level" class="form__input">
+          <div *ngIf="addForm.get('level')?.invalid && (addForm.get('level')?.dirty || addForm.get('level')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('level')?.errors?.['required']">
+              level is required.
+            </div>
+            <div *ngIf="addForm.get('level')?.errors?.['minlength']">
+              level must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('level')?.errors?.['forbiddenlevel']">
+              level cannot be Bob.
+            </div>
+          </div>
+        </div> <div class="form-group mb-5">
+          <input type="text" placeholder="age" formControlName="age" class="form__input">
+          <div *ngIf="addForm.get('age')?.invalid && (addForm.get('age')?.dirty || addForm.get('age')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('age')?.errors?.['required']">
+              age is required.
+            </div>
+            <div *ngIf="addForm.get('age')?.errors?.['minlength']">
+              age must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('age')?.errors?.['forbiddenage']">
+              age cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div>
+            <mat-form-field class="form__field">
+              <mat-label>Trạng thái team</mat-label>
+              <mat-select formControlName="statusTeam">
+                <mat-option value="0">Default</mat-option>
+                <mat-option value="1">Used</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="form__field">
+              <mat-label>sân </mat-label>
+              <mat-select formControlName="feildStake" (selectionChange)="onServiceSelectionChange($event.value)">
+                <mat-option *ngFor="let category of feildStake" [value]="category.fieldId" [ngClass]="{'selected-item': isItemSelected(category.fieldId)}">
+                  {{ category.field.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" placeholder="phone" formControlName="phone" class="form__input">
+          <div *ngIf="addForm.get('phone')?.invalid && (addForm.get('phone')?.dirty || addForm.get('phone')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('phone')?.errors?.['required']">
+              phone is required.
+            </div>
+            <div *ngIf="addForm.get('phone')?.errors?.['minlength']">
+              phone must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('phone')?.errors?.['forbiddenphone']">
+              phone cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="addForm.invalid"
+          class="btn btn-primary d-flex justify-content-between align-items-center">
+          <i class="fa-solid fa-plus"></i>
+          <span>Thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

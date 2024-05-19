@@ -1,0 +1,14 @@
+.form {
+  width: 100%;
+  .form__input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+      border: 1px solid green;
+    }
+  }
+}

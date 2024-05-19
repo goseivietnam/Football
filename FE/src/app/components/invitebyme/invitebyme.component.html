@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="container-xl">
+  <button [routerLink]="'/create-team'" class="btn btn-dark ml-5">Quay lại</button>
+
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-5">
+              <h2>{{ title2 }}</h2>
+            </div>
+            <div class="col-sm-7"></div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="table table-striped table-hover">
+            <thead class="text-center">
+              <tr>
+                <th *ngFor="let theadItem of theadTable2">{{ theadItem }}</th>
+              </tr>
+            </thead>
+            <!-- class="{{ post.status === 'pending' ? 'bg-FFAF40' : 'bg-red' }}" -->
+            <!--  -->
+            <tbody>
+              <tr *ngFor="let post of inviteMe; let i = index">
+                <td>{{ i + 1 }}</td>
+
+                <td class="text-center">
+                  {{ post.name }}
+                </td>
+                <td class="text-center">{{ post.level }}</td>
+                <td class="text-center">{{ post.age }}</td>
+                <td class="text-center">{{ post.phone }}</td>
+                <td class="text-center">{{ post.nameMyTeam }}</td>
+                <td class="d-flex justify-content-center">
+                  <div
+
+                    class=""
+                  >
+                  <button [routerLink]="'/details/' + post.teamId" class="delete text-danger btn btn-success text-white">
+                    chi tiết team mời
+                  </button>
+                  <button [routerLink]="'/details/' + post.myTeamId" class="delete text-white btn btn-danger text-white">
+                    chi tiết team được mời
+                  </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

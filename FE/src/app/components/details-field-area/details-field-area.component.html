@@ -1,0 +1,59 @@
+     <!--    [src]="urlImage + featureItem.picture" -->
+ <div class="container">
+  <h2>Chi tiết sân thuộc khu vực  {{titleField}}</h2>
+            <div style="margin: 20px;" class="">
+              <div>
+                <div style="display: grid !important; gap:30px;grid-template-columns: 1fr 1fr 1fr ;" class="" id="" >
+                  <div
+                  class=""
+                  *ngFor="let featureItem of detailField"
+                >
+                <div
+                style="width: 291.25px; height: 300px;border-radius:10px ;border:1px solid #ccc">
+                <div >
+                  <div >
+
+                    <img nh-lazy="image"
+                        class="img-fluid"  alt="Sân bóng KAKA Sport khu đô thị Hòa Quý - Đà Nẵng"
+
+                                src="http://222.252.24.198:8797/root/ef1584c0-4689-48c0-b27c-f46513ffcb58.png"
+                        style="width: 291px;" />
+                  </div>
+                </div>
+                <div >
+                  <div >
+                    <p style="font-weight: bold; font-size: 19px;" class="text-center ">{{featureItem.name}}</p>
+                  </div>
+                  <div style="display: flex;justify-content: space-between; align-items: center; padding-left: 10px;padding-right: 10px;">
+                    <span class="">Khu vực:</span> {{featureItem.address}}
+                  </div>
+                  <!-- <div class="people-star d-flex align-items-center justify-content-between">
+                    <div class="people">Số sân: 6</div>
+                    <div class="star-item">
+                      <div class="icon">
+                        <svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg>
+                      </div>
+                      <div class="number">(1)</div>
+                    </div>
+                  </div> -->
+                 <div style="display: flex;justify-content: space-between;align-items: center;padding-left: 10px;padding-top: 20px;padding-right: 10px;" class="playground-time">
+                    <p  class="title">Giá</p>
+                        <p class="time">{{featureItem.price?.toLocaleString()}} VNĐ</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>

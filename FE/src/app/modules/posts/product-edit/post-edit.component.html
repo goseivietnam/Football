@@ -1,0 +1,251 @@
+<div class="container">
+  <div class="row g-5">
+    <div class="col-6 text-capitalize">
+      <h2>Sửa sân </h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/admin/manager-product">Quay lại</a>
+      </div>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="col">
+      <form
+        class="mt-5 form"
+        [formGroup]="EditForm"
+        (submit)="handleSubmitPostForm()"
+      >
+        <div class="row g-5">
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Tên sân bóng </mat-label>
+              <input type="text" matInput formControlName="title" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                EditForm.get('title')?.invalid &&
+                (EditForm.get('title')?.dirty || EditForm.get('title')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="EditForm.get('title')?.errors?.['required']">
+                Tên sân là bắt buộc .
+              </div>
+              <div *ngIf="EditForm.get('title')?.errors?.['minlength']">
+                Tên sân ít nhất 4 ký tự .
+              </div>
+            </div>
+          </div>
+               <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>địa chỉ sân bóng </mat-label>
+              <input type="text" matInput formControlName="address" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                EditForm.get('address')?.invalid &&
+                (EditForm.get('address')?.dirty || EditForm.get('address')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="EditForm.get('address')?.errors?.['required']">
+                địa chỉ là bắt buộc .
+              </div>
+              <div *ngIf="EditForm.get('address')?.errors?.['minlength']">
+                địa chỉ ít nhất 4 ký tự .
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Danh mục </mat-label>
+              <mat-select formControlName="category">
+                <mat-option
+                  *ngFor="let category of categories"
+                  [value]="category._id"
+                  >{{ category.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <div
+              *ngIf="
+                EditForm.get('category')?.invalid &&
+                (EditForm.get('category')?.dirty ||
+                  EditForm.get('category')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="EditForm.get('category')?.errors?.['required']">
+                Danh mục bắt buộc
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-6">
+            <mat-radio-group
+              aria-label="Trạng thái bài post"
+              formControlName="is_active"
+            >
+              <mat-radio-button #radioButton value="public"
+                >Public</mat-radio-button
+              >
+              <mat-radio-button #radioButton1 value="private"
+                >Private</mat-radio-button
+              >
+            </mat-radio-group>
+            <div
+              *ngIf="
+                EditForm.get('status')?.invalid &&
+                (EditForm.get('status')?.dirty ||
+                  EditForm.get('status')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="EditForm.get('status')?.errors?.['required']">
+                Trạng thái là bắt buộc
+              </div>
+            </div>
+          </div> -->
+          <div *ngIf="user && user.type !== 'FieldOwner'" class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Trạng thái sân</mat-label>
+              <mat-select formControlName="status">
+                <mat-option value="Pending">Pending</mat-option>
+                <mat-option value="Approved">Approved</mat-option>
+                <mat-option value="Rejected">Reject</mat-option>
+                <mat-option value="suspended">suspended</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Giá </mat-label>
+              <input type="price" matInput formControlName="price" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                EditForm.get('price')?.invalid &&
+                (EditForm.get('price')?.dirty || EditForm.get('price')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="EditForm.get('price')?.errors?.['required']">
+                Giá sân là bắt buộc.
+              </div>
+            </div>
+            <div *ngIf="EditForm.get('price')?.errors?.['positiveNumber'] && (EditForm.get('price')?.dirty || EditForm.get('price')?.touched)"
+            class="text-danger">
+            Giá sản phẩm phải là số dương lớn hơn 0.
+          </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Service</mat-label>
+              <mat-select formControlName="service" (selectionChange)="onServiceSelectionChange($event.value)">
+                <mat-option *ngFor="let category of service2" [value]="category" [ngClass]="{'selected-item': isItemSelected(category.id)}">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <table style="border:1px solid #ccc;margin-top:3px" class="table">
+              <thead>
+                <tr>
+                  <th style="border:1px solid #ccc"  scope="col">STT</th>
+                  <th style="border:1px solid #ccc" scope="col">Tên dịch vụ</th>
+                  <th style="border:1px solid #ccc" scope="col">Giá tiển</th>
+                  <th style="border:1px solid #ccc" scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let icC of service ; let i =  index">
+                  <td  style="border:1px solid #ccc">{{i + 1}}</td>
+                  <td style="border:1px solid #ccc">{{icC.serviceName}}</td>
+                  <td style="border:1px solid #ccc">{{icC.price?.toLocaleString()}}</td>
+                  <td style="border:1px solid #ccc;display: flex;justify-content: center;">
+                    <button type="button" (click)="handelEdit(icC.id)" style="width: 40px; height: 40px; background-color: rgb(36, 12, 112) ;
+                    color: white; font-weight: bold; border-radius: 9px;">Edit</button>
+                        <button type="button" (click)="handelRemove(icC.id)" style="width: 40px; height: 40px; background-color: red ;
+                  color: white; font-weight: bold; border-radius: 9px;">X</button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <img style="width:150px"  [src]="urlImage + dataIdPost" alt="">
+
+
+        </div>
+        <div class="row">
+          <div class="col-12 mb-5">
+            <input
+              #fileInput
+              class="form-control"
+              type="file"
+              accept="image/*"
+              id="formFileMultiple"
+              formControlName="images"
+              multiple
+              (change)="handleFileInput($event)"
+            />
+            <div
+              *ngIf="
+                EditForm.get('images')?.invalid &&
+                (EditForm.get('images')?.dirty ||
+                  EditForm.get('images')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="EditForm.get('images')?.errors?.['required']">
+               Ảnh là bắt buộc
+              </div>
+            </div>
+          </div>
+          <div class="image-preview" *ngIf="imagePreviews.length > 0">
+            <div class="preview-container" *ngFor="let image of imagePreviews">
+              <div
+                class="preview-remove"
+                (click)="handleRemoveImage(image.public_id)"
+              >
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <img [src]="image.url" class="preview-image" alt="image" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-1">
+          <ckeditor
+            [editor]="Editor"
+            formControlName="content"
+            (ready)="onEditorReady($event)"
+          >
+          </ckeditor>
+          <div
+            *ngIf="
+              EditForm.get('content')?.invalid &&
+              (EditForm.get('content')?.dirty ||
+                EditForm.get('content')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="EditForm.get('content')?.errors?.['required']">
+              Mô tả sản phẩm là bắt buộc
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+        >
+          <i class="fa-solid fa-save mx-2"></i>
+          <span>Sửa</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

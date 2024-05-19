@@ -1,0 +1,219 @@
+<section>
+  <section *ngIf="countPost">
+    <div class="row">
+      <!-- post -->
+      <div class="col-xl-6 col-md-12 mb-4">
+        <div class="row">
+          <div class="col-xl-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between px-md-1">
+                  <div class="align-self-center">
+                    <i class="fas fa-pencil-alt text-info fa-3x"></i>
+                  </div>
+                  <div class="text-end" *ngIf="countPost[0]">
+                    <h3>{{ countPost[0].count }}</h3>
+                    <p class="mb-0">Hôm nay</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between px-md-1">
+                  <div>
+                    <h3 class="text-info" *ngIf="countPost[1]">
+                      {{ countPost[1].count }}
+                    </h3>
+                    <p class="mb-0">Tuần này</p>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="fas fa-book-open text-info fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between px-md-1">
+                  <div>
+                    <h3 class="text-info" *ngIf="countPost[3]">
+                      {{ countPost[3].count }}
+                    </h3>
+                    <p class="mb-0">Đã duyệt</p>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="fas fa-book-open text-info fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between px-md-1">
+                  <div>
+                    <h3 class="text-info" *ngIf="countPost[4]">
+                      {{ countPost[4].count }}
+                    </h3>
+                    <p class="mb-0">chờ duyệt</p>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="fas fa-book-open text-info fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between p-md-1">
+                  <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                      <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                    </div>
+                    <div>
+                      <h4>Sản phẩm</h4>
+                      <p class="mb-0">Sản phẩm trong tháng</p>
+                    </div>
+                  </div>
+                  <div class="align-self-center">
+                    <h2 class="h1 mb-0" *ngIf="countPost[2]">
+                      {{ countPost[2].count }}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- user -->
+      <div class="col-xl-6 col-md-12 mb-4">
+        <div class="row">
+          <div class="col-xl-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between px-md-1">
+                  <div class="align-self-center">
+                    <i class="far fa-user text-success fa-3x"></i>
+                  </div>
+                  <div class="text-end" *ngIf="countUser[0]">
+                    <h3>{{ countUser[0].count }}</h3>
+                    <p class="mb-0">New Users A Day</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between px-md-1">
+                  <div>
+                    <h3 class="text-success" *ngIf="countUser[1]">
+                      {{ countUser[1].count }}
+                    </h3>
+                    <p class="mb-0">New Users A Week</p>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="fa-solid fa-users text-success fa-2x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between p-md-1">
+                  <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                      <i class="fa-solid fa-users fa-3x me-4 text-success"></i>
+                    </div>
+                    <div>
+                      <h4>Total Users</h4>
+                      <p class="mb-0">Người dùng trong tháng</p>
+                    </div>
+                  </div>
+                  <div class="align-self-center" *ngIf="countUser[2]">
+                    <h2 class="h1 mb-0">{{ countUser[2].count }}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-2">
+    <div class="row">
+      <div class="col-xl-12 col-md-12 col-12">
+        <div>
+          <h4 class="my-2">Sản phẩm chờ duyệt</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tiêu đề</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="pendingPosts && pendingPosts.length > 0">
+              <tr *ngFor="let pendingPost of pendingPosts; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ pendingPost.title }}</td>
+                <td>
+                  <span
+                    class="text-light p-1 rounded
+                    {{
+                      pendingPost.status === 'pending'
+                        ? 'bg-warning'
+                        : 'bg-primary'
+                    }}
+                    {{
+                      pendingPost.status === 'rejected'
+                        ? 'bg-dark text-white'
+                        : ''
+                    }}"
+                  >
+                    {{ pendingPost.status }}
+                  </span>
+                </td>
+                <td>
+                  <div>
+                    <button
+                      class="btn btn-success btn-sm"
+                      (click)="approvePost(pendingPost._id)"
+                    >
+                      Duyệt
+                    </button>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      (click)="rejectedPost(pendingPost._id)"
+                    >
+                      Xóa
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="!pendingPosts || pendingPosts.length === 0">
+              <tr>
+                <td colspan="4" class="text-center">Không có sản phẩm nào</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,172 @@
+<div class="">
+  <!-- Account page navigation-->
+  <hr class="mt-0 mb-4" />
+  <div class="row">
+    <div class="col-xl-4">
+      <!-- Profile picture card-->
+      <div class="card mb-4 mb-xl-0">
+        <div class="card-header">Profile Picture</div>
+
+        <form [formGroup]="userInfo" class="card-body text-center" (submit)="handleSubmitPostForm($event)">
+          <!-- Profile picture image-->
+          <img
+              formControlName="images"
+            class="img-account-profile rounded-circle mb-2 m-auto"
+            [src]=" userLocal.picture ? urlImage + userLocal.picture :defaultImageUrl"
+            alt=""
+          />
+          <input type="file" id="file"    (change)="handleFileInput($event)"/>
+          <!-- Profile picture upload button-->
+          <button
+            class="btn btn-upload-img text-light"
+            type="submit"
+          >
+            Upload new image
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-xl-8">
+      <!-- Account details card-->
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <h2 class="text-xl">Account Details</h2>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="userInfo" (ngSubmit)="onEdit()">
+            <!-- Form Group (username)-->
+            <div class="mb-3">
+              <label class="small mb-1" for="inputUsername">Username</label>
+              <input
+                class="form-control"
+                id="inputUsername"
+                type="text"
+                placeholder="Enter your username"
+                value="username"
+                formControlName="username"
+
+                [readOnly]="
+                  user && userLocal && user.id !== userLocal.id ? true : false
+                "
+              />
+              <div
+                *ngIf="
+                  checkUsername.invalid &&
+                  (checkUsername.touched || checkUsername.dirty)
+                "
+              >
+                <span
+                  class="text-danger"
+                  *ngIf="checkUsername.errors?.['required']"
+                  >Username is required</span
+                >
+                <span
+                  class="text-danger"
+                  *ngIf="checkUsername.errors?.['minLength']"
+                  >Username is min 3 character</span
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="small mb-1" for="inputEmailAddress"
+                >Email address</label
+              >
+              <input
+                class="form-control"
+                id="inputEmailAddress"
+                type="email"
+                placeholder="Enter your email address"
+                [defaultValue]="userLocal.email"
+              />
+              <div
+                *ngIf="
+                  checkEmail.invalid && (checkEmail.touched || checkEmail.dirty)
+                "
+              >
+                <span
+                  class="text-danger"
+                  *ngIf="checkEmail.errors?.['required']"
+                  >Email is required</span
+                >
+                <span class="text-danger" *ngIf="checkEmail.errors?.['email']"
+                  >Email is not correct</span
+                >
+              </div>
+            </div>
+            <!-- Form Row-->
+            <div class="row gx-3 mb-3">
+              <!-- Form Group (phone number)-->
+              <div class="col-md-6">
+                <label class="small mb-1" for="inputPhone">gender</label>
+                <input
+                  class="form-control"
+                  type="string"
+                  placeholder="Enter your gender"
+                  formControlName="address"
+                  [readOnly]="
+                    user && userLocal && user._id !== userLocal._id
+                      ? true
+                      : false
+                  "
+                />
+                <div
+                  *ngIf="
+                    checkAddress.invalid &&
+                    (checkAddress.touched || checkAddress.dirty)
+                  "
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="checkAddress.errors?.['required']"
+                    >gender is required</span
+                  >
+                </div>
+              </div>
+              <!-- Form Group (birthday)-->
+              <div class="col-md-6">
+                <label class="small mb-1" for="inputBirthday"
+                  >Phone number</label
+                >
+                <input
+                  class="form-control"
+                  id="inputBirthday"
+                  type="text"
+                  [readOnly]="
+                    user && userLocal && user._id !== userLocal._id
+                      ? true
+                      : false
+                  "
+                  placeholder="Enter your phone number"
+                  formControlName="phone"
+                />
+                <div
+                  *ngIf="
+                    checkPhone.invalid &&
+                    (checkPhone.touched || checkPhone.dirty)
+                  "
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="checkPhone.errors?.['required']"
+                    >Phone is required</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Save changes button-->
+            <button
+              class="btn btn-upload-img text-light"
+              type="submit"
+            >
+              Save changes
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

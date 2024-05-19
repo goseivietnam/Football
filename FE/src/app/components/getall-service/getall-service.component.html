@@ -1,0 +1,162 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>{{ title }}</h2>
+          </div>
+          <div class="col-sm-7">
+          </div>
+        </div>
+      </div><div class="col-sm-7">
+        <a >
+          <button routerLink="/admin/add-service" class="btn btn-secondary">
+            <i class="fa-solid fa-plus"></i>
+            <span >Thêm mới</span>
+          </button>
+        </a>
+
+      </div>
+      <div class="table-container">
+        <table class="table table-striped table-hover">
+          <thead class="text-center">
+            <tr>
+              <th *ngFor="let theadItem of theadTable">{{ theadItem }}</th>
+            </tr>
+          </thead>
+              <!-- class="{{ post.status === 'pending' ? 'bg-FFAF40' : 'bg-red' }}" -->
+<!--  -->
+          <tbody >
+            <tr
+              *ngFor="let post of categories; let i = index"
+            >
+              <td>{{ i + 1 }}</td>
+
+              <td class="text-center">
+                {{ post.name }}
+              </td>
+              <td class="text-center">{{ post.description }}</td>
+              <td class="text-center">{{ post.icon }}</td>
+              <td class="d-flex justify-content-center">
+
+                <div class="d-flex justify-content-center gap-3">
+                  <button
+                  class="text-23BB86"
+                  (click)="getIdCategory(post.id)"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <a routerLink="/admin/edit-service/{{post.id}}">
+
+                  <button class="settings text-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </a>
+                <button
+                (click)="handleDeleteCategory(post.id)"
+                  class="delete text-danger"
+                >
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- modal add -->
+<!-- <app-layout-modal-admin data-bs-toggle="modal" data-bs-target="#exampleModal" [titleModal]="titleModal"
+  [postInfo]="postInfo"></app-layout-modal-admin> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông tin service</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="detailsCategory">
+        <section class="content-detail-posts my-5">
+          <div class=" align-items-center mb-5">
+            <div class="col-sm-12 col-lg-6">
+              <div class="info">
+                <div class="tag mb-2">
+                <span>
+                  Tên service :
+                </span>  <span
+                    class="d-inline-block font-600 bg-F3EDFF text-6B6B6B rounded-4 text-sm px-3"
+                    >{{ detailsCategory.name }}</span
+                  >
+                </div>
+                <div class="title mb-3">
+                  <h1 class="text-23BB86 font-600">
+                    {{ detailsCategory.title }}
+                  </h1>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="text-6B6B6B text-sm font-600">{{
+                    detailsCategory.username
+                  }}</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="content-posts mx-auto">
+
+            <div class="author mt-5">
+              <div class=" align-items-center">
+                <div class="col-sm-12 col-md-8">
+                  <div class="infomation">
+                    <div class="name mb-3">
+                      <h3 class="text-23BB86 font-600 text-2xl">
+                        {{ detailsCategory.username }}
+                      </h3>
+                    </div>
+                    <div class="quote d-flex align-items-center">
+                     <p style="color:black">
+                      Mô tả :
+                     </p> <p style="color:black">
+                       {{detailsCategory.description}}
+                      </p>
+                    </div>
+                    <div class="quote d-flex align-items-center">
+                      <p style="color:black">
+                       Giá :
+                      </p> <p style="color:black">
+                        {{detailsCategory.price}}
+                       </p>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

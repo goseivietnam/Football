@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row g-5">
+    <div class="col-6 text-capitalize">
+      <h2>Thêm service mới</h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/create-team">Quay lại</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form (submit)="createTeamByUser()" [formGroup]="addForm" class="mt-5 form">
+        <div class="form-group mb-5">
+          <input type="text" placeholder="Name" formControlName="name" class="form__input">
+          <div *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('name')?.errors?.['required']">
+              Name is required.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['minlength']">
+              Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['forbiddenName']">
+              Name cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" placeholder="mô tả" formControlName="description" class="form__input">
+          <div *ngIf="addForm.get('description')?.invalid && (addForm.get('description')?.dirty || addForm.get('description')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('description')?.errors?.['required']">
+              description is required.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['minlength']">
+              description must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['forbiddendescription']">
+              description cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div style="opacity: 0;" class="form-group mb-5">
+          <input type="text" placeholder="Icons" formControlName="level" class="form__input">
+          <div *ngIf="addForm.get('level')?.invalid && (addForm.get('level')?.dirty || addForm.get('level')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('level')?.errors?.['required']">
+              Icons is required.
+            </div>
+            <div *ngIf="addForm.get('level')?.errors?.['minlength']">
+              Icons must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('level')?.errors?.['forbiddenlevel']">
+              Icons cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="addForm.invalid"
+          class="btn btn-primary d-flex justify-content-between align-items-center">
+          <i class="fa-solid fa-plus"></i>
+          <span>Thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

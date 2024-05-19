@@ -1,0 +1,222 @@
+<app-header></app-header>
+<div class="container-xl">
+  <div class="">
+
+    <div class="">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>{{ title }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <button routerLink="/create-team/add-team" class="btn btn-secondary">
+          <i class="fa-solid fa-plus"></i>
+          <span>Thêm mới</span>
+        </button>
+        <!-- <a>
+          <button routerLink="/create-team/add-team" class="btn btn-secondary">
+            <i class="fa-solid fa-plus"></i>
+            <span>Thêm mới</span>
+          </button>
+        </a>
+        <a style="margin-left:20px">
+          <button [routerLink]="['/create-team/all']" [queryParams]="{ accept: 1 }" class="btn btn-success">
+            <span>tất cả danh sách</span>
+          </button>
+        </a>
+        <a style="margin-left:20px">
+          <button [routerLink]="['/create-team/all']" [queryParams]="{ accept: true }" class="btn btn-success">
+            <span>danh sách đã xác nhận</span>
+          </button>
+        </a>
+        <a style="margin-left:20px">
+          <button [routerLink]="['/create-team/all']" [queryParams]="{ accept: false }" class="btn btn-success">
+            <span>danh sách đã từ chối</span>
+          </button>
+        </a>
+        <a style="margin-left:20px">
+          <button [routerLink]="['/create-team/all']" [queryParams]="{ accept: 2 }" class="btn btn-success">
+            <span>danh sách bạn mời</span>
+          </button>
+        </a>
+        <div style="margin-left:20px ; margin-top:20px">
+          <button [routerLink]="['/create-team/byme']" [queryParams]="{ accept: 5 }" class="btn btn-success">
+            <span>ds đồng ý lời mời từ bạn</span>
+          </button>
+          <button style="margin-left:20px"  [routerLink]="['/create-team/byme']" [queryParams]="{ accept: 6 }" class="btn btn-success ml-5">
+            <span>ds từ chối lời mời từ bạn</span>
+          </button> -->
+
+        <!-- </div> -->
+        <div style="position:relative;right:0; margin-top:15px" class="col-6">
+          <mat-form-field class="form__field">
+            <mat-label>Danh sách</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="Admin">
+                <span [routerLink]="['/create-team/all']" [queryParams]="{ accept: 1 }">
+                tất cả danh sách
+                </span>
+              </mat-option>
+              <mat-option value="Manager">
+                <span [routerLink]="['/create-team/all']" [queryParams]="{ accept: true }" >
+                 danh sách đã xác nhận
+                </span>
+              </mat-option>
+              <mat-option value="Staff">
+                <span [routerLink]="['/create-team/all']" [queryParams]="{ accept: false }" >
+                 danh sách đã từ chối
+                </span>
+              </mat-option>
+              <mat-option value="FieldOwner">
+                <span [routerLink]="['/create-team/all']" [queryParams]="{ accept: 2 }" >
+                 danh sách bạn mời
+                </span>
+              </mat-option>
+              <mat-option value="EndUser">
+                <span [routerLink]="['/create-team/byme']" [queryParams]="{ accept: 5 }" >
+                 ds đồng ý lời mời từ bạn
+                </span>
+              </mat-option>
+              <mat-option value="EndUser">
+                <span   [routerLink]="['/create-team/byme']" [queryParams]="{ accept: 6 }" >
+                 ds từ chối lời mời từ bạn
+                </span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="table table-striped table-hover">
+          <thead class="text-center">
+            <tr>
+              <th *ngFor="let theadItem of theadTable">{{ theadItem }}</th>
+            </tr>
+          </thead>
+          <!-- class="{{ post.status === 'pending' ? 'bg-FFAF40' : 'bg-red' }}" -->
+          <!--  -->
+          <tbody>
+            <tr *ngFor="let post of team; let i = index">
+              <td>{{ i + 1 }}</td>
+
+              <td class="text-center">
+                {{ post.name }}
+              </td>
+              <td class="text-center">{{ post.description }}</td>
+              <td class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center gap-3">
+                  <button
+                  (click)="getIdTeam(post.id)"
+                    class="text-23BB86"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <a routerLink="/create-team/edit-team/{{ post.id }}">
+                    <button class="settings text-primary">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                  </a>
+                  <button
+                    (click)="handleDeleteCategory(post.id)"
+                    class="delete text-danger"
+                  >
+                    <i class="fa-sharp fa-solid fa-trash"></i>
+                  </button>
+                    <button
+                    *ngIf="post.status == '1'"
+                    class=" text-success"
+                  >
+                    Used
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông tin team</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div *ngIf="dataDetailsTeam" class="modal-body" >
+        <section class="content-detail-posts my-5">
+          <div class=" align-items-center mb-5">
+            <div class="col-sm-12 col-lg-6">
+              <div class="info">
+                <div class="tag mb-2">
+                <span>
+                  Tên Team :
+                </span>
+                 <span
+                    class="d-inline-block font-600 bg-F3EDFF text-6B6B6B rounded-4 text-sm px-3"
+                    >{{ dataDetailsTeam.name }}</span
+                  >
+                </div>
+                <div class="title mb-3">
+                  <h1 class="text-23BB86 font-600">
+                    {{ dataDetailsTeam.age }} Tuổi
+                  </h1>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="text-6B6B6B text-sm font-600">Level  {{
+                    dataDetailsTeam.level
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-posts mx-auto">
+
+            <div class="author mt-5">
+              <div class=" align-items-center">
+                <div class="col-sm-12 col-md-8">
+                  <div class="infomation">
+                    <div class="name mb-3">
+                      <h3 class="text-23BB86 font-600 text-2xl">
+                   SDT     {{ dataDetailsTeam.phone }}
+                      </h3>
+                    </div>
+                    <div class="quote d-flex align-items-center">
+                     <p style="color:black">
+                      Mô tả :
+                     </p>
+                     <p style="color:black">
+                       {{dataDetailsTeam.description}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

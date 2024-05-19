@@ -1,0 +1,2061 @@
+<!-- <app-content-detail-posts [post]="post"></app-content-detail-posts>
+<app-comments-product
+  [idPost]="idPost"
+  [comments]="comments"
+></app-comments-product>
+<app-related-posts [relatedPosts]="relatedPosts"></app-related-posts> -->
+
+<div class="main_wrapper">
+  <div class="container container_main_wrapper">
+    <div class="main-area main-area-1col main-area-full">
+      <div class="product" itemscope="" itemtype="https://schema.org/Product">
+        <meta
+          itemprop="url"
+          content="https://datsantructuyen.vn/san-bong-da/san-bong-den-lu-3-p506.html"
+        />
+        <div class="detail_main cls">
+          <div class="detail_main_top cls">
+            <div class="frame_left frame_left_animate">
+              <div class="product_name cls">
+                <h1 itemprop="name">{{ post?.name }}</h1>
+                <span
+                  class="rate rate_head"
+                  itemprop="aggregateRating"
+                  itemscope=""
+                  itemtype="http://schema.org/AggregateRating"
+                >
+                  <span class="star-on star">
+                    <svg
+                      aria-hidden="true"
+                      data-prefix="fas"
+                      data-icon="star"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                      class="svg-inline--fa fa-star fa-w-18"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                        class=""
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="star-on star">
+                    <svg
+                      aria-hidden="true"
+                      data-prefix="fas"
+                      data-icon="star"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                      class="svg-inline--fa fa-star fa-w-18"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                        class=""
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="star-on star">
+                    <svg
+                      aria-hidden="true"
+                      data-prefix="fas"
+                      data-icon="star"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                      class="svg-inline--fa fa-star fa-w-18"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                        class=""
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="star-on star">
+                    <svg
+                      aria-hidden="true"
+                      data-prefix="fas"
+                      data-icon="star"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                      class="svg-inline--fa fa-star fa-w-18"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                        class=""
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="star-on star">
+                    <svg
+                      aria-hidden="true"
+                      data-prefix="fas"
+                      data-icon="star"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                      class="svg-inline--fa fa-star fa-w-18"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                        class=""
+                      ></path>
+                    </svg>
+                  </span>
+                  <span itemprop="ratingValue" class="hide">5</span>
+                  <span itemprop="bestRating" class="hide">5</span>
+                  <a
+                    href="#prodetails_tab3"
+                    title="Đánh giá sản phẩm này"
+                    class=""
+                  >
+                    (<span itemprop="ratingCount">1</span> đánh giá)</a
+                  >
+                </span>
+              </div>
+
+              <div class="frame_img">
+                <div class="frame_img_inner">
+                  <div class="magic_zoom_area">
+                    <a
+                      id="Zoomer"
+                      class="MagicZoomPlus"
+                      title=""
+                    >
+                      <img
+                        style="width: 100%"
+                        [src]="urlImage + (post?.picture || '')"
+                      />
+                    </a>
+                  </div>
+
+                  <div id="sync1_wrapper">
+                    <div
+                      id="sync1"
+                      class="owl-carousel owl-theme owl-hidden owl-loaded"
+                    >
+                      <div
+                        class="owl-stage-outer owl-height"
+                        style="height: 0px"
+                      >
+                        <div
+                          class="owl-stage"
+                          style="
+                            width: 300px;
+                            transform: translate3d(0px, 0px, 0px);
+                            transition: all 0s ease 0s;
+                          "
+                        >
+                          <div
+                            class="owl-item active"
+                            style="width: 100px; margin-right: 0px"
+                          >
+                            <div class="item">
+                              <a
+                                id="images/products/2022/08/24/original/san-bong-den-lu_1661351091-copy-1.jpg"
+                                rel="image_large1"
+                                class="selected cboxElement cb-image-link"
+                                title="Sân Bóng Đền Lừ 3"
+                              >
+                                <img
+                                  style="width: 100%"
+                                  [src]="urlImage + (post?.picture || '')"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            class="owl-item"
+                            style="width: 100px; margin-right: 0px"
+                          >
+                            <div class="item">
+                              <a
+                                class="cboxElement cb-image-link"
+                                rel="image_large1"
+                                title="Sân Bóng Đền Lừ 3"
+                              >
+                                <img
+                                  style="width: 100%"
+                                  [src]="urlImage + (post?.picture || '')"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            class="owl-item"
+                            style="width: 100px; margin-right: 0px"
+                          >
+                            <div class="item">
+                              <a
+                                class="cboxElement cb-image-link"
+                                rel="image_large1"
+                                title="Sân Bóng Đền Lừ 3"
+                              >
+                                <img
+                                  style="width: 100%"
+                                  [src]="urlImage + (post?.picture || '')"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="owl-controls">
+                        <div class="owl-nav">
+                          <div class="owl-prev" style="display: none">‹</div>
+                          <div class="owl-next" style="display: none">›</div>
+                        </div>
+                        <div class="owl-dots" style="">
+                          <div class="owl-dot active"><span></span></div>
+                          <div class="owl-dot"><span></span></div>
+                          <div class="owl-dot"><span></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="thumbs">
+                <div id="sync2" class="owl-carousel owl-theme owl-loaded">
+                  <div class="owl-stage-outer">
+                    <div
+                      class="owl-stage"
+                      style="
+                        width: 401.001px;
+                        transform: translate3d(0px, 0px, 0px);
+                        transition: all 0s ease 0s;
+                      "
+                    >
+                      <div
+                        class="owl-item active current"
+                        style="width: 131.667px; margin-right: 2px"
+                      >
+                        <div class="item">
+                          <a
+                            onclick="gotoGallery(1,0,0)"
+                            id="images/products/2022/08/24/original/san-bong-den-lu_1661351091-copy-1.jpg"
+                            rel="image_large"
+                            class="selected"
+                            title="Sân Bóng Đền Lừ 3"
+                          >
+                            <img
+                              [src]="urlImage + post.picture"
+                              alt="Sân Bóng Đền Lừ 3"
+                              itemprop="image"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                      <div
+                        class="owl-item active"
+                        style="width: 131.667px; margin-right: 2px"
+                      >
+                        <div class="item">
+                          <a
+                            onclick="gotoGallery(1,0,1)"
+                            data_color_thump=""
+                            class="color_thump_item"
+                            data-order="1"
+                          >
+                            <img
+                              [src]="urlImage + post.picture"
+                              alt="Sân Bóng Đền Lừ 3"
+                              class="image0"
+                              itemprop="image"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                      <div
+                        class="owl-item active"
+                        style="width: 131.667px; margin-right: 2px"
+                      >
+                        <div class="item">
+                          <a
+                            onclick="gotoGallery(1,0,2)"
+                            data_color_thump=""
+                            class="color_thump_item"
+                            data-order="2"
+                          >
+                            <img
+                              [src]="urlImage + post.picture"
+                              alt="Sân Bóng Đền Lừ 3"
+                              class="image1"
+                              itemprop="image"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="owl-controls">
+                    <div class="owl-nav">
+                      <div class="owl-prev" style="display: none">‹</div>
+                      <div class="owl-next" style="display: none">›</div>
+                    </div>
+                    <div class="owl-dots" style="display: block">
+                      <div class="owl-dot active"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide_FT"></div>
+            </div>
+            <div class="frame_center">
+              <div class="box-shadown box-shadown-add">
+                <div class="title-bg">
+                  <svg
+                    width="20px"
+                    height="20px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    version="1.1"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 512 512"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                  >
+                    <g>
+                      <g>
+                        <path
+                          d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035    c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719    c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                  <h2 class="name-tt">Địa chỉ</h2>
+                </div>
+                <div class="content-box">
+                  {{ post.address }}
+                  <a
+                    class="link-map"
+                    rel="nofollow"
+                    target="_blank"
+                    title="Bản đồ"
+                    href="https://goo.gl/maps/u7LWZfMtoFZZckXM8"
+                  >
+                    Xem trên bản đồ
+                  </a>
+                  <div class="view-phone" onclick="view_phone()">
+                    <span>Xem số chủ sân</span>
+                    <a href="tel:0982196776">0982196776</a>
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+
+              <div
+                class="block_by_fast by_fast-_by_fast by_fast_0 block"
+                id="block_id_150"
+              >
+                <div class="form-by-fast-block cls">
+                  <div class="box-shadown box-shadown-add">
+                    <div class="title-bg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 512.004 512.004"
+                        style="enable-background: new 0 0 512.004 512.004"
+                        xml:space="preserve"
+                      >
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M506.394,92.79L363.119,228.172L506.394,419.19c3.477-6.955,5.611-14.656,5.611-22.955V115.745     C512.004,107.468,509.85,99.745,506.394,92.79z"
+                              ></path>
+                              <path
+                                d="M281.131,246.979L472.896,65.753c-4.075-1.045-8.256-1.749-12.651-1.749H51.755c-4.736,0-9.216,0.832-13.568,2.027     l192.939,181.184C245.163,260.014,266.795,260.014,281.131,246.979z"
+                              ></path>
+                              <path
+                                d="M310.118,278.273c-15.509,14.123-34.88,21.184-54.229,21.184c-19.221,0-38.421-6.976-53.717-20.907l-22.08-20.736     L40.849,446.785c3.52,0.768,7.147,1.216,10.901,1.216h408.491c4.523,0,8.853-0.768,13.035-1.877L331.921,257.665L310.118,278.273     z"
+                              ></path>
+                              <path
+                                d="M5.184,93.575C1.963,100.317,0,107.783,0,115.741v280.512c0,9.088,2.56,17.536,6.699,24.96l142.08-192.789L5.184,93.575z     "
+                              ></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      <h2 class="name-tt">Dịch vụ của sân</h2>
+                    </div>
+
+                    <div class="form_fast_ct content-box">
+                      <div *ngFor="let db2d of serviceField">
+                        <div
+                          class="idgdhjs"
+                          style="
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            padding-left: 3px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-top: 4px;
+                          "
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              justify-content: start;
+                              gap: 8px;
+                              align-items: center;
+                            "
+                          >
+                            <p style="color: black; font-weight: bold">
+                              {{ db2d.serviceName }}
+                            </p>
+                            <p>{{ db2d.price?.toLocaleString() }} VND</p>
+                            <!-- Hiển thị số lượng dịch vụ đã chọn -->
+                            <p *ngIf="getServiceQuantity(db2d.id) > 0">
+                              x{{ getServiceQuantity(db2d.id) }}
+                            </p>
+                          </div>
+                          <div>
+                            <!-- (click)="handelUseService(db2d)" -->
+                            <button
+                            style="opacity: 0;"
+                              class="btn btn-success"
+                            >
+                              chọn
+                            </button>
+                            <!-- Thêm nút xóa dịch vụ -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!--
+              <div
+                class="block_by_fast by_fast-_by_fast by_fast_0 block"
+                id="block_id_150"
+              >
+                <div class="form-by-fast-block cls">
+                  <div class="box-shadown box-shadown-add">
+                    <div class="title-bg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 512.004 512.004"
+                        style="enable-background: new 0 0 512.004 512.004"
+                        xml:space="preserve"
+                      >
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M506.394,92.79L363.119,228.172L506.394,419.19c3.477-6.955,5.611-14.656,5.611-22.955V115.745     C512.004,107.468,509.85,99.745,506.394,92.79z"
+                              ></path>
+                              <path
+                                d="M281.131,246.979L472.896,65.753c-4.075-1.045-8.256-1.749-12.651-1.749H51.755c-4.736,0-9.216,0.832-13.568,2.027     l192.939,181.184C245.163,260.014,266.795,260.014,281.131,246.979z"
+                              ></path>
+                              <path
+                                d="M310.118,278.273c-15.509,14.123-34.88,21.184-54.229,21.184c-19.221,0-38.421-6.976-53.717-20.907l-22.08-20.736     L40.849,446.785c3.52,0.768,7.147,1.216,10.901,1.216h408.491c4.523,0,8.853-0.768,13.035-1.877L331.921,257.665L310.118,278.273     z"
+                              ></path>
+                              <path
+                                d="M5.184,93.575C1.963,100.317,0,107.783,0,115.741v280.512c0,9.088,2.56,17.536,6.699,24.96l142.08-192.789L5.184,93.575z     "
+                              ></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      <h2 class="name-tt">Dịch vụ đã chọn</h2>
+                    </div>
+
+                    <div class="form_fast_ct content-box">
+                      <div *ngFor="let db2d2 of serviceUsed; let i = index">
+                        <div
+                          class="idgdhjs"
+                          style="
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            padding-left: 3px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-top: 4px;
+                          "
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              justify-content: start;
+                              gap: 8px;
+                              align-items: center;
+                            "
+                          >
+                            <p style="color: black; font-weight: bold">
+                              {{ db2d2.serviceName }}
+                            </p>
+                            <p>{{ db2d2.price?.toLocaleString() }} VND</p>
+                          </div>
+                          <div>
+                            <button
+                              (click)="handelRemoveServiceUsed(i)"
+                              class="btn btn-danger"
+                            >
+                              X
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <p style="color: black; font-weight: bold">
+                          Total : {{ total?.toLocaleString() }} VND
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div
+                class="block_by_fast by_fast-_by_fast by_fast_0 block"
+                id="block_id_150"
+              >
+                <div class="form-by-fast-block cls">
+                  <div class="box-shadown box-shadown-add">
+                    <div class="title-bg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 512.004 512.004"
+                        style="enable-background: new 0 0 512.004 512.004"
+                        xml:space="preserve"
+                      >
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M506.394,92.79L363.119,228.172L506.394,419.19c3.477-6.955,5.611-14.656,5.611-22.955V115.745     C512.004,107.468,509.85,99.745,506.394,92.79z"
+                              ></path>
+                              <path
+                                d="M281.131,246.979L472.896,65.753c-4.075-1.045-8.256-1.749-12.651-1.749H51.755c-4.736,0-9.216,0.832-13.568,2.027     l192.939,181.184C245.163,260.014,266.795,260.014,281.131,246.979z"
+                              ></path>
+                              <path
+                                d="M310.118,278.273c-15.509,14.123-34.88,21.184-54.229,21.184c-19.221,0-38.421-6.976-53.717-20.907l-22.08-20.736     L40.849,446.785c3.52,0.768,7.147,1.216,10.901,1.216h408.491c4.523,0,8.853-0.768,13.035-1.877L331.921,257.665L310.118,278.273     z"
+                              ></path>
+                              <path
+                                d="M5.184,93.575C1.963,100.317,0,107.783,0,115.741v280.512c0,9.088,2.56,17.536,6.699,24.96l142.08-192.789L5.184,93.575z     "
+                              ></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      <h2 class="name-tt">Gửi yêu cầu đặt sân</h2>
+                    </div>
+
+                    <div class="form_fast_ct content-box">
+                      <form
+                        [formGroup]="bookingForm"
+                        (submit)="handleSubmitFormBooking()"
+                        action=""
+                        name="buy_fast_form"
+                        id="buy_fast_form"
+                        method="post"
+                      >
+                        <div class="cls buy_fast_body">
+                          <input
+                            type="text"
+                            autocomplete="off"
+                            required=""
+                            value=""
+                            placeholder="Họ và tên..."
+                            id="name_buy_fast"
+                            name="name_buy_fast"
+                            class="input-text"
+                          />
+                          <input
+                            type="phone"
+                            autocomplete="off"
+                            required=""
+                            value=""
+                            placeholder="Điện thoại..."
+                            id="telephone_buy_fast"
+                            name="telephone_buy_fast"
+                            class="input-text"
+                          />
+                          <input
+                            type="email"
+                            autocomplete="off"
+                            value=""
+                            placeholder="Email (nếu có)..."
+                            id="email_buy_fast"
+                            [defaultValue]="mailUser"
+                            name="email_buy_fast"
+                            class="input-text"
+                          />
+
+                          <div class="form-group">
+                            <label
+                              style="padding: 10px 0px"
+                              for="datetimepicker"
+                              >Chọn ngày :</label
+                            >
+                            <input
+                              (change)="handelChangeEventBooking($event)"
+                              formControlName="start"
+                              type="date"
+                              class="form-control"
+                              id="datetimepicker"
+                              name="start"
+                              required
+                            />
+                          </div>
+
+                          <textarea
+                            style="margin: 10px 0px"
+                            placeholder="Lời nhắn..."
+                            rows="6"
+                            cols="30"
+                            name="description"
+                            formControlName="description"
+                            id="mes_buy_fast"
+                            required
+                          ></textarea>
+                          <button type="submit" class="button-buy-fast button">
+                            Đặt cọc
+                          </button>
+                        </div>
+                        <input type="hidden" name="module" value="users" />
+                        <input type="hidden" name="view" value="users" />
+                        <input
+                          type="hidden"
+                          name="task"
+                          value="buy_fast_save"
+                        />
+                        <input type="hidden" name="Itemid" value="10" />
+                        <input
+                          type="hidden"
+                          name="return"
+                          value="L3Nhbi1ib25nLWRhL3Nhbi1ib25nLWRlbi1sdS0zLXA1MDYuaHRtbA=="
+                        />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <!-- <div class="set-yard pm">
+						<div data-time-frame="15:30 - 17:00" data-day="4" data-price="800000" data-date="27/3/2024" frame-price="" class=" over-time frame-price">
+							<span class="price-label text-nowrap">
+								15:30 - 17:00
+							</span>
+							<div class="price-label">
+								<b>Quá hạn</b>
+							</div>
+						</div>
+					</div>
+
+					<div class="set-yard pm">
+						<div data-time-frame="17:00 - 18:30" data-day="4" data-price="800000" data-date="27/3/2024" frame-price="" class="  frame-price">
+							<span class="price-label text-nowrap">
+								17:00 - 18:30
+							</span>
+							<div class="price-label">
+								800K
+							</div>
+						</div>
+					</div> -->
+          <!--  -->
+
+          <div class="col-md-9 col-12">
+            <div nh-block="6h1ys73" nh-block-cache="false" class="h-100">
+              <div
+                nh-anchor="dat_san"
+                class="book-calendar h-100 bg-white p-5 rounded-8 position-relative"
+              >
+                <div
+                  class="header-book d-flex align-items-center justify-content-between mb-4"
+                >
+                  <div class="time-frame">
+                    <div class="btn btn-frame rounded-8" frame="am">
+                      Ngày tháng năm
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="book-calendar"
+                  nh-wrap="booking"
+                  playground="2377"
+                  time-now="1711531298"
+                >
+                  <div nh-card-item="court7" class="">
+                    <div id="table-court7" data-code="court7" class="d-flex">
+                      <div class="ml-5">
+                        <div
+                          style="
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr 1fr;
+                            gap: 80px;
+                          "
+                          data-code="court7"
+                          class=""
+                        >
+                          <div
+                            *ngFor="let timeItem of getTimeField"
+                            data-day="T4"
+                            data-date="27/3/2024"
+                            class=""
+                          >
+                            <div
+                              (click)="handelCheckedDate(timeItem)"
+                              class="set-yard pm"
+                            >
+                              <div
+                                [style.background-color]="
+                                  checkedTimeBook == timeItem.start
+                                    ? 'green !important'
+                                    : ''
+                                "
+                                style="
+                                  padding-left: 0 !important;
+                                  padding-right: 0 !important;
+                                "
+                                data-time-frame="15:30 - 17:00"
+                                data-day="4"
+                                data-price="800000"
+                                data-date="27/3/2024"
+                                frame-price=""
+                                class="{{
+                                  timeItem.booked == true && !checkDisabled
+                                    ? 'over-time frame-price'
+                                    : ' frame-price'
+                                }}"
+                              >
+                                <span
+                                  [style.color]="
+                                    checkedTimeBook == timeItem.start
+                                      ? 'white !important'
+                                      : 'black'
+                                  "
+                                  class="price-label text-nowrap"
+                                >
+                                  {{ timeItem.start?.split("T")[1] }} -
+                                  {{ timeItem.end?.split("T")[1] }}
+                                </span>
+                                <div
+                                  style="text-align: center"
+                                  class="price-label"
+                                  *ngIf="timeItem.booked && !checkDisabled"
+                                >
+                                  <b>Quá hạn</b>
+                                </div>
+                                <div
+                                  style="text-align: center"
+                                  class="price-label"
+                                  *ngIf="!timeItem.booked || checkDisabled"
+                                >
+                                  <strong
+                                    [style.color]="
+                                      checkedTimeBook == timeItem.start
+                                        ? 'white !important'
+                                        : 'black'
+                                    "
+                                    >{{
+                                      post?.price?.toLocaleString()
+                                    }}
+                                    VND</strong
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="modal-booking-playgroud"
+                class="modal fade modal-form-all"
+                tabindex="-1"
+                role="dialog"
+                aria-hidden="true"
+              >
+                <div
+                  class="modal-dialog modal-dialog-centered modal-md"
+                  role="document"
+                >
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title text-center">Đặt sân</h4>
+                      <button type="button" class="close" data-dismiss="modal">
+                        <i class="iconsax isax-close-circle"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="modal-add-phone-email"
+                class="modal fade modal-form-all"
+                tabindex="-1"
+                role="dialog"
+                aria-hidden="true"
+              >
+                <div
+                  class="modal-dialog modal-dialog-centered modal-md"
+                  role="document"
+                >
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title text-center"></h4>
+                      <button type="button" class="close" data-dismiss="modal">
+                        <i class="iconsax isax-close-circle"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+          <div class="detail_main_bot cls">
+            <div class="frame_b_l">
+              <div class="gr-box" id="box-soccer-3"></div>
+
+              <div class="gr-box" id="box-soccer-1">
+                <h2 class="title-box">Mô tả sân</h2>
+                <div class="product_tab_content content-box" id="tabs">
+                  <div
+                    id="prodetails_tab1"
+                    class="prodetails_tab prodetails_tab_content"
+                  >
+                    <div class="">
+                      <div class="description boxdesc" id="boxdesc">
+                        <div id="box_conten_linfo">
+                          <div
+                            class="box_conten_linfo_inner"
+                            itemprop="description"
+                          >
+                            <h2 style="text-align: justify">
+                              Bạn muốn thuê&nbsp;sân bóng đá Đền Lừ 3
+                            </h2>
+
+                            <p style="text-align: justify">
+                              <a
+                                >Sân bóng Đền Lừ 3</a
+                              >
+                              là sân bóng lâu đời, mới được chủ đầu tư chỉnh
+                              trang, nâng cấp và đang là một trong những sân
+                              bóng đẹp nhất Hà Nội. Với vị trí vô cùng thuận
+                              lợi, nằm ngay mặt đường chính, đối diện là công
+                              viên hồ Đền Lừ xanh mát, sân bóng Đền Lừ 3 đã trở
+                              thành địa điểm giao lưu hàng đầu.
+                            </p>
+
+                            <blockquote>
+                              <p style="text-align: justify">
+                                Xem thêm:&nbsp;<a
+                                  target="_blank"
+                                  >tổng chi phí làm sân cỏ nhân tạo 7 người</a
+                                >&nbsp;và&nbsp;<a
+                                  target="_blank"
+                                  >biện pháp thi công sân bóng cỏ nhân tạo</a
+                                >
+                              </p>
+                            </blockquote>
+
+                            <p style="text-align: justify">
+                              Sân bóng rất đông và luôn kín lịch, bạn muốn thuê
+                              sân vào các giờ cao điểm giờ đây sẽ rất khó khăn,
+                              hãy liên hệ với chủ sân và đăng ký trước để được
+                              chủ sân sắp xếp, các khung giờ thường trong ngày
+                              dễ dàng để sắp xếp lịch hơn và&nbsp;chi phí cũng
+                              tốt hơn rất nhiều.&nbsp;
+                            </p>
+
+                            <p style="text-align: justify">
+                              Cụm sân gồm 4 sân bóng đá mini, cũng giúp dễ dàng
+                              tổ chức thi đấu bóng đá cũng như thi đấu sân bóng
+                              11 người dễ dàng. Tìm hiểu ngay với chúng tôi bằng
+                              cách liên hệ sđt chủ sân:&nbsp;098 219 6776
+                            </p>
+
+                            <blockquote>
+                              <p style="text-align: justify">
+                                Xem thêm: Danh sách các
+                                <a
+                                  >sân bóng khu vực hoàng mai</a
+                                >
+                              </p>
+                            </blockquote>
+
+                            <ul></ul>
+
+                            <h3>Cơ sở vật chất và tiện ích tại sân</h3>
+
+                            <ul>
+                              <li>Địa điểm thú vị để thi đấu bóng 7 người</li>
+                              <li>
+                                Có hệ thống đèn chiếu sáng hiện đại, đáp ứng nhu
+                                cầu thi đấu ban đêm
+                              </li>
+                              <li>
+                                <a
+                                  target="_blank"
+                                  >Lưới chắn bóng</a
+                                >
+                                xung quanh sân cao 8m.
+                              </li>
+                              <li>
+                                Khung thành chắc chắn, kích thước 3.6m x 2.1m x
+                                1.2m đúng chuẩn sân 7 hiện nay
+                              </li>
+                              <li>Có chỗ để xe máy ô tô</li>
+                              <li>Có căng tin, quán nước giải khát</li>
+                              <li>
+                                Thường xuyên tổ chức các giải thi đấu bóng đá
+                                phong trào
+                              </li>
+                            </ul>
+
+                            <h3>Giá thuê sân bóng tại đây</h3>
+
+                            <ul>
+                              <li>
+                                Mỗi trận đấu tại sân kéo dài 90 phút chia làm
+                                các khung giờ
+                              </li>
+                              <li>
+                                17h30 - 19h và 19h -20h30 là 2 khung giờ vàng
+                                với giá thuê sân là 800.000đ/trận
+                              </li>
+                              <li>
+                                Thứ 7, chủ nhật và các giờ thường có giá 600.000
+                                đ/ trận
+                              </li>
+                              <li>Sân hoạt động đến 23h hằng ngày.</li>
+                            </ul>
+
+                            <h3>
+                              Cách thức di chuyển đến / Địa chỉ sân bóng Đền Lừ
+                              3
+                            </h3>
+
+                            <ul>
+                              <li>
+                                Sân bóng nằm trên đường Tân Mai, đối diện hồ Đền
+                                Lừ, phường Tân Mai, Hoàng Mai, Hà Nội
+                              </li>
+                              <li>
+                                Bạn có thể đến sân bằng xe cá nhân như xe máy, ô
+                                tô
+                              </li>
+                              <li>
+                                Ngoài ra, bạn có thể đi xe bus hoặc tàu điện
+                              </li>
+                              <li>
+                                Vị trí chính xác mời bạn xem hình ảnh bên dưới
+                              </li>
+                            </ul>
+                            <p>
+                              Cập nhật thêm một số sân bóng đá quanh đây có thể
+                              bạn quan tâm:
+                              <a
+                                >Sân bóng Tân Mai</a
+                              >,
+                              <a
+                                >sân bóng Minh Kiệt</a
+                              >,...
+                            </p>
+                          </div>
+                        </div>
+                        <!-- <div class="readmore " id="readmore_desc"><span class="closed">Xem thêm</span></div> -->
+                        <!-- <div class="readmore hide" id="readany_desc"><span class="closed">Rút gọn</span></div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gr-box" id="box-soccer-9">
+                <div class="title-box">Nội quy</div>
+                <div class="rules_wrap content-box">
+                  <div class="rules_list description">
+                    <p>
+                      <strong
+                        >Chúng tôi hân hạnh được phục vụ quý khách hàng</strong
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                right: 2%;
+                top: 130% !important;
+                display: none;
+              "
+              class="frame_b_r"
+            >
+              <div class="gr-box" id="box-soccer-8">
+                <div class="wr_products_soccer_related">
+                  <h2 class="title-box title-box-mg">Sân gần đây</h2>
+                  <div
+                    *ngFor="let newResult of getField"
+                    class="product_grid content-box"
+                  >
+                    <div
+                      [routerLink]="['/posts', newResult.id]"
+                      style="cursor: pointer"
+                      class="item"
+                    >
+                      <figure class="product_image">
+                        <a title="Sân bóng Tân Mai - Hoàng Mai">
+                          <img
+                            class="lazy after-lazy"
+                            alt="Sân bóng Tân Mai - Hoàng Mai"
+                            [src]="urlImage + newResult.picture"
+                            style="opacity: 1; display: none"
+                          />
+                        </a>
+                      </figure>
+                      <div class="product_info">
+                        <div>
+                          <a
+                            [routerLink]="['/posts', newResult.id]"
+                            title="Sân bóng Tân Mai - Hoàng Mai"
+                            class="name"
+                          >
+                            {{ newResult.name }}
+                          </a>
+                        </div>
+
+                        <div class="people_rate cls">
+                          <div class="people_item">
+                            Điểm nhấn: Cụm 2 sân mini | Cỏ nhân tạo
+                          </div>
+
+                          <div class="rate-item">
+                            <span class="star-on star">
+                              <svg
+                                width="20px"
+                                height="20px"
+                                aria-hidden="true"
+                                data-prefix="fas"
+                                data-icon="star"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"
+                                class="svg-inline--fa fa-star fa-w-18"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                  class=""
+                                ></path>
+                              </svg>
+                            </span>
+                            <span class="star-on star">
+                              <svg
+                                width="20px"
+                                height="20px"
+                                aria-hidden="true"
+                                data-prefix="fas"
+                                data-icon="star"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"
+                                class="svg-inline--fa fa-star fa-w-18"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                  class=""
+                                ></path>
+                              </svg>
+                            </span>
+                            <span class="star-on star">
+                              <svg
+                                width="20px"
+                                height="20px"
+                                aria-hidden="true"
+                                data-prefix="fas"
+                                data-icon="star"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"
+                                class="svg-inline--fa fa-star fa-w-18"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                  class=""
+                                ></path>
+                              </svg>
+                            </span>
+                            <span class="star-on star">
+                              <svg
+                                width="20px"
+                                height="20px"
+                                aria-hidden="true"
+                                data-prefix="far"
+                                data-icon="star"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"
+                                class="svg-inline--fa fa-star fa-w-18"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+                                  class=""
+                                ></path>
+                              </svg>
+                            </span>
+                            <span class="star-on star">
+                              <svg
+                                width="20px"
+                                height="20px"
+                                aria-hidden="true"
+                                data-prefix="far"
+                                data-icon="star"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"
+                                class="svg-inline--fa fa-star fa-w-18"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+                                  class=""
+                                ></path>
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="price_arae cls">
+                          <div class="price_txt">Giá</div>
+                          <div>{{ newResult.price }}</div>
+                          <div class="unit">/ Trận</div>
+                        </div>
+
+                        <div class="distance hide">
+                          <svg
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 54.757 54.757"
+                            style="enable-background: new 0 0 54.757 54.757"
+                            xml:space="preserve"
+                          >
+                            <path
+                              d="M40.94,5.617C37.318,1.995,32.502,0,27.38,0c-5.123,0-9.938,1.995-13.56,5.617c-6.703,6.702-7.536,19.312-1.804,26.952  L27.38,54.757L42.721,32.6C48.476,24.929,47.643,12.319,40.94,5.617z M27.557,26c-3.859,0-7-3.141-7-7s3.141-7,7-7s7,3.141,7,7  S31.416,26,27.557,26z"
+                            ></path>
+                            <g></g></svg
+                          >Cách 1,4 km
+                        </div>
+                      </div>
+                      <div class="clear"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="rate-comment-plugin">
+            <div class="title-box-product">Đánh giá Sân Bóng Đền Lừ 3</div>
+
+            <div id="prodetails_tab3" class="prodetails_tab">
+              <div class="tab_content_right">
+                <script>
+                  function load_ajax_paginationrate($value) {
+                    $.get($value, {}, function (html) {
+                      $("#_info_rate").html(html);
+                      $("html, body").animate(
+                        { scrollTop: $("#_info_rate").position().top },
+                        "slow"
+                      );
+                    });
+                  }
+                </script>
+                <div class="full-screen-mobile"></div>
+
+                <div id="rates_rate" class="rates_rate_product">
+                  <div class="rates">
+                    <h3 class="tab_label">
+                      <span>Có <strong>1</strong> đánh giá</span>
+                      <strong>về Sân Bóng Đền Lừ 3</strong>
+                    </h3>
+                    <div class="toprt">
+                      <div class="crt">
+                        <div class="rcrt">
+                          <div class="r">
+                            <span class="t">5 <i></i></span>
+                            <div class="bgb">
+                              <div class="bgb-in" style="width: 100%"></div>
+                            </div>
+                            <span
+                              class="c"
+                              onclick="ratingCmtList(1,5)"
+                              data-buy="2"
+                              ><strong>1</strong> đánh giá</span
+                            >
+                          </div>
+
+                          <div class="r">
+                            <span class="t">4 <i></i></span>
+                            <div class="bgb">
+                              <div class="bgb-in" style="width: 0%"></div>
+                            </div>
+                            <span class="n" onclick="" data-buy="0"
+                              ><strong>0</strong> đánh giá</span
+                            >
+                          </div>
+
+                          <div class="r">
+                            <span class="t">3 <i></i></span>
+                            <div class="bgb">
+                              <div class="bgb-in" style="width: 0%"></div>
+                            </div>
+                            <span class="n" onclick="" data-buy="0"
+                              ><strong>0</strong> đánh giá</span
+                            >
+                          </div>
+
+                          <div class="r">
+                            <span class="t">2 <i></i></span>
+                            <div class="bgb">
+                              <div class="bgb-in" style="width: 0%"></div>
+                            </div>
+                            <span class="n" onclick="" data-buy="0"
+                              ><strong>0</strong> đánh giá</span
+                            >
+                          </div>
+
+                          <div class="r">
+                            <span class="t">1 <i></i></span>
+                            <div class="bgb">
+                              <div class="bgb-in" style="width: 0%"></div>
+                            </div>
+                            <span class="n" onclick="" data-buy="0"
+                              ><strong>0</strong> đánh giá</span
+                            >
+                          </div>
+                        </div>
+                        <div class="bcrt">
+                          <a
+                            style="background-color: green"
+                            >Gửi đánh giá của bạn</a
+                          >
+                        </div>
+                      </div>
+                      <div class="clr"></div>
+
+                      <form
+                        action="javascript:void(0);"
+                        method="post"
+                        name="rate_add_form"
+                        id="rate_add_form"
+                        class="form_rate hide_form cls"
+                        onsubmit="javascript: submit_rate();return false;"
+                      >
+                        <div class="rating_area cls">
+                          <span class="label_form">Chọn đánh giá của bạn</span>
+
+                          <span id="ratings" class="cls">
+                            <i
+                              class="icon_v1 star_on"
+                              id="rate_1"
+                              value="1"
+                            ></i>
+                            <i
+                              class="icon_v1 star_on"
+                              id="rate_2"
+                              value="2"
+                            ></i>
+                            <i
+                              class="icon_v1 star_on"
+                              id="rate_3"
+                              value="3"
+                            ></i>
+                            <i
+                              class="icon_v1 star_on"
+                              id="rate_4"
+                              value="4"
+                            ></i>
+                            <i
+                              class="icon_v1 star_on"
+                              id="rate_5"
+                              value="5"
+                            ></i>
+
+                            <input
+                              type="hidden"
+                              name="rating_disable"
+                              id="rating_disable"
+                              value="0"
+                            />
+                            <input
+                              type="hidden"
+                              name="rating_value"
+                              id="rating_value"
+                              value="5"
+                            />
+                            <!-- end RATING	-->
+                          </span>
+                          <span class="rsStar hide"></span>
+                        </div>
+                        <div class="wraper_form_rate hide">
+                          <div class="_textarea">
+                            <textarea
+                              name="content"
+                              id="rate_content"
+                              placeholder="Nhập đánh giá về sản phẩm(Tối thiểu 30 ký tự)"
+                              onkeyup="countTxtRating()"
+                            ></textarea>
+                            <div class="extCt hide">
+                              <span class="ckt"></span>
+                            </div>
+                          </div>
+
+                          <!-- <input type="button" class="btn-rate-mb" value="Gửi bình luận">   -->
+                          <div class="wrap_rate cls">
+                            <div class="wrap_loginpost">
+                              <aside class="_right">
+                                <div>
+                                  <input
+                                    class="txt_input"
+                                    required=""
+                                    name="name"
+                                    type="text"
+                                    placeholder="Họ tên (bắt buộc)"
+                                    id="rate_name"
+                                    autocomplete="off"
+                                    value=""
+                                  />
+                                </div>
+                                <div>
+                                  <input
+                                    class="txt_input"
+                                    required=""
+                                    name="email"
+                                    type="email"
+                                    placeholder="Email (bắt buộc)"
+                                    id="rate_email"
+                                    value=""
+                                  />
+                                </div>
+                                <div class="wrap_submit mbl">
+                                  <div class="pull-right clearfix">
+                                    <input
+                                      type="submit"
+                                      class="_btn_rate"
+                                      value="Gửi đánh giá"
+                                    />
+                                  </div>
+                                </div>
+                              </aside>
+                            </div>
+                          </div>
+                          <div class="MsgRt"></div>
+                          <input type="hidden" value="rates" name="module" />
+                          <input type="hidden" value="rates" name="view" />
+                          <input
+                            type="hidden"
+                            value="products"
+                            name="type"
+                            id="_rate_type"
+                          />
+
+                          <input
+                            type="hidden"
+                            value="506"
+                            name="record_id"
+                            id="record_id"
+                          />
+                          <input
+                            type="hidden"
+                            value="products"
+                            name="_rate_module"
+                            id="_rate_module"
+                          />
+                          <input
+                            type="hidden"
+                            value="product"
+                            name="_rate_view"
+                            id="_rate_view"
+                          />
+                          <input type="hidden" value="save_rate" name="task" />
+                          <input
+                            type="hidden"
+                            value="506"
+                            name="record_id"
+                            id="_rate_record_id"
+                          />
+                          <input
+                            type="hidden"
+                            value="L3Nhbi1ib25nLWRhL3Nhbi1ib25nLWRlbi1sdS0zLXA1MDYuaHRtbA=="
+                            name="return"
+                            id="_rate_return"
+                          />
+                          <input
+                            type="hidden"
+                            name="linkurlall"
+                            id="linkurlall"
+                            value="https://datsantructuyen.vn/san-bong-da/san-bong-den-lu-3-p506.html"
+                          />
+                          <input
+                            type="hidden"
+                            value="/index.php?module=rates&amp;view=rates&amp;type=products&amp;task=save_rate&amp;raw=1"
+                            name="return"
+                            id="link_reply_rate"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                    <div id="_info_rate" class="cls">
+                      <div class="_contents">
+                        <div class="_item rep_4 _level_0 _sub_0">
+                          <article
+                            itemprop="review"
+                            itemscope=""
+                            itemtype="http://schema.org/Review"
+                          >
+                            <p
+                              class="clearfix cls"
+                              itemprop="author"
+                              itemtype="http://schema.org/Person"
+                            >
+                              <span class="_name">Lê Hải Long</span>
+
+                              <label class="sttB"
+                                ><i class="iconcom-checkbuy"></i>Đã mua tại
+                                datsantructuyen.vn</label
+                              >
+                            </p>
+                            <div class="wrap_rate">
+                              <p class="_content" itemprop="description">
+                                <span
+                                  ><i class="iconcom-txtstar"></i
+                                  ><i class="iconcom-txtstar"></i
+                                  ><i class="iconcom-txtstar"></i
+                                  ><i class="iconcom-txtstar"></i
+                                  ><i class="iconcom-txtstar"></i></span
+                                >Sân mới đẹp, rộng thoáng, giá cả hợp lý, xe cộ
+                                đi lại thuận tiện.
+                              </p>
+                              <div class="_control">
+                                <a
+                                  class="button_reply1"
+                                  id="button_reply_4"
+                                  >Thảo luận</a
+                                ><span class="dot"> • </span
+                                ><time
+                                  itemprop="datePublished"
+                                  content="2022-11-11 09:38"
+                                  datetime="2022-11-11 09:38"
+                                  title="2022-11-11 09:38"
+                                  >1 year trước</time
+                                >
+                              </div>
+                              <div class="reply_area hide">
+                                <form
+                                  action="javascript:void(0);"
+                                  method="post"
+                                  name="rate_reply_form_4"
+                                  id="rate_reply_form_4"
+                                  class="form_rate cls"
+                                  onsubmit="javascript: submit_reply1(4);return false;"
+                                >
+                                  <div class="_textarea_rep">
+                                    <textarea
+                                      texid="txt_content_4"
+                                      id="rate_content_4"
+                                      class="rate_content"
+                                      name="content"
+                                      placeholder="Nhập thảo luận của bạn..."
+                                    ></textarea>
+                                  </div>
+                                  <input
+                                    type="button"
+                                    class="btn-rate-mb-rep"
+                                    value="Gửi đánh giá"
+                                  />
+                                  <div class="full-screen-mobile"></div>
+                                  <div class="wrap_rate wrapper_messs cls">
+                                    <div class="title-mb">
+                                      Thông tin người gửi<span
+                                        class="close-md-rate"
+                                        ><svg
+                                          height="16px"
+                                          viewBox="0 0 64 64"
+                                          enable-background="new 0 0 64 64"
+                                        >
+                                          <g>
+                                            <path
+                                              fill="black"
+                                              d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z"
+                                            ></path>
+                                          </g></svg
+                                      ></span>
+                                    </div>
+                                    <div class="wrap_loginpost mbl">
+                                      <aside class="_right">
+                                        <input
+                                          required=""
+                                          class="txt_input"
+                                          name="name"
+                                          id="rate_name_4"
+                                          type="text"
+                                          placeholder="Họ tên (bắt buộc)"
+                                          maxlength="50"
+                                          autocomplete="off"
+                                          value=""
+                                        /><input
+                                          required=""
+                                          class="txt_input"
+                                          name="email"
+                                          id="rate_email_4"
+                                          type="email"
+                                          placeholder="Email (bắt buộc)"
+                                          value=""
+                                        />
+                                      </aside>
+                                    </div>
+                                    <div class="wrap_submit mbl">
+                                      <input
+                                        type="submit"
+                                        class="_buttom_rate_rep"
+                                        value="Gửi bình luận"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- .wrap_r --><input
+                                    type="hidden"
+                                    value="products"
+                                    name="module"
+                                    id="_rate_module_4"
+                                  /><input
+                                    type="hidden"
+                                    value="product"
+                                    name="view"
+                                    id="_rate_view_4"
+                                  /><input
+                                    type="hidden"
+                                    value="products"
+                                    name="type"
+                                    id="_rate_type_4"
+                                  /><input
+                                    type="hidden"
+                                    value="save_reply"
+                                    name="task"
+                                  /><input
+                                    type="hidden"
+                                    value="4"
+                                    name="parent_id"
+                                    id="parent_id_4"
+                                  /><input
+                                    type="hidden"
+                                    value="506"
+                                    name="record_id"
+                                    id="_rate_record_id_4"
+                                  /><input
+                                    type="hidden"
+                                    value=""
+                                    name="return"
+                                    id="_rate_return_4"
+                                  /><input
+                                    type="hidden"
+                                    value="/index.php?module=rates&amp;view=rates&amp;type=products&amp;task=save_reply&amp;raw=1"
+                                    name="return"
+                                    id="link_reply_form_4"
+                                  />
+                                </form>
+                              </div>
+                            </div>
+                          </article>
+                        </div>
+                      </div>
+
+                      <a
+                        class="rtpLnk hide"
+
+                        >Xem tất cả đánh giá<span>›</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="prodetails_tab20" class="prodetails_tab">
+              <div class="tab_content_right">
+                <script>
+                  function load_ajax_pagination($value) {
+                    $.get($value, {}, function (html) {
+                      $("#_info_comment").html(html);
+                      $("html, body").animate(
+                        { scrollTop: $("#_info_comment").position().top },
+                        "slow"
+                      );
+                    });
+                  }
+                </script>
+                <div class="full-screen-mobile"></div>
+
+                <div class="comments">
+                  <h3 class="tab_label">
+                    <span>Có <strong>0</strong> bình luận, đánh giá</span>
+                    <strong>về Sân Bóng Đền Lừ 3</strong>
+                  </h3>
+                  <form
+                    method="post"
+                    class="comment_keyword_wrapper"
+                    onsubmit="return search_comment();"
+                  >
+                    <input
+                      type="text"
+                      id="comment_keyword"
+                      name="comment_keyword"
+                      placeholder="Tìm theo nội dung, người gửi..."
+                    />
+                    <button type="submit" class="button-search button">
+                      <svg
+                        aria-hidden="true"
+                        data-prefix="far"
+                        data-icon="search"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        class="svg-inline--fa fa-search fa-w-16"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"
+                          class=""
+                        ></path>
+                      </svg>
+                    </button>
+                  </form>
+                  <div id="_info_comment" class="cls">
+                    <div class="_contents">
+                      <div class="_item 1 _level_0 _sub_0">
+                        <article
+                          itemprop="review"
+                          itemscope=""
+                          itemtype="http://schema.org/Review"
+                        >
+                          <p
+                            class="clearfix cls"
+                            itemprop="author"
+                            itemtype="http://schema.org/Person"
+                          >
+                            <span class="_avatar">TV</span
+                            ><span class="_name" itemprop="name"
+                              >Quản trị viên</span
+                            ><span class="_level">Quản trị viên</span>
+                          </p>
+                          <div class="_wrap">
+                            <div class="_content" itemprop="description">
+                              Xin chào quý khách. Quý khách hãy để lại bình
+                              luận, chúng tôi sẽ phản hồi sớm
+                            </div>
+                            <div class="_control">
+                              <a class="button_reply"
+                                >Trả lời</a
+                              ><span class="dot">.</span
+                              ><time
+                                itemprop="datePublished"
+                                content="2022-09-25 00:00"
+                                datetime="2022-09-25 00:00"
+                                title="2022-09-25 00:00"
+                                >1 year trước</time
+                              >
+                            </div>
+                            <div class="reply_area hide">
+                              <form
+                                action="javascript:void(0);"
+                                method="post"
+                                name="comment_reply_form_1"
+                                id="comment_reply_form_1"
+                                class="form_comment cls"
+                                onsubmit="javascript: submit_reply(1);return false;"
+                              >
+                                <div class="_textarea">
+                                  <textarea
+                                    texid="txt_content_1"
+                                    id="cmt_content_1"
+                                    class="cmt_content"
+                                    name="content"
+                                    placeholder="Viết bình luận của bạn..."
+                                  ></textarea>
+                                </div>
+                                <input
+                                  type="button"
+                                  class="btn-comment-mb-rep"
+                                  value="Gửi bình luận"
+                                />
+                                <div class="full-screen-mobile"></div>
+                                <div class="wrap_r cls">
+                                  <div class="title-mb">
+                                    Thông tin người gửi<span
+                                      class="close-md-comment"
+                                      ><svg
+                                        height="16px"
+                                        viewBox="0 0 64 64"
+                                        enable-background="new 0 0 64 64"
+                                      >
+                                        <g>
+                                          <path
+                                            fill="black"
+                                            d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z"
+                                          ></path>
+                                        </g></svg
+                                    ></span>
+                                  </div>
+                                  <div class="wrap_loginpost mbl">
+                                    <aside class="_right">
+                                      <input
+                                        required=""
+                                        class="txt_input"
+                                        name="name"
+                                        id="cmt_name_1"
+                                        type="text"
+                                        placeholder="Họ tên (bắt buộc)"
+                                        maxlength="50"
+                                        autocomplete="off"
+                                        value=""
+                                      /><input
+                                        required=""
+                                        class="txt_input"
+                                        name="email"
+                                        id="cmt_email_1"
+                                        type="email"
+                                        placeholder="Email (bắt buộc)"
+                                        value=""
+                                      />
+                                    </aside>
+                                  </div>
+                                  <div class="wrap_submit mbl">
+                                    <input
+                                      type="submit"
+                                      class="_btn_comment"
+                                      value="Gửi bình luận"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- .wrap_r --><input
+                                  type="hidden"
+                                  value="products"
+                                  name="module"
+                                  id="_cmt_module_1"
+                                /><input
+                                  type="hidden"
+                                  value="product"
+                                  name="view"
+                                  id="_cmt_view_1"
+                                /><input
+                                  type="hidden"
+                                  value="products"
+                                  name="type"
+                                  id="_cmt_type_1"
+                                /><input
+                                  type="hidden"
+                                  value="save_reply"
+                                  name="task"
+                                /><input
+                                  type="hidden"
+                                  value="1"
+                                  name="parent_id"
+                                  id="cmt_parent_id_1"
+                                /><input
+                                  type="hidden"
+                                  value="0"
+                                  name="record_id"
+                                  id="_cmt_record_id_1"
+                                /><input
+                                  type="hidden"
+                                  value=""
+                                  name="return"
+                                  id="_cmt_return_1"
+                                /><input
+                                  type="hidden"
+                                  value="/index.php?module=comments&amp;view=comments&amp;type=products&amp;task=save_reply&amp;raw=1"
+                                  name="return"
+                                  id="cmt_link_reply_form_1"
+                                />
+                              </form>
+                            </div>
+                          </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+
+                  <form
+                    action="javascript:void(0);"
+                    method="post"
+                    name="comment_add_form"
+                    id="comment_add_form"
+                    class="form_comment cls"
+                    onsubmit="javascript: submit_comment();return false;"
+                  >
+                    <!-- <label class="label_form">Bình luận</label> -->
+
+                    <div class="tab-title">
+                      <span>Bình luận</span>
+                    </div>
+
+                    <div class="_textarea">
+                      <textarea
+                        name="content"
+                        id="cmt_content"
+                        placeholder="Viết bình luận của bạn..."
+                      ></textarea>
+                    </div>
+
+                    <button type="button" class="btn-comment-mb">
+                      Gửi bình luận
+                    </button>
+
+                    <div class="wrap_r cls">
+                      <div class="title-mb">
+                        Thông tin người gửi
+                        <span class="close-md-comment"
+                          ><svg
+                            height="16px"
+                            viewBox="0 0 64 64"
+                            enable-background="new 0 0 64 64"
+                          >
+                            <g>
+                              <path
+                                fill="black"
+                                d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z"
+                              ></path>
+                            </g></svg
+                        ></span>
+                      </div>
+                      <div class="wrap_loginpost">
+                        <aside class="_right">
+                          <div>
+                            <input
+                              class="txt_input"
+                              required=""
+                              name="name"
+                              type="text"
+                              placeholder="Họ tên (bắt buộc)"
+                              id="cmt_name"
+                              autocomplete="off"
+                              value=""
+                            />
+                          </div>
+                          <div>
+                            <input
+                              class="txt_input"
+                              required=""
+                              name="email"
+                              type="email"
+                              placeholder="Email (bắt buộc)"
+                              id="cmt_email"
+                              value=""
+                            />
+                          </div>
+                        </aside>
+                      </div>
+                      <div class="wrap_submit mbl">
+                        <div class="pull-right clearfix">
+                          <input
+                            type="submit"
+                            class="_btn_comment btn btn-dark"
+                            value="Gửi bình luận"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" value="comments" name="module" />
+                    <input type="hidden" value="comments" name="view" />
+                    <input
+                      type="hidden"
+                      value="products"
+                      name="type"
+                      id="_cmt_type"
+                    />
+
+                    <!-- <input type="hidden" value="506" name='record_id' id="record_id" /> -->
+                    <input
+                      type="hidden"
+                      value="products"
+                      name="_cmt_module"
+                      id="_cmt_module"
+                    />
+                    <input
+                      type="hidden"
+                      value="product"
+                      name="_cmt_view"
+                      id="_cmt_view"
+                    />
+                    <input type="hidden" value="save_comment" name="task" />
+                    <input
+                      type="hidden"
+                      value="506"
+                      name="record_id"
+                      id="_cmt_record_id"
+                    />
+                    <input
+                      type="hidden"
+                      value=""
+                      name="return"
+                      id="_cmt_return"
+                    />
+                    <input
+                      type="hidden"
+                      name="linkurlall"
+                      id="cmt_linkurlall"
+                      value="https://datsantructuyen.vn/san-bong-da/san-bong-den-lu-3-p506.html"
+                    />
+                    <input
+                      type="hidden"
+                      value="/index.php?module=comments&amp;view=comments&amp;type=products&amp;task=save_comment&amp;raw=1"
+                      name="return"
+                      id="link_reply_form"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="new-product-related"></div>
+        </div>
+
+        <div class="clear"></div>
+        <input type="hidden" value="506" name="product_id" id="product_id" />
+      </div>
+      <script type="text/javascript">
+        var product_id = "506";
+        var product_price = 400000;
+        var check_fb_viewcontent = 1;
+      </script>
+
+      <!-- Tiep thi lai dong adword -->
+      <script type="text/javascript">
+        var google_tag_params = {
+          dynx_itemid: "506",
+          dynx_itemid2: "506",
+          dynx_pagetype: "offerdetail",
+          dynx_totalvalue: 400000,
+        };
+      </script>
+
+      <div class="wrapper_modal_alert_2"></div>
+
+      <!-- <div class="popup-video-full">
+<div class="close" onclick="close_popup_video_full()">X</div>
+<div class="content-video">
+<div class="video">
+
+</div>
+</div>
+
+</div>
+-->
+    </div>
+  </div>
+  <div class="container">
+    <div class="">
+      <div>
+        <div style="display: flex !important; gap: 30px" class="" id="">
+          <div class="" *ngFor="let featureItem of dataPostsRelate">
+            <div
+              nh-playground="27461"
+              class="playground-item swiper-slide swiper-slide-visible swiper-slide-active"
+              role="group"
+              aria-label="2 / 6"
+              style="
+                width: 291.25px;
+                margin-right: 15px;
+                border: 1px solid #ccc;
+              "
+            >
+              <div class="inner-image mb-3">
+                <div class="ratio-3-2">
+                  <img
+                    nh-lazy="image"
+                    class="img-fluid"
+                    alt="Sân bóng KAKA Sport khu đô thị Hòa Quý - Đà Nẵng"
+                    [src]="urlImage + featureItem.picture"
+                    style=""
+                  />
+                </div>
+              </div>
+              <div class="inner-content">
+                <div class="playground-title">
+                  <a
+                    >{{ featureItem.name }}</a
+                  >
+                </div>
+                <div class="address">
+                  <span class="mr-2">Khu vực:</span> {{ featureItem.address }}
+                </div>
+
+                <div class="price mt-2">
+                  <span class="price-amount"></span>
+                </div>
+                <div class="playground-time">
+                  <span class="title">Giá</span>
+                  <div class="inner-time">
+                    <div class="list-time">
+                      <div class="time">
+                        {{ featureItem.price?.toLocaleString() }} VNĐ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wifi-canteen d-flex align-items-center flex-wrap">
+                  <div class="wifi"><i class="fa-solid fa-wifi"></i>Wifi</div>
+                  <div class="canteen">
+                    <i class="fa-solid fa-bell-concierge"></i>Căng tin
+                  </div>
+                </div>
+                <div class="btn-bottom">
+                  <a
+                    class="btn-item btn-main"
+                    [routerLink]="'/posts/' + featureItem.id"
+                    title=""
+                    >Đặt nhanh kẻo muộn</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

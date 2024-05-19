@@ -1,0 +1,249 @@
+<!-- <header>
+  <div class="row align-items-center py-3">
+    <div class="col-6 d-flex align-items-center">
+      <a routerLink="/"
+        ><img [width]="43" [height]="56" src="./assets/images/logo.png" alt=""
+      /></a>
+      <ul class="d-flex m-0 gap-5">
+        <li>
+          <a
+            class="text-decoration-none font-500 text-black text-xl"
+            routerLink="/"
+            >Trang chủ</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="text-decoration-none font-500 text-black text-xl"
+            routerLink="blog"
+            >Sân bóng</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-4">
+      <div class="position-relative">
+        <input
+          type="text"
+          [value]="searchValue"
+          class="search-input ps-4 py-3 border border-2 rounded text-medium text-gray"
+          placeholder="Search posts..."
+          (input)="onInputChange($event)"
+        />
+
+        <i
+          (click)="handleClear()"
+          class="fa-solid {{
+            searchValue ? 'fa-xmark' : 'fa-magnifying-glass'
+          }}  position-absolute top-50 translate-middle-y text-gray text-medium"
+          style="right: 16px"
+        ></i>
+        <app-search-result
+          [searchResult]="searchResult"
+          [isShowSearch]="isShowSearch"
+        ></app-search-result>
+      </div>
+    </div>
+
+    <div class="col-2 d-flex justify-content-end">
+      <ng-container *ngIf="isLogin; else loginButton">
+        <div class="dropdown" (click)="toggleDropdown()">
+          <a
+            id="navbarDropdownMenuAvatar"
+            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+            role="button"
+          >
+            <img
+              [src]="
+                userInfo.avatar ||
+                'https://api.multiavatar.com/' + userInfo.username + '.png'
+              "
+              class="rounded-circle avatarHeader"
+              style="object-fit: cover"
+              width="60"
+              height="60"
+              [alt]="userInfo.username"
+            />
+          </a>
+
+          <ul
+            class="dropdown-menu dropdown-menu-end {{
+              isHidden ? 'd-none' : 'd-block'
+            }}"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/user-info/{{ userInfo.id }}"
+                >My profile</a
+              >
+            </li>
+            <li *ngIf="userInfo.role === 'admin'">
+              <a class="dropdown-item" routerLink="/admin">Admin</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/cart"
+                >Lịch sử</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/" (click)="handleLogout()"
+                >Đăng xuất</a
+              >
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+      <ng-template #loginButton>
+        <a
+          routerLink="login"
+          class="d-inline-block text-center btn-signin text-decoration-none text-white rounded text-xl font-600"
+          >Đăng nhập</a
+        >
+      </ng-template>
+    </div>
+  </div>
+</header> -->
+
+
+<header style="margin-bottom: 30px;">
+  <div nh-row="ge9pz4w" class="header-center">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-4 col-12">
+          <div nh-block="qhdw2uy" nh-block-cache="true" class="">
+            <div class="logo-section"><a href="/"><img class="img-fluid"
+                  src="https://img.thegioithethao.vn/media/logo/logo.webp" alt="TheGioiTheThao.vn"></a></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12">
+          <div nh-block="8bxkyf0" nh-block-cache="false" class="">
+            <div class="header__search">
+              <form class="position-relative" action="/tim-kiem" method="get" autocomplete="off">
+                <div class="input-group"><input nh-auto-suggest="product" name="keyword" placeholder="Tìm sân bóng gần đây !"
+                    type="text" class="form-control bg-light" value="">
+                  <div class="input-group-append"><button nh-btn-submit="" class="btn btn-submit" type="submit"><i class="fas fa-search"></i></button></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12">
+          <div nh-block="j1d703b" nh-block-cache="true" class="">
+            <div class="entire-action-header ml-0"><a href="/blog" class="btn-action-header"
+                title="Sân thể thao"><span class="icon"><img class="img-fluid"
+                    src="https://img.thegioithethao.vn/media/icon/san_the_thao1.gif" alt="Sân thể thao"></span><span>Sân
+                  thể thao</span></a></div>
+          </div>
+          <div nh-block="cdr93am" nh-block-cache="false" class=""></div>
+          <div nh-block="9g2txoj" nh-block-cache="false" class=""></div>
+          <ng-container *ngIf="!isLogin">
+          <div  nh-block="g1syznh" nh-block-cache="true" class="">
+            <div nh-mini-member="" class="entire-action-header entire-action-header-login"><a
+                class="btn-user btn-action-header" title="Tài khoản" href="javascript:;"><span class="icon"><i class="fa-solid fa-user"></i>></span><span>Tài khoản</span></a>
+              <div class="content">
+                <div class="btn-login"><a title="Tài khoản" routerLink="/login"  href="javascript:;" data-toggle="modal"
+                    data-target="#login-modal">Đăng nhập</a></div>
+                <div class="btn-register"><a routerLink="/signup" href="/member/register">Đăng ký tài khoản</a></div>
+                <!-- <ul>
+                  <li><a routerLink="/user-info/{{ userInfo.id }}" ><i class="fa-regular fa-user"></i><span>Thông tin cá
+                        nhân</span></a></li>
+                  <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i><span>Đơn hàng</span></a></li>
+                  <li><a href="/member/order"><i class="iconsax isax-heart-circle"></i><span>Sản phẩm yêu
+                        thích</span></a></li>
+                  <li><a href="/member/playground/wishlist"><i class="iconsax isax-document-favorite"></i><span>Sân yêu
+                        thích</span></a></li>
+                  <li><a href="/member/sports-playground"><i class="iconsax isax-money-2"></i><span>Sân thể
+                        thao</span></a></li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLogin">
+          <div  nh-block="g1syznh" nh-block-cache="true" class="">
+            <div nh-mini-member="" class="entire-action-header entire-action-header-login"><a
+                class="btn-user btn-action-header" title="Tài khoản" href="javascript:;"><span class="icon"><i class="fa-solid fa-user"></i>></span><span>Tài khoản</span></a>
+                <div class="content">
+                  <ul>
+                    <li *ngIf="userInfo.type && userInfo.type !== 'EndUser'">
+                      <a class="dropdown-item" routerLink="/admin"> <i class="fa-regular fa-user"></i> <span>Admin</span></a>
+                  </li>
+
+                    <li><a routerLink="/user-info/{{ userInfo.id }}" ><i class="fa-regular fa-user"></i><span>Thông tin cá
+                          nhân</span></a></li>
+                    <li><a href="/cart?items=1"><i class="fa-solid fa-cart-shopping"></i><span>Lịch sử</span></a></li>
+                    <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i><span>Đơn hàng </span></a></li>
+                    <li><a routerLink="/create-team" ><i class="fa-regular fa-user"></i><span>Team thi đấu</span></a></li>
+                    <li><a href="/changePassword"><span>Đổi mật khẩu</span></a></li>
+
+                    <!-- <li><a href="/member/order"><i class="iconsax isax-heart-circle"></i><span>Sản phẩm yêu
+                          thích</span></a></li>
+                    <li><a href="/member/playground/wishlist"><i class="iconsax isax-document-favorite"></i><span>Sân yêu
+                          thích</span></a></li>
+                    <li><a href="/member/sports-playground"><i class="iconsax isax-money-2"></i><span>Sân thể
+                          thao</span></a></li> -->
+                          <li>
+                            <a class="dropdown-item" routerLink="/" (click)="handleLogout()"
+                              >Đăng xuất</a
+                            >
+                          </li>
+                  </ul>
+                </div>
+
+
+            </div>
+          </div>
+        </ng-container>
+
+          <div nh-block="i57yxn3" nh-block-cache="true" class="float-right mr-3">
+            <div class="entire-action-header"><a class="btn-mini-cart btn-action-header" nh-mini-cart="open"
+                title="Giỏ hàng" href="javascript:;">
+                <div routerLink="/cart" class="icon"><i class="iconsax isax-shopping-cart5"></i></div><span nh-total-quantity-mini-cart=""
+                  class="items-number">0</span><span >Lịch sử</span>
+              </a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nh-row="yzb5c4k" class="setting-menu header-menu pt-3">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-12 col-12">
+          <div nh-block="hzfxs24" nh-block-cache="true" class="">
+            <div class="menu-container"><a class="btn-menu-mobile" nh-menu="btn-open" menu-type="main"
+                href="javascript:;"><i class="iconsax isax-menu-1"></i></a>
+              <div class="back-drop"></div>
+              <nav class="menu-section" nh-menu="sidebar" menu-type="main">
+                <div class="menu-top"><a href="javascript:;" nh-menu="btn-close"
+                    class="close-sidebar effect-rotate icon-close"><i class="iconsax isax-add"></i></a></div>
+                <ul>
+                  <li class=""><a routerLink="/by-team" >Ghép team thi đấu<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <!-- <li class=""><a routerLink="/blog" >Cầu lông<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Bóng bàn<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Bóng rổ<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Tennis<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Bóng chuyền<span class="iconsax isax-arrow-down-1"></span></a>
+                  </li>
+                  <li class=""><a routerLink="/blog" >Golf<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Gym<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Võ thuật<span class="iconsax isax-arrow-down-1"></span></a></li>
+                  <li class=""><a routerLink="/blog" >Thiết bị dạy học<span
+                        class="iconsax isax-arrow-down-1"></span></a></li>
+
+                  <li class="sale d-flex align-items-center  gap-2"><img src="https://img.thegioithethao.vn/media/icon/icon-sale.svg" alt="Sale"
+                      class="marker-image"><a href="/"><span class="icon"><img
+                          src="https://img.thegioithethao.vn/media/icon/icon-sale.svg" alt="Sale"
+                          class="marker-image"></span>Sale<span class="iconsax isax-arrow-down-1"></span></a></li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

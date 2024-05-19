@@ -1,0 +1,50 @@
+.form {
+  width: 100%;
+  .form__input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+      border: 1px solid green;
+    }
+  }
+  &__field {
+    width: 100%;
+  }
+  .image-preview {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 50px;
+    .preview-container {
+      position: relative;
+      .preview-remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgb(255, 150, 150);
+        color: white;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        cursor: pointer;
+      }
+      .preview-image {
+        width: 160px;
+        height: 160px;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 300px;
+}

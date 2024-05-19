@@ -1,0 +1,337 @@
+<div class="container">
+  <div class="drawer" [class.opened]="checkAddedService">
+    <h3 style="color:white;padding-left:15px" class=" pl-3 pt-3">Thêm dịch vụ của bạn</h3>
+      <div>
+          <div class="row">
+    <div class="col">
+      <form (submit)="createTeamByUser()" [formGroup]="addForm" class="mt-5 form fromt_add_service">
+        <div class="form-group mb-5">
+          <input type="text" placeholder="Name" formControlName="name" style="border:1px solid black !important ; background-color: white !important;" class="form__input">
+          <div *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('name')?.errors?.['required']">
+              Name is required.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['minlength']">
+              Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['forbiddenName']">
+              Name cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" placeholder="mô tả" formControlName="description" style="border:1px solid black !important ; background-color: white !important;" class="form__input">
+          <div *ngIf="addForm.get('description')?.invalid && (addForm.get('description')?.dirty || addForm.get('description')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('description')?.errors?.['required']">
+              description is required.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['minlength']">
+              description must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['forbiddendescription']">
+              description cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div style="opacity: 0;" class="form-group mb-5">
+          <input type="text" placeholder="Icons" formControlName="level" style="border:1px solid black !important ; background-color: white !important;"  class="form__input">
+          <div *ngIf="addForm.get('level')?.invalid && (addForm.get('level')?.dirty || addForm.get('level')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('level')?.errors?.['required']">
+              Icons is required.
+            </div>
+            <div *ngIf="addForm.get('level')?.errors?.['minlength']">
+              Icons must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('level')?.errors?.['forbiddenlevel']">
+              Icons cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="addForm.invalid"
+          class="btn btn-primary d-flex justify-content-between align-items-center">
+          <i class="fa-solid fa-plus"></i>
+          <span>Thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+      </div>
+    <span class="close-icon" (click)="closeDrawer()">X</span>
+  </div>
+  <div class="row g-5">
+    <div class="col-6 text-capitalize">
+      <h2>Thêm sân</h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/admin/manager-product">Quay lại</a>
+      </div>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="col">
+      <form
+        class="mt-5 form"
+        [formGroup]="postForm"
+        (submit)="handleSubmitPostForm()"
+      >
+        <div class="row g-5">
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Tên sân bóng</mat-label>
+              <input type="text" matInput formControlName="title" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                postForm.get('title')?.invalid &&
+                (postForm.get('title')?.dirty || postForm.get('title')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('title')?.errors?.['required']">
+                Tên sân bóng là bắt buộc.
+              </div>
+              <div *ngIf="postForm.get('title')?.errors?.['minlength']">
+                Tên sân bóng ít nhất 4 kí tự
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>địa chỉ</mat-label>
+              <input type="text" matInput formControlName="address" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                postForm.get('address')?.invalid &&
+                (postForm.get('address')?.dirty || postForm.get('address')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('address')?.errors?.['required']">
+                Địa chỉ là bắt buộc.
+              </div>
+              <div *ngIf="postForm.get('address')?.errors?.['minlength']">
+                Địa chỉ ít nhất 4 kí tự
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Khu vực </mat-label>
+              <mat-select formControlName="category">
+                <mat-option
+                  *ngFor="let category of categories"
+                  [value]="category.id"
+                  >{{ category.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <div
+              *ngIf="
+                postForm.get('category')?.invalid &&
+                (postForm.get('category')?.dirty ||
+                  postForm.get('category')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('category')?.errors?.['required']">
+                Khu vực là bắt buộc.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Service </mat-label>
+              <mat-select formControlName="service" (selectionChange)="onServiceSelectionChange($event.value)">
+                <mat-option *ngFor="let category of service" [value]="category" [ngClass]="{'selected-item': isItemSelected(category.id)}">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div
+              *ngIf="
+                postForm.get('service')?.invalid &&
+                (postForm.get('service')?.dirty ||
+                  postForm.get('service')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('service')?.errors?.['required']">
+                Service là bắt buộc.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Giá </mat-label>
+              <input type="price" matInput formControlName="price" />
+            </mat-form-field>
+            <div
+              *ngIf="
+                postForm.get('price')?.invalid &&
+                (postForm.get('price')?.dirty || postForm.get('price')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('price')?.errors?.['required']">
+                Giá sản phẩm là bắt buộc.
+              </div>
+
+            </div>
+            <div *ngIf="postForm.get('price')?.errors?.['positiveNumber'] && (postForm.get('price')?.dirty || postForm.get('price')?.touched)"
+            class="text-danger">
+            Giá sản phẩm phải là số dương lớn hơn 0.
+          </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <button type="button" (click)="AddNewService()" class="btn btn-dark">Tạo dịch vụ mới</button>
+            </div>
+            <div *ngIf="checkUsedService" class="form__field">
+              <div>Dịch vụ đã chọn </div>
+              <table style="border:1px solid #ccc;margin-top:3px" class="table">
+                <thead>
+                  <tr>
+                    <th style="border:1px solid #ccc"  scope="col">STT</th>
+                    <th style="border:1px solid #ccc" scope="col">Tên dịch vụ</th>
+                    <th style="border:1px solid #ccc" scope="col">Giá tiển</th>
+                    <th style="border:1px solid #ccc" scope="col">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let icC of selectedServices ; let i =  index">
+                    <td  style="border:1px solid #ccc">{{i + 1}}</td>
+                    <td style="border:1px solid #ccc">{{icC.name}}</td>
+                    <td style="border:1px solid #ccc">{{icC.Price?.toLocaleString()}}</td>
+                    <td style="border:1px solid #ccc;display: flex;justify-content: center;">
+                          <button (click)="handelRemove(i)" style="width: 40px; height: 40px; background-color: red ;
+                    color: white; font-weight: bold; border-radius: 9px;">X</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                <!-- <div *ngFor="let icC of selectedServices ; let i =  index">
+                 <div style="display: flex; justify-content: space-between; padding-left: 5px; margin-bottom: 10px;align-items: center; border:1px solid #ccc; margin-top: 5px; border-radius: 4px; gap: 10px;">
+                  <div style="display: flex; justify-content: center; align-items: center;">
+                      <p style="font-weight: bold;">{{icC.name}}</p>
+                   <p>{{icC.Price?.toLocaleString()}} VND</p>
+                  </div>
+                  <div>
+                    <button (click)="handelRemove(i)" style="width: 40px; height: 40px; background-color: red ;
+                    color: white; font-weight: bold;">X</button>
+                  </div>
+                 </div>
+                </div> -->
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mb-5">
+            <input
+              class="form-control"
+              type="file"
+              accept="image/*"
+              id="formFileMultiple"
+              formControlName="images"
+              (change)="handleFileInput($event)"
+            />
+            <div
+              *ngIf="
+                postForm.get('images')?.invalid &&
+                (postForm.get('images')?.dirty ||
+                  postForm.get('images')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('images')?.errors?.['required']">
+                Ảnh sản phẩm là bắt buộc
+              </div>
+            </div>
+          </div>
+          <div class="image-preview" *ngIf="imagePreviews.length > 0">
+            <div class="preview-container" *ngFor="let image of imagePreviews">
+              <div
+                class="preview-remove"
+                (click)="handleRemoveImage(image.public_id)"
+              >
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <img [src]="image.url" class="preview-image" alt="image" />
+            </div>
+          </div>
+        </div>
+        <p>Mô tả sản phẩm</p>
+        <div class="form-group mb-1">
+          <ckeditor
+            [editor]="Editor"
+            formControlName="content"
+            (ready)="onEditorReady($event)"
+          >
+          </ckeditor>
+          <div
+            *ngIf="
+              postForm.get('content')?.invalid &&
+              (postForm.get('content')?.dirty ||
+                postForm.get('content')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="postForm.get('content')?.errors?.['required']">
+              Mô tả là bắt buộc
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+
+          class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+        >
+          <i class="fa-solid fa-plus mx-2"></i>
+          <span>Thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--   [disabled]="postForm.invalid" -->
+  <!-- <div class="col-6">
+            <mat-radio-group
+              aria-label="Trạng thái bài post"
+              formControlName="is_active"
+            >
+              <mat-radio-button value="public" selected
+                >Public</mat-radio-button
+              >
+              <mat-radio-button value="private">Private</mat-radio-button>
+            </mat-radio-group>
+            <div
+              *ngIf="
+                postForm.get('status')?.invalid &&
+                (postForm.get('status')?.dirty ||
+                  postForm.get('status')?.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="postForm.get('status')?.errors?.['required']">
+                Trạng thái sản phẩm là bắt buộc
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Duyệt sản phẩm</mat-label>
+              <mat-select formControlName="status">
+                <mat-option value="pending">Pending</mat-option>
+                <mat-option value="approved">Approved</mat-option>
+                <mat-option value="rejected">Reject</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div> -->

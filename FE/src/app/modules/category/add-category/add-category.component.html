@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row g-5">
+    <div class="col-6 text-capitalize">
+      <h2>Thêm Khu vực</h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/admin/manager-categories">Quay lại</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form (submit)="handleAddNewCategory()" [formGroup]="addForm" class="mt-5 form">
+        <div class="form-group mb-5">
+          <input type="text" placeholder="Tên khu vực" formControlName="name" class="form__input">
+          <div *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('name')?.errors?.['required']">
+              Name is required.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['minlength']">
+              Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('name')?.errors?.['forbiddenName']">
+              Name cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" placeholder="mô tả" formControlName="description" class="form__input">
+          <div *ngIf="addForm.get('description')?.invalid && (addForm.get('description')?.dirty || addForm.get('description')?.touched)"
+            class="text-danger">
+            <div *ngIf="addForm.get('description')?.errors?.['required']">
+              description is required.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['minlength']">
+              description must be at least 4 characters long.
+            </div>
+            <div *ngIf="addForm.get('description')?.errors?.['forbiddendescription']">
+              description cannot be Bob.
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="addForm.invalid"
+          class="btn btn-primary d-flex justify-content-between align-items-center">
+          <i class="fa-solid fa-plus"></i>
+          <span>Thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,194 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>{{ title }}</h2>
+          </div>
+          <div class="col-sm-7">
+
+          </div>
+        </div>
+      </div><div class="col-sm-7">
+        <a [routerLink]="linkActive">
+          <button class="btn btn-secondary">
+            <i class="fa-solid fa-plus"></i>
+            <span>Thêm mới</span>
+          </button>
+        </a>
+
+      </div>
+      <div class="table-container">
+        <table class="table table-striped table-hover">
+          <thead class="text-center">
+            <tr>
+              <th *ngFor="let theadItem of theadTable">{{ theadItem }}</th>
+            </tr>
+          </thead>
+              <!-- class="{{ post.status === 'pending' ? 'bg-FFAF40' : 'bg-red' }}" -->
+<!--  -->
+          <tbody >
+            <tr
+              *ngFor="let post of usersList; let i = index"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>
+                <div class="post__image-group">
+                  <div class="post__image-wrapper">
+                    <img
+                      [src]="urlImage + post.picture"
+                      alt=""
+                      class="mb-1 post__image"
+                    />
+                  </div>
+
+                </div>
+              </td>
+              <td>
+                {{ post.name }}
+              </td>
+              <td>{{ post.gender }}</td>
+              <td>
+                {{ post?.email }}
+                </td>
+                <td>
+                  {{ post?.type }}
+                  </td>
+              <td>
+                <!-- <button class="text-warning" (click)="getPostById(post._id!)" data-toggle="modal"
+                  data-target="#exampleModal"> -->
+                <button
+                  class="text-23BB86"
+                  (click)="handelGetIdUser(post.id!)"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <a routerLink="/admin/edit-user/{{ post.id }}">
+                  <button class="settings text-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </a>
+                <button
+                (click)="handelRemoveUser(post.id)"
+                  class="delete text-danger"
+                >
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+
+
+
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- modal add -->
+<!-- <app-layout-modal-admin data-bs-toggle="modal" data-bs-target="#exampleModal" [titleModal]="titleModal"
+  [postInfo]="postInfo"></app-layout-modal-admin> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông tin </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="dataUser">
+        <section class="content-detail-posts my-5">
+          <div class="row align-items-center mb-5">
+            <div class="col-sm-12 col-lg-6">
+              <div class="main-img">
+                <img
+                  [src]=" dataUser.picture ? urlImage + dataUser.picture : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyWsirutRbbIQzXx6Y0t4zu1N891_kw3cHQK3HW8tMWQ&s'"
+                  alt="{{ dataUser.picture }}"
+                  class="w-50 post__image-preview"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+              <div class="info">
+                <div class="tag mb-2">
+                  <span
+                    class="d-inline-block font-600 bg-F3EDFF text-6B6B6B rounded-4 text-sm px-3"
+                    >Họ và tên : </span
+                  >
+                  <span>
+                    {{dataUser.name}}
+                  </span>
+                </div>
+                <div class="title mb-3 d-flex gap-3 align-items-center">
+                <p>
+                  Email :
+                </p>  <h1 class="text-23BB86 font-400">
+                    {{ dataUser.email }}
+                  </h1>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                 <p>Giới tính : </p>
+                 <p class="text-6B6B6B text-sm font-600">{{
+                  dataUser.gender
+                }}</p>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                 <p>Chức vụ : </p>
+                 <p class="text-6B6B6B text-sm font-600">{{
+                  dataUser.type
+                }}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="content-posts mx-auto">
+
+            <div class="author mt-5">
+              <div class="row align-items-center">
+                <div class="col-sm-12 col-md-4 mb-4">
+                  <div class="img">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                  <div class="infomation">
+                    <div class="name mb-3">
+
+                    </div>
+                    <div class="quote">
+                      <p>
+                        This information is secret so be careful.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,431 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>{{ title }}</h2>
+          </div>
+          <div class="col-sm-7">
+            <a [routerLink]="linkActive">
+              <button class="btn btn-secondary">
+                <i class="fa-solid fa-plus"></i>
+                <span>Thêm mới</span>
+              </button>
+            </a>
+            <button class="btn btn-secondary" (click)="handleExportToExcel()">
+              <i class="fa-solid fa-download"></i>
+              <span>Export to Excel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="table table-striped table-hover">
+          <thead class="text-center">
+            <tr>
+              <th *ngFor="let theadItem of theadTable">{{ theadItem }}</th>
+            </tr>
+          </thead>
+          <!-- users -->
+          <!-- <tbody *ngIf="dataTbody">
+            <tr
+              *ngFor="let user of dataTbody; let i = index"
+              class="text-center"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>
+                <img
+                  [src]="
+                    user.avatar ||
+                    'https://api.multiavatar.com/' + user.username + '.png'
+                  "
+                  class="avatar"
+                  alt="Avatar"
+                />
+                <span class="text-truncate">{{ user.username }}</span>
+              </td>
+              <td>{{ user.email }}</td>
+              <td>
+                <span
+                  class="status {{
+                    user.role === 'user'
+                      ? 'text-success'
+                      : 'bg-danger text-white'
+                  }}"
+                  >{{ user.role === "user" ? "người dùng" : "admin" }}</span
+                >
+              </td>
+              <td>
+                <span
+                  [class]="
+                    user.is_active
+                      ? 'status text-success'
+                      : 'status text-white bg-danger'
+                  "
+                  >{{ user.is_active ? "Active" : "InActive" }}
+                </span>
+              </td>
+              <td>
+                <!-- <button class="text-primary">
+                  <a
+                    href="#myModal"
+                    role="button"
+                    class="d-block"
+                    data-bs-toggle="modal"
+                    (click)="handleGetDataById(user._id)"
+                  >
+                    <i class="fa-solid fa-eye"></i
+                  ></a>
+                </button> -->
+                <!-- <a routerLink="/admin/edit-user/{{ user._id }}">
+                  <button class="settings text-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </a>
+                <button
+                  class="delete text-danger"
+                  (click)="handleDelete(user._id!)"
+                >
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>  -->
+          <!-- categories -->
+          <!-- <tbody *ngIf="categories.length > 0">
+            <tr
+              *ngFor="let category of categories; let i = index"
+              class="text-center"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>{{ category.name }}</td>
+              <td>{{ category.slug }}</td>
+              <td>
+                <a routerLink="/admin/edit-category/{{ category._id }}">
+                  <button class="settings text-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </a>
+                <button
+                  class="delete text-danger"
+                  (click)="handleDelete(category._id!)"
+                >
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody> -->
+          <!-- Posts -->
+
+          <tbody >
+            <tr
+              *ngFor="let post of posts; let i = index"
+              class="{{ post.status === 'pending' ? 'bg-FFAF40' : 'bg-red' }}"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>
+                <div class="post__image-group">
+                  <div class="post__image-wrapper">
+                    <img
+                      [src]="urlImage + post.picture"
+                      alt=""
+                      class="mb-1 post__image"
+                    />
+                  </div>
+
+                </div>
+              </td>
+              <td>
+                {{ post.name }}
+              </td>
+              <td>{{ post.address }}</td>
+              <td>
+                {{ post?.price?.toLocaleString() || 0 }} VND
+                </td>
+              <td>
+                <span
+                  class="text-light p-1 rounded {{
+                    post.is_active === true ? 'bg-success' : 'bg-danger'
+                  }}"
+                >
+                  {{ post.status  }}
+                </span>
+              </td>
+              <td style="display: flex; justify-content: center;align-items: center;">
+                <!-- <button class="text-warning" (click)="getPostById(post._id!)" data-toggle="modal"
+                  data-target="#exampleModal"> -->
+                    <button
+                    *ngIf="infoUser.type !== 'FieldOwner' && post.status != 'Approved'"
+                    (click)="handelApproved(post.id!)"
+                  class="text-23BB86"
+                >
+                  <img style="width: 35px;cursor: pointer;" src="../../../assets/images/approved.png"/>
+                </button>
+                <button
+                  class="text-23BB86"
+                  (click)="getPostById(post.id!)"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <a routerLink="/admin/post-edit/{{ post.id }}">
+                  <button class="settings text-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </a>
+                <button
+                 *ngIf="infoUser.type == 'FieldOwner'"
+                  class="delete text-danger"
+                  (click)="handleDelete(post.id!)"
+                >
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+          <!-- Tag -->
+          <tbody *ngIf="tags.length > 0">
+            <tr *ngFor="let tag of tags; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ tag.title }}</td>
+              <td>{{ tag.slug }}</td>
+              <td>
+                <a routerLink="/admin/edit-tag/{{ tag.id }}">
+                  <button class="settings text-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </a>
+                <button class="delete text-danger">
+                  <i
+                    class="fa-sharp fa-solid fa-trash"
+                    (click)="handleDelete(tag.id!)"
+                  ></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+          <!-- Comment -->
+          <tbody *ngIf="comments.length > 0">
+            <tr
+              *ngFor="let comment of comments; let i = index"
+              class="text-center"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>{{ comment.Post.title }}</td>
+              <td>
+                <a href="">
+                  <img
+                    [src]="
+                      comment.Author.avatar ||
+                      'https://api.multiavatar.com/' +
+                        comment.Author.username +
+                        '.png'
+                    "
+                    class="avatar"
+                    alt="Avatar"
+                  />
+                  <span class="text-truncate">{{
+                    comment.Author.username
+                  }}</span>
+                </a>
+              </td>
+              <td>{{ comment.count }}</td>
+              <td>
+                <a routerLink="/admin/view-comment/{{ comment.Post._id }}">
+                  <button class="settings text-primary">
+                    <i class="fa-sharp fa-solid fa-chalkboard-user"></i>
+                  </button>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <!-- Comment Detail-->
+          <tbody *ngIf="viewComments.length > 0">
+            <tr
+              *ngFor="let viewComment of viewComments; let i = index"
+              class="text-center"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>
+                <a href="">
+                  <img
+                    [src]="
+                      viewComment.userId.avatar ||
+                      'https://api.multiavatar.com/' +
+                        viewComment?.userId?.username +
+                        '.png'
+                    "
+                    class="avatar"
+                    alt="Avatar"
+                  />
+                  <span class="text-truncate">{{
+                    viewComment?.userId?.username
+                  }}</span>
+                </a>
+              </td>
+              <td>{{ viewComment.content }}</td>
+              <td>{{ handleFomatDate(viewComment.createdAt) }}</td>
+              <td>
+                <button
+                  class="delete text-danger"
+                  (click)="handleDelete(viewComment._id!)"
+                >
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clearfix mt-4" *ngIf="paginationObj">
+        <div class="hint-text">
+          Showing <b>{{ paginationObj?.limit }}</b> out of
+          <b>{{ paginationObj?.totalDocs }}</b> entries
+        </div>
+        <ul class="pagination d-flex align-items-center gap-2">
+          <li class="page-item">
+            <button
+              [disabled]="!paginationObj?.hasPrevPage"
+              (click)="handlePrevPage()"
+            >
+              Previous
+            </button>
+          </li>
+          <li
+            *ngFor="let item of paginationObj?.totalPagesArray"
+            class="page-item {{
+              paginationObj?.currentPage === item ? 'active' : ''
+            }}"
+          >
+            <button class="page-link" (click)="handleGotoPage(item)">
+              {{ item }}
+            </button>
+          </li>
+          <!-- <li class="page-item"><a routerLink="#" class="page-link">2</a></li>
+          <li class="page-item active">
+            <a routerLink="#" class="page-link">3</a>
+          </li>
+          <li class="page-item"><a routerLink="#" class="page-link">4</a></li>
+          <li class="page-item"><a routerLink="#" class="page-link">5</a></li> -->
+          <li class="page-item">
+            <button
+              [disabled]="!paginationObj?.hasNextPage"
+              (click)="handleNextPage()"
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal add -->
+<!-- <app-layout-modal-admin data-bs-toggle="modal" data-bs-target="#exampleModal" [titleModal]="titleModal"
+  [postInfo]="postInfo"></app-layout-modal-admin> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông tin sân bóng</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="postInfo">
+        <section class="content-detail-posts my-5">
+          <div class="row align-items-center mb-5">
+            <div class="col-sm-12 col-lg-6">
+              <div class="main-img">
+                <img
+                  [src]="urlImage + postInfo.picture"
+                  alt="{{ postInfo.title }}"
+                  class="w-50 post__image-preview"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+              <div class="info">
+                <div class="tag mb-5">
+                  <h2 class="text-6B6B6B text-sm font-600">{{
+                    postInfo.name
+                  }}</h2>
+                </div>
+                <div class="tag mb-2">
+                  <span
+                    class="d-inline-block font-600 bg-F3EDFF text-6B6B6B rounded-4 text-sm px-3"
+                    >address
+                    </span
+                  >
+                  <span
+                    class="d-inline-block font-600 bg-F3EDFF text-6B6B6B rounded-4 text-sm px-3"
+                    >{{ postInfo.address}}</span
+                  >
+                </div>
+                <div class="title mb-3">
+                <span>status : </span>  <span class="text-23BB86 font-600">
+                    {{ postInfo.status }}
+                  </span>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <h6
+                  class=""
+                  style=""
+                >price :</h6>
+                  <span class="text-6B6B6B text-sm font-600">{{
+                    postInfo?.price?.toLocaleString()
+                  }}</span>
+                </div>
+                <div *ngIf="infoUser.type !== 'FieldOwner'" class="d-flex gap-5">
+                   <button *ngIf="postInfo.status != 'Approved'" (click)="handelApproved(postInfo.id!)" class="btn btn-success">
+                    Approve
+                  </button>
+                   <button  *ngIf="postInfo.status != 'Reject'"  (click)="handelRejected(postInfo.id!)" class="btn btn-danger">
+                    Reject
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-posts mx-auto">
+
+            <div class="author mt-5">
+              <div class="row align-items-center">
+                <div class="col-sm-12 col-md-4 mb-4">
+                </div>
+                <div class="col-sm-12 col-md-8">
+                  <div class="infomation">
+                    <div *ngIf="postInfo.status == 'Reject'" class="quote">
+                      <p  style="color:black">
+                          Lý do huỷ : {{postInfo.reason}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

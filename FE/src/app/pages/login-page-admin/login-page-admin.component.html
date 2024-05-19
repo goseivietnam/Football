@@ -1,0 +1,51 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="loginForm" (submit)="handleSubmitLoginForm()" autocomplete="off">
+          <h3 class="lead fw-normal mb-4 me-3 text-center text-uppercase text-2xl">Admin</h3>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="text" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter email address" formControlName="email" />
+            <div
+              *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
+              class="">
+              <p *ngIf="loginForm.get('email')?.errors?.['required']" class="text-danger">
+                Email is required.
+              </p>
+              <p class="text-danger" *ngIf="loginForm.get('email')?.errors?.['email']">
+                Email is invalid.
+              </p>
+            </div>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Password</label>
+            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password"
+              formControlName="password" />
+            <div
+              *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
+              class="text-danger">
+              <p *ngIf="loginForm.get('password')?.errors?.['required']" class="text-danger">
+                Password is required.
+              </p>
+              <p class="text-danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                Password must be at least 6 characters.
+              </p>
+            </div>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" class="btn btn-primary btn-lg w-100" [disabled]="loginForm.invalid"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

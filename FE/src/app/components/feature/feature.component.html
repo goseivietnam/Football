@@ -1,0 +1,129 @@
+<!-- <section class="mb-5">
+  <div class="fet-title mb-4">
+    <h4 class="text-3A1097 font-600 text-2xl">Feature</h4>
+  </div>
+  <div class="row">
+    <ngx-slick-carousel
+      class="carousel gridCheked2"
+      #slickModal="slick-carousel"
+      [config]="slideConfig"
+    >
+      <div
+        class=""
+        *ngFor="let featureItem of featureLists"
+      >
+        <div class="card">
+          <img
+            src="https://png.pngtree.com/background/20210706/original/pngtree-football-stadium-background-picture-image_245394.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ featureItem?.name }}</h5>
+            <p class="card-text">{{ (featureItem && featureItem.description && featureItem.description.length > 20) ? featureItem.description.substring(0, 20) + '...' : (featureItem && featureItem.description || 'No description') }}</p>
+            <a [routerLink]="'/posts/' + featureItem.id" class="btn btn-primary">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</section> -->
+
+<div nh-row="t6120r3" >
+  <div class="row no-gutters">
+    <div class="col-md-12 col-12">
+      <div nh-block="4xb781y" nh-block-cache="false" class="">
+        <div class="pt-40 pb-40 box-playground-vip mb-40">
+          <div class="container">
+            <div class="box-playground-page">
+              <div
+                class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-watch-progress swiper-backface-hidden"
+                nh-swiper='{"slidesPerView":2,"spaceBetween":10,"watchSlidesProgress":true,"autoplay":{"delay":4000,"disableOnInteraction":true,"pauseOnMouseEnter":true},"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev","clickable":true},"breakpoints":{"640":{"slidesPerView":2,"spaceBetween":10},"768":{"slidesPerView":3,"spaceBetween":15},"1024":{"slidesPerView":4,"spaceBetween":15}}}'>
+                <div class="swiper-wrapper" id="swiper-wrapper-d675107716c711938" aria-live="off" style="
+                    transform: translate3d(-306.25px, 0px, 0px);
+                    transition-duration: 0ms;
+                  ">
+                  <div
+                  class=""
+                  *ngFor="let featureItem of featureLists"
+                >
+                <div nh-playground="27461"
+                class="playground-item swiper-slide swiper-slide-visible swiper-slide-active" role="group"
+                aria-label="2 / 6" style="width: 291.25px; margin-right: 15px">
+                <div class="inner-image mb-3">
+                  <div class="ratio-3-2">
+                    <img nh-lazy="image"
+                        class="img-fluid" alt="Sân bóng KAKA Sport khu đô thị Hòa Quý - Đà Nẵng"
+                                [src]="urlImage + featureItem.picture"
+
+                        style="" />
+                  </div>
+                </div>
+                <div class="inner-content">
+                  <div class="playground-title">
+                    <a href="/san-bong-kaka-sport-khu-do-thi-hoa-quy-da-nang-f-vxImX">{{featureItem.name}}</a>
+                  </div>
+                  <div class="address">
+                    <span class="mr-2">Khu vực:</span> {{featureItem.address}}
+                  </div>
+                  <!-- <div class="people-star d-flex align-items-center justify-content-between">
+                    <div class="people">Số sân: 6</div>
+                    <div class="star-item">
+                      <div class="icon">
+                        <svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg><svg width="12" height="12">
+                          <use href="#svg-star"></use>
+                        </svg>
+                      </div>
+                      <div class="number">(1)</div>
+                    </div>
+                  </div> -->
+                  <div class="price mt-2">
+                    <span class="price-amount"></span>
+                  </div>
+                  <div class="playground-time">
+                    <span class="title">Giá</span>
+                    <div class="inner-time">
+                      <div class="list-time">
+                        <div class="time">{{featureItem.price?.toLocaleString()}} VNĐ</div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-bottom">
+                    <a class="btn-item btn-main" [routerLink]="'/posts/' + featureItem.id"
+                      title="">Đặt nhanh kẻo muộn</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,31 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -500px; /* Drawer ẩn ban đầu */
+  width: 500px;
+  height: 100%;
+  background-color: rgb(182, 174, 174);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.drawer.opened {
+  right: 0; /* Hiện drawer khi có class opened */
+}
+.drawer-content {
+  padding: 20px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-color: red;
+}
+h3 {
+  color: white !important;
+}
+.xass {
+  border-bottom: 1px solid black;
+}

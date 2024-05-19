@@ -1,0 +1,9 @@
+<div class="container-fuild containerxaxa">
+  <div *ngIf="loader.isLoading | async" id="loading-wrapper">
+    <div id="loading-text">LOADING</div>
+    <div id="loading-content"></div>
+  </div>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</div>

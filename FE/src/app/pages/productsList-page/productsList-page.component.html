@@ -1,0 +1,215 @@
+<!-- <app-product-feature></app-product-feature> -->
+<div class="main_wrapper   ">
+
+  <div class=" container_main_wrapper">
+
+    <div class="main-area main-area-1col main-area-full">
+
+
+
+      <div class="container cls wrapper_product_cat">
+        <div class="filter_products_cat">
+
+
+          <div class="field_titlee">
+            <div class="title-name">
+              <div class="cat-title">
+                <div class="cat-title-main" id="cat-san-bong-da">
+                  <div class="icon-filter">
+
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+
+        <div class="block_products_filter_mobile_tt cls">
+          <div class="filter-mobile-click">
+            <svg width="25px" height="25px" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512"
+              style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path
+                    d="M276,246c-5.52,0-10,4.48-10,10c0,5.52,4.48,10,10,10c5.52,0,10-4.48,10-10C286,250.48,281.52,246,276,246z">
+                  </path>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path
+                    d="M472,26H40C17.944,26,0,43.944,0,66c0,22.097,17.898,40,40,40h11.194L206,299.508V476c0,3.466,1.795,6.685,4.743,8.506    c2.948,1.823,6.63,1.987,9.729,0.438l80-40C303.86,443.25,306,439.788,306,436V299.508L460.806,106H472c22.056,0,40-17.944,40-40    C512,43.903,494.102,26,472,26z M286,429.82l-60,30V306h60V429.82z M291.193,286h-70.387l-144-180h358.388L291.193,286z M472,86    H40c-11.045,0-20-8.954-20-20c0-11.028,8.972-20,20-20h432c11.045,0,20,8.954,20,20C492,77.028,483.028,86,472,86z">
+                  </path>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path
+                    d="M379.027,128.191c-4.312-3.451-10.606-2.75-14.056,1.562l-71.33,89.16c-3.45,4.313-2.75,10.606,1.562,14.056    c4.304,3.443,10.598,2.76,14.056-1.562l71.33-89.16C384.039,137.934,383.34,131.642,379.027,128.191z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            Lọc sân
+          </div>
+          <div class="order-select-mb">
+            <div class="order-select">
+              <a title="Giá thấp" href="https://datsantructuyen.vn/san-bong-da-pc7/sap-xep-gia-thap-nhat.html"
+                class="">Giá thấp</a>
+              <a title="Giá cao" href="https://datsantructuyen.vn/san-bong-da-pc7/sap-xep-gia-cao-nhat.html"
+                class="">Giá cao</a>
+              <a title="Mới nhất" href="https://datsantructuyen.vn/san-bong-da-pc7/sap-xep-moi-nhat.html" class="">Mới
+                nhất</a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="products-cat ">
+          <h1 class="title_h1">Sân Bóng đá</h1>
+
+
+          <article class="summary_cat cls">
+            <div class="summary_content description">
+              <p>Danh sách sân bóng đá mini cỏ nhân tạo toàn quốc</p>
+
+              <blockquote>
+                <p>Hữu ích&nbsp;<a href="https://vecgroup.vn/chi-phi-lam-san-co-nhan-tao-ld35.html">Báo giá thi công sân
+                    cỏ nhân tạo</a>&nbsp;và <a
+                    href="https://vecgroup.vn/thi-cong/thi-cong-san-co-nhan-tao-n140.html">quy trình thi công sân cỏ
+                    nhân tạo</a></p>
+              </blockquote>
+            </div>
+          </article>
+
+
+
+          <div class="clear"></div>
+
+          <section class="products-cat-frame">
+            <div class="products-cat-frame-inner">
+              <div class="product_grid product_grid_cat">
+
+                <div
+                class=""
+                *ngFor="let featureItem of posts"
+              >
+                <div [routerLink]="['/posts', featureItem.id]"  class="item ">
+
+                  <figure class="product_image ">
+                      <img style="width: 300px; height: 195px;" alt="Sân Bóng Đền Lừ 3"
+                          [src]="urlImage + featureItem.picture">
+                  </figure>
+                  <div class="product_info">
+                    <h3>
+                      <a
+                        title="Sân Bóng Đền Lừ 3" class="name">
+                        {{featureItem.name}} </a>
+                    </h3>
+
+                    <div class="rate-item">
+                      <span class="star-on star">
+                        <svg width="20px" height="20px" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                          class="svg-inline--fa fa-star fa-w-18">
+                          <path fill="currentColor"
+                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                            class=""></path>
+                        </svg>
+                      </span>
+                      <span class="star-on star">
+                        <svg width="20px" height="20px" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                          class="svg-inline--fa fa-star fa-w-18">
+                          <path fill="currentColor"
+                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                            class=""></path>
+                        </svg>
+                      </span>
+                      <span class="star-on star">
+                        <svg width="20px" height="20px" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                          class="svg-inline--fa fa-star fa-w-18">
+                          <path fill="currentColor"
+                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                            class=""></path>
+                        </svg>
+                      </span>
+                      <span class="star-on star">
+                        <svg width="20px" height="20px" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                          class="svg-inline--fa fa-star fa-w-18">
+                          <path fill="currentColor"
+                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                            class=""></path>
+                        </svg>
+                      </span>
+                      <span class="star-on star">
+                        <svg width="20px" height="20px" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                          class="svg-inline--fa fa-star fa-w-18">
+                          <path fill="currentColor"
+                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                            class=""></path>
+                        </svg>
+                      </span>
+                    </div>
+
+                    <div class="address_item">
+                      <strong>Địa chỉ:</strong> {{featureItem.address}}
+                    </div>
+
+                    <div class="people_rate cls">
+                      <div class="people_item">
+                        <strong>Điểm nhấn:</strong> Sân mới đầu tư | Đẹp &amp; Hiện đại
+                      </div>
+                    </div>
+
+
+                    <div class="price_arae cls">
+                      <div class="price_txt"><strong>Giá tham khảo</strong></div>
+                      <div class="price_min">{{featureItem.price?.toLocaleString()}} VND</div>
+                      <div class="unit">/ Trận</div>
+                    </div>
+
+                    <div class="distance hide">
+                      <svg x="0px" y="0px" viewBox="0 0 54.757 54.757" style="enable-background:new 0 0 54.757 54.757;"
+                        xml:space="preserve">
+                        <path
+                          d="M40.94,5.617C37.318,1.995,32.502,0,27.38,0c-5.123,0-9.938,1.995-13.56,5.617c-6.703,6.702-7.536,19.312-1.804,26.952  L27.38,54.757L42.721,32.6C48.476,24.929,47.643,12.319,40.94,5.617z M27.557,26c-3.859,0-7-3.141-7-7s3.141-7,7-7s7,3.141,7,7  S31.416,26,27.557,26z">
+                        </path>
+                        <g>
+                        </g>
+                      </svg>Cách 1,4 km
+                    </div>
+
+
+
+                    <a [routerLink]="'/posts/' + featureItem.id"
+                      title="Xem chi tiết Sân Bóng Đền Lừ 3" class="view-more">
+                      Xem chi tiết <span>Đặt sân</span>
+                    </a>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                </div>
+
+                <div class="clear"></div>
+              </div><!--end: .vertical-->
+
+            </div>
+
+          </section>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="clear"></div>
+</div>
