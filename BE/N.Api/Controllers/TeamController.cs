@@ -2,13 +2,11 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using N.Api.ViewModels;
 using N.Model.Entities;
-using N.Service.TeamService;
-using N.Service.TeamService.Dto;
+using N.Service.BookingService;
 using N.Service.Common;
 using N.Service.Dto;
-using N.Service.BookingService;
-using N.Service.InviteService.Dto;
-using BitMiracle.LibTiff.Classic;
+using N.Service.TeamService;
+using N.Service.TeamService.Dto;
 
 namespace N.Controllers
 {

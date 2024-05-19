@@ -11,19 +11,22 @@ import { TeamserviceService } from 'src/app/services/team/teamservice.service';
   styleUrls: ['./details-danhsach.component.scss'],
 })
 export class DetailsDanhsachComponent {
-  title: string = 'Tất cả Dánh sách mời';
+  title: string = 'Tất cả danh sách mời';
   title2: string = 'Tất cả bạn đã mời';
   checkShowHide: boolean = false;
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên team', 'số điện thoại', 'level', 'tuổi'];
+  theadTable: string[] = ['STT', 'Tên team', 'Số điện thoại', 'Level', 'Tuổi', 'Tên sân', 'Địa chỉ sân', 'Thời gian thuê'];
   theadTable2: string[] = [
     'STT',
-    'team mời',
-    'level',
-    'tuổi',
+    'Team mời',
+    'Level',
+    'Tuổi',
     'SĐT team mời',
-    'team được mời',
-    'action',
+    'Team được mời',
+    'Tên sân',
+    'Địa chỉ sân',
+    'Thời gian thuê',
+    'Action',
   ];
 
   team: any[] = [];
@@ -82,6 +85,9 @@ export class DetailsDanhsachComponent {
             age: value.team.age,
             level: value.team.level,
             phone: value.team.phone,
+            fieldName: value.team.fieldName,
+            fieldAddress: value.team.fieldAddress,
+            fieldCreatedDate: value.team.fieldCreatedDate,
             accepted: value.accepted,
           });
         }
@@ -113,6 +119,9 @@ export class DetailsDanhsachComponent {
           levelMyTeam: v1.inviteTeam.level,
           phoneMyTeam: v1.inviteTeam.phone,
           ageMyteam: v1.inviteTeam.age,
+          fieldName: v1.team.fieldName,
+          fieldAddress: v1.team.fieldAddress,
+          fieldCreatedDate: v1.team.fieldCreatedDate
         });
       }
       console.log(newResult, 'newResult');

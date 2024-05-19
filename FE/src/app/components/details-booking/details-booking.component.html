@@ -78,15 +78,18 @@ Tạo hoá đơn
                   <tr>
                     <th style="border:1px solid #ccc"  scope="col">STT</th>
                     <th style="border:1px solid #ccc" scope="col">Tên dịch vụ</th>
-                    <th style="border:1px solid #ccc" scope="col">Giá tiển</th>
-
+                    <th style="border:1px solid #ccc" scope="col">Số lượng</th>
+                    <th style="border:1px solid #ccc" scope="col">Giá tiền</th>
+                    <th style="border:1px solid #ccc" scope="col">Thành tiển</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let icC of this.dataBooking.services ; let i =  index">
                     <td  style="border:1px solid #ccc">{{i + 1}}</td>
                     <td style="border:1px solid #ccc">{{icC.serviceName}}</td>
-                    <td style="border:1px solid #ccc">{{icC?.price?.toLocaleString() || 0}}</td>
+                    <td style="border:1px solid #ccc">1</td>
+                    <td style="border:1px solid #ccc">{{icC.price?.toLocaleString() || 0}}</td>
+                    <td style="border:1px solid #ccc">{{icC.price * 1}}</td>
                   </tr>
                 </tbody>
               </table>
