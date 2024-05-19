@@ -80,9 +80,11 @@ namespace N.Service.TeamService
         }
 
         public DataResponse<TeamDto> GetDto(Guid? id)
-        {
+        {            
             var query = from q in GetQueryable()
                         .Where(x => x.Id == id)
+                        join field in _fieldRepository.GetQueryable()
+                        on q.UserId equals field.UserId
                         select new TeamDto()
                         {
                             Id = q.Id,
@@ -93,15 +95,18 @@ namespace N.Service.TeamService
                             Age = q.Age,
                             FieldId = q.FieldId,
                             Level = q.Level,
+                            FieldName = field.Name,
+                            FieldAddress = field.Address,
+                            FieldCreatedDate = field.CreatedDate
                         };
+
             var data = query.FirstOrDefault();
-            if (data != null)
+
+            if (data != null && data.FieldId.HasValue)
             {
-                if (data.FieldId.HasValue)
-                {
-                    data.Field = _fieldRepository.GetById(data.FieldId.Value);
-                }
+                data.Field = _fieldRepository.GetById(data.FieldId.Value);
             }
+
             return new DataResponse<TeamDto>()
             {
                 Success = true,

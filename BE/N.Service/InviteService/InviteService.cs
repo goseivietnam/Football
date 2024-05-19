@@ -1,13 +1,12 @@
 using N.Model.Entities;
 using N.Repository.InviteRepository;
-using N.Service.Common.Service;
-using N.Service.InviteService.Dto;
-using N.Service.Common;
-using N.Service.Dto;
 using N.Repository.NDirectoryRepository;
 using N.Repository.TeamRepository;
-using N.Repository.BookingRepository;
 using N.Service.BookingService;
+using N.Service.Common;
+using N.Service.Common.Service;
+using N.Service.Dto;
+using N.Service.InviteService.Dto;
 
 namespace N.Service.InviteService
 {
@@ -16,17 +15,20 @@ namespace N.Service.InviteService
         private readonly IUserRepository _userRepository;
         private readonly ITeamRepository _teamRepository;
         private readonly IBookingService _bookingService;
+        private readonly IFieldRepository _fieldRepository;
 
         public InviteService(
             IUserRepository userRepository,
             ITeamRepository teamRepository,
             IInviteRepository inviteRepository,
-            IBookingService bookingService
+            IBookingService bookingService,
+            IFieldRepository fieldRepository
             ) : base(inviteRepository)
         {
             this._userRepository = userRepository;
             this._teamRepository = teamRepository;
             this._bookingService = bookingService;
+            this._fieldRepository = fieldRepository;
         }
 
         public async Task<DataResponse<PagedList<InviteDto>>> GetData(InviteSearch search)
@@ -38,6 +40,8 @@ namespace N.Service.InviteService
                             on q.TeamId equals team.Id
                             join inviteTeam in _teamRepository.GetQueryable()
                             on q.InviteTeamId equals inviteTeam.Id
+                            join field in _fieldRepository.GetQueryable()
+                            on team.UserId equals field.UserId
                             select new InviteDto()
                             {
                                 Id = q.Id,
@@ -50,8 +54,10 @@ namespace N.Service.InviteService
                                 BookingId = q.BookingId,
                                 InviteTeam = inviteTeam,
                                 CreatedDate = q.CreatedDate,
+                                FieldName = field.Name,
+                                FieldAddress = field.Address,
+                                FieldCreatedDate = field.CreatedDate
                             };
-
 
                 if (search.All == true)
                 {

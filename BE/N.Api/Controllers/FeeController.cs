@@ -3,11 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using N.Api.ViewModels;
 using N.Model.Entities;
-using N.Service.Common;
 using N.Service.Dto;
-using N.Service.FieldAreaService.Dto;
 using N.Service.ServiceFeeService;
-using N.Service.ServiceFeeService.Dto;
 
 namespace N.Controllers
 {

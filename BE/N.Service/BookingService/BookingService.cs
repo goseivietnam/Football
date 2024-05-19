@@ -139,15 +139,18 @@ namespace N.Service.BookingService
                            FieldServiceFeeId = x.FieldServiceFeeId,
                            Price = x.Price,
                        }).ToList();
+
                 foreach (var payment in payments)
                 {
                     payment.FieldService = (await _fieldServiceFeeService.GetDto(payment.FieldServiceFeeId ?? Guid.Empty)).Data;
                 }
+
                 query.Services = payments;
 
                 if (query.Services != null && query.Services.Any())
                 {
                     query.Price = query.Price ?? 0;
+
                     foreach (var item in query.Services)
                     {
                         query.Price += item.Price ?? 0;

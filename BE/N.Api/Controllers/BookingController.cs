@@ -1,6 +1,5 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using N.Api.ViewModels;
 using N.Model.Entities;
 using N.Service.BookingService;
@@ -9,7 +8,6 @@ using N.Service.Common;
 using N.Service.Constant;
 using N.Service.Dto;
 using N.Service.FieladService;
-using N.Service.FieldService.Dto;
 using N.Service.FieldServiceFeeService;
 using N.Service.PaymentService;
 using N.Service.ServiceFeePaymentService;
