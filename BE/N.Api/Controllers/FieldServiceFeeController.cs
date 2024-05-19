@@ -6,6 +6,7 @@ using N.Service.FieldServiceFeeService;
 using N.Service.FieldServiceFeeService.Dto;
 using N.Service.Common;
 using N.Service.Dto;
+using N.Service.ServiceFeePaymentService;
 
 namespace N.Controllers
 {
@@ -13,17 +14,20 @@ namespace N.Controllers
     public class FieldServiceFeeController : NController
     {
         private readonly IFieldServiceFeeService _fieldServiceFeeService;
+        private readonly IServiceFeePaymentService _serviceFeePaymentService;
         private readonly IMapper _mapper;
         private readonly ILogger<FieldServiceFeeController> _logger;
 
 
         public FieldServiceFeeController(
             IFieldServiceFeeService fieldServiceFeeService,
+            IServiceFeePaymentService serviceFeePaymentService,
             IMapper mapper,
             ILogger<FieldServiceFeeController> logger
             )
         {
             this._fieldServiceFeeService = fieldServiceFeeService;
+            this._serviceFeePaymentService = serviceFeePaymentService;
             this._mapper = mapper;
             _logger = logger;
         }
@@ -35,14 +39,33 @@ namespace N.Controllers
             {
                 try
                 {
+                    var fieldServiceId = Guid.NewGuid();
+
                     var entity = new FieldServiceFee()
                     {
+                        Id = fieldServiceId,
                         Price = model.Price,
                         FieldId = model.FieldId,
                         ServiceFeeId = model.ServiceFeeId,
                     };
 
                     await _fieldServiceFeeService.Create(entity);
+
+                    //Thêm dòng vào ServiceFeePayment
+                    if (model.BookingId.HasValue)
+                    {
+                        var serviceFeePaymentEntity = new ServiceFeePayment
+                        {
+                            FieldServiceFeeId = fieldServiceId,
+                            BookingId = model.BookingId,
+                            Price = model.Price,
+                            DateTime = DateTime.Now,
+                            CreatedDate = DateTime.Now
+                        };
+
+                        await _serviceFeePaymentService.Create(serviceFeePaymentEntity);
+                    }                 
+
                     return new DataResponse<FieldServiceFee>() { Data = entity, Success = true };
                 }
                 catch (Exception ex)

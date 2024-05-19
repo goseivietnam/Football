@@ -7,5 +7,7 @@ namespace N.Api.ViewModels
         public Guid? ServiceFeeId { get; set; }
         public Guid? FieldId { get; set; }
         public float? Price { get; set; }
+        public Guid? BookingId { get; set; }
+        public int Quantity { get; set; }
     }
 }

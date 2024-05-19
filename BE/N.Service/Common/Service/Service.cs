@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using N.Model.Entities;
-using N.Model;
+﻿using N.Model.Entities;
 using N.Repository;
 using System.Linq.Expressions;
-using System;
 
 namespace N.Service.Common.Service
 {
