@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using N.Api.ViewModels;
 using N.Model.Entities;
 using N.Service.BookingService;
@@ -123,9 +124,9 @@ namespace N.Controllers
         }
 
         [HttpGet("GetByUser")]
-        public DataResponse<List<Team>> GetByUser()
+        public async Task<DataResponse<List<Team>>> GetByUser()
         {
-            var teams = _teamService.GetQueryable().Where(x => x.UserId == UserId).ToList();
+            var teams = await _teamService.GetQueryable().Where(x => x.UserId == UserId).ToListAsync();
             return DataResponse<List<Team>>.True(teams);
         }
 

@@ -6,6 +6,6 @@ namespace N.Api.ViewModels
     {
         public Guid? Id { get; set; }
         public float? Price { get; set; }
-
+        public int Quantity { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using N.Model.Entities;
 using N.Repository.BookingRepository;
 using N.Repository.InviteRepository;
@@ -47,7 +48,7 @@ namespace N.Service.InviteService
                             join book in _bookingRepository.GetQueryable()
                             on team.UserId equals book.UserId
                             join field in _fieldRepository.GetQueryable()
-                            on book.FieldId equals field.Id                           
+                            on book.FieldId equals field.Id
                             select new InviteDto()
                             {
                                 Id = q.Id,
@@ -65,24 +66,21 @@ namespace N.Service.InviteService
                                 RentalPeriod = $"{book.Start} - {book.End}"
                             };
 
-                if (search.All == true)
-                {
-
-                }
-                else
+                if (search.Accept != null)
                 {
                     query = query.Where(x => x.Accepted == search.Accept);
-                }
+                }               
+
                 if (search.UserId.HasValue)
                 {
-                    query = query.Where(x => x.InviteTeam != null && x.InviteTeam.UserId == search.UserId);
-
+                    query = query.Where(x => x.Team != null && x.Team.UserId == search.UserId);
                 }
+
                 if (search.UserInviteId.HasValue)
                 {
                     query = query.Where(x => x.Team != null && x.Team.UserId == search.UserId);
-
                 }
+
                 query = query.OrderByDescending(x => x.CreatedDate);
 
                 var result = PagedList<InviteDto>.Create(query, search);

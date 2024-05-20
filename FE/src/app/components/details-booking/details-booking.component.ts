@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FeeServiceService } from 'src/app/services/feeService/fee-service.service';
 import { OrderService } from 'src/app/services/order/order.service';
 import { environment } from 'src/environment';
 import * as XLSX from 'xlsx';
@@ -14,13 +15,18 @@ export class DetailsBookingComponent {
   checkUserOrAdmin: boolean = false;
   priceStake: number = 0;
   dataBooking: any;
+  //Tổng tiền dịch vụ
+  totalFeeServiceAmount: any = 0;
+  //Tổng tiền còn thanh toán
+  totalAmount: any = 0;
   urlImage: string = environment.API_URL + '/root/';
   dataToExport: any;
   constructor(
     private orderService: OrderService,
-    private params: ActivatedRoute
+    private params: ActivatedRoute,
+    private feeService: FeeServiceService,
   ) {
-    this.dataBooking = JSON.parse(localStorage.getItem('booking')|| '{}')
+    this.dataBooking = JSON.parse(localStorage.getItem('booking') || '{}')
 
     this.params.queryParams.subscribe((params) => {
       const userId = params['user'];
@@ -35,10 +41,11 @@ export class DetailsBookingComponent {
   handelGetDetailsBooking() {
     var id = this.params.snapshot.params['id'];
     this.orderService.getDetailsBooking(id).subscribe((data: any) => {
-      console.log(data);
+
       if (data.data.deposited == true) {
         this.checkUserOrAdmin = true;
       }
+
       this.priceStake = data.data.price / 10;
       this.dataDetails = data.data;
       this.dataToExport = {
@@ -48,13 +55,37 @@ export class DetailsBookingComponent {
         endDate: data.data.end,
         nameField: data.data.field.name,
       };
+
+      if (!this.dataDetails.field) {
+        this.dataDetails.field = {};
+      }
+
+      if (!this.dataDetails.user) {
+        this.dataDetails.user = {};
+      }
+
+      if (!this.dataDetails.price) { this.dataDetails.price = 0; }
+
+      if (!this.priceStake) { this.priceStake = 0; }
+
+      this.totalFeeServiceAmount = 0;
+
+      if (this.dataDetails.services && Array.isArray(this.dataDetails.services)) {
+        this.dataDetails.services.forEach((item: any) => {
+          this.totalFeeServiceAmount += (item.price ?? 0) * (item.quantity ?? 1);
+        });
+      }
+
+      this.totalAmount = this.totalFeeServiceAmount + this.dataDetails.price - this.priceStake;
     });
-    console.log(this.dataBooking,'dataBooking')
+    
+    console.log(this.dataBooking, 'dataBooking')
   }
+
   exportToExcel(): void {
-    const excelData : any[] = [];
-    Array(this.dataBooking).forEach((booking : any) => {
-      const services = booking.services.map((service  : any)=> service.serviceName).join('\n');
+    const excelData: any[] = [];
+    Array(this.dataBooking).forEach((booking: any) => {
+      const services = booking.services.map((service: any) => service.serviceName).join('\n');
       const row = {
         fieldId: booking.fieldId,
         start: booking.start,

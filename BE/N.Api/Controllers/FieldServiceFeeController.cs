@@ -47,6 +47,7 @@ namespace N.Controllers
                         Price = model.Price,
                         FieldId = model.FieldId,
                         ServiceFeeId = model.ServiceFeeId,
+                        Quantity = model.Quantity
                     };
 
                     await _fieldServiceFeeService.Create(entity);
@@ -87,6 +88,7 @@ namespace N.Controllers
                     if (entity == null)
                         return DataResponse<FieldServiceFee>.False("FieldServiceFee not found");
                     entity.Price = model.Price;
+                    entity.Quantity = model.Quantity;
                     await _fieldServiceFeeService.Update(entity);
                     return new DataResponse<FieldServiceFee>() { Data = entity, Success = true };
                 }

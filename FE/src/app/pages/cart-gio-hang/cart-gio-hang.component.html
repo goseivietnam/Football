@@ -78,7 +78,6 @@
                           </td>
                           <td style="border-right:1px solid #ccc">
                             <h6 class="mb-0">{{ item.end}} </h6>
-
                           </td>
                           <td style="border-right:1px solid #ccc">
                             <h6 class="mb-0">{{ item.deposited== true ? "Đã cọc":item.status}} </h6>
@@ -89,7 +88,7 @@
                               <button [routerLink]="'/details-book/' +  item.id" [queryParams]="{ user: 1 }"
                                 style="margin-top:10px; background-color:#ccc;margin-bottom:4px;width: 100%;"
                                 type="button" class=" btn btn-dark">
-                                chi tiết
+                                Chi tiết
                               </button>
                             </div>
                             <div *ngIf="item.status  !== 'Pair'" class="">

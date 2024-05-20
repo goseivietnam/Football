@@ -18,6 +18,8 @@ import { DetailsDanhsachComponent } from 'src/app/components/details-danhsach/de
 import { DetailsDtComponent } from 'src/app/components/details-dt/details-dt.component';
 import { InvitebymeComponent } from 'src/app/components/invitebyme/invitebyme.component';
 import { DetailsBookingComponent } from 'src/app/components/details-booking/details-booking.component';
+import { CreateFeeServiceComponent } from 'src/app/components/create-fee-service/create-fee-service.component';
+import { EditFeeServiceComponent } from 'src/app/components/edit-fee-service/edit-fee-service.component';
 
 const routes: Routes = [
   {
@@ -87,6 +89,14 @@ const routes: Routes = [
   {
     path: 'create-team/byme',
     component: InvitebymeComponent,
+  },
+  {
+    path: 'create-fee-service/:id',
+    component: CreateFeeServiceComponent,
+  },
+  {
+    path: 'edit-fee-service/:id',
+    component: EditFeeServiceComponent,
   },
 ];
 

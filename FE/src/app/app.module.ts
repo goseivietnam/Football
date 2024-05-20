@@ -82,6 +82,8 @@ import { PriceDialogComponent } from './components/price-dialog/price-dialog.com
 import { InvitebymeComponent } from './components/invitebyme/invitebyme.component';
 import { DetailsBookingComponent } from './components/details-booking/details-booking.component';
 import { DetailsFieldAreaComponent } from './components/details-field-area/details-field-area.component';
+import { CreateFeeServiceComponent } from './components/create-fee-service/create-fee-service.component';
+import { EditFeeServiceComponent } from './components/edit-fee-service/edit-fee-service.component';
 
 @NgModule({
   declarations: [
@@ -142,6 +144,8 @@ import { DetailsFieldAreaComponent } from './components/details-field-area/detai
     InvitebymeComponent,
     DetailsBookingComponent,
     DetailsFieldAreaComponent,
+    CreateFeeServiceComponent,
+    EditFeeServiceComponent,
   ],
   imports: [
     BrowserModule,

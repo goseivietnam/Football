@@ -84,12 +84,28 @@ Tạo hoá đơn
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let icC of this.dataDetails.services ; let i =  index">
-                    <td  style="border:1px solid #ccc">{{i + 1}}</td>
+                  <tr *ngFor="let icC of this.dataDetails.services; let i = index">
+                    <td style="border:1px solid #ccc">{{i + 1}}</td>
                     <td style="border:1px solid #ccc">{{icC.serviceName}}</td>
-                    <td style="border:1px solid #ccc">1</td>
-                    <td style="border:1px solid #ccc">{{icC.price?.toLocaleString() || 0}}</td>
-                    <td style="border:1px solid #ccc">{{icC.price * 1}}</td>
+                    <td style="border:1px solid #ccc">{{icC.Quantity || 1}}</td>                  
+                    <td style="border:1px solid #ccc">{{icC.price.toLocaleString() || 0}}</td>
+                    <td style="border:1px solid #ccc">{{(icC.price || 0) * (icC.quantity || 1)}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: right;"><strong>Tổng tiền dịch vụ:</strong></td>
+                    <td>{{totalFeeServiceAmount.toLocaleString()}} VND</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: right;"><strong>Tổng tiền thuê sân:</strong></td>
+                    <td>{{dataDetails.price.toLocaleString()}} VND</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: right;"><strong>Tiền đã đặt cọc:</strong></td>
+                    <td>{{priceStake.toLocaleString()}} VND</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: right;"><strong>Tổng tiền thanh toán:</strong></td>
+                    <td>{{totalAmount.toLocaleString()}} VND</td>
                   </tr>
                 </tbody>
               </table>

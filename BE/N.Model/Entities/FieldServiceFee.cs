@@ -7,5 +7,6 @@ namespace N.Model.Entities
         public Guid? ServiceFeeId { get; set; }
         public Guid? FieldId { get; set; }
         public float? Price { get; set; }
+        public int Quantity { get; set; }
     }
 }

@@ -80,8 +80,10 @@ namespace N.Service.TeamService
         }
 
         public DataResponse<TeamDto> GetDto(Guid? id)
-        {          
-            var query = from q in GetQueryable()
+        {
+            var teams = GetQueryable();
+
+            var query = from q in teams
                         .Where(x => x.Id == id)
                         join book in _bookingRepository.GetQueryable()
                         on q.UserId equals book.UserId
@@ -103,6 +105,21 @@ namespace N.Service.TeamService
                         };
 
             var data = query.FirstOrDefault();
+
+            if (data == null)
+            {
+                data = teams.Where(x => x.Id == id).Select(y => new TeamDto
+                {
+                    Id = y.Id,
+                    UserId = y.UserId,
+                    Description = y.Description,
+                    Name = y.Name,
+                    Phone = y.Phone,
+                    Age = y.Age,
+                    FieldId = y.FieldId,
+                    Level = y.Level
+                }).ToList().FirstOrDefault();
+            }
 
             if (data != null && data.FieldId.HasValue)
             {
