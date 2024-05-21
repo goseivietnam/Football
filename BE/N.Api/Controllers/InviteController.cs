@@ -188,7 +188,7 @@ namespace N.Controllers
             {
                 UserInviteId = UserId,
                 PageSize = 10000,
-                Accept = true,
+                Accept = false,
                 All = null,
             });
         }

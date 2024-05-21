@@ -8,6 +8,7 @@ using N.Service.BookingService;
 using N.Service.Common;
 using N.Service.Common.Service;
 using N.Service.Dto;
+using N.Service.FieldService.Dto;
 using N.Service.InviteService.Dto;
 
 namespace N.Service.InviteService
@@ -45,10 +46,10 @@ namespace N.Service.InviteService
                             on q.TeamId equals team.Id
                             join inviteTeam in _teamRepository.GetQueryable()
                             on q.InviteTeamId equals inviteTeam.Id
-                            join book in _bookingRepository.GetQueryable()
-                            on team.UserId equals book.UserId
-                            join field in _fieldRepository.GetQueryable()
-                            on book.FieldId equals field.Id
+                            //join book in _bookingRepository.GetQueryable()
+                            //on team.UserId equals book.UserId
+                            //join field in _fieldRepository.GetQueryable()
+                            //on book.FieldId equals field.Id
                             select new InviteDto()
                             {
                                 Id = q.Id,
@@ -61,24 +62,24 @@ namespace N.Service.InviteService
                                 BookingId = q.BookingId,
                                 InviteTeam = inviteTeam,
                                 CreatedDate = q.CreatedDate,
-                                FieldName = field.Name,
-                                FieldAddress = field.Address,
-                                RentalPeriod = $"{book.Start} - {book.End}"
+                                //FieldName = field.Name,
+                                //FieldAddress = field.Address,
+                                //RentalPeriod = $"{book.Start} - {book.End}"
                             };
 
                 if (search.Accept != null)
                 {
                     query = query.Where(x => x.Accepted == search.Accept);
-                }               
+                }
 
                 if (search.UserId.HasValue)
                 {
-                    query = query.Where(x => x.Team != null && x.Team.UserId == search.UserId);
+                    query = query.Where(x => x.InviteTeam != null && x.InviteTeam.UserId == search.UserId);
                 }
 
                 if (search.UserInviteId.HasValue)
                 {
-                    query = query.Where(x => x.Team != null && x.Team.UserId == search.UserId);
+                    query = query.Where(x => x.Team != null && x.Team.UserId == search.UserInviteId);
                 }
 
                 query = query.OrderByDescending(x => x.CreatedDate);
@@ -90,6 +91,15 @@ namespace N.Service.InviteService
                     if (item.BookingId.HasValue)
                     {
                         item.Booking = (await _bookingService.GetDto(item.BookingId.Value)).Data;
+
+                        var field = _fieldRepository.GetById((Guid)item.Booking.FieldId);
+
+                        if (field != null)
+                        {
+                            item.FieldName = field.Name;
+                            item.FieldAddress = field.Address;
+                            item.RentalPeriod = $"{item.Booking.Start} - {item.Booking.End}";
+                        }
                     }
                 }
 

@@ -85,9 +85,9 @@ export class DetailsDanhsachComponent {
             age: value.team.age,
             level: value.team.level,
             phone: value.team.phone,
-            fieldName: value.team.fieldName,
-            fieldAddress: value.team.fieldAddress,
-            rentalPeriod: value.team.rentalPeriod,
+            fieldName: value.fieldName,
+            fieldAddress: value.fieldAddress,
+            rentalPeriod: value.rentalPeriod,
             accepted: value.accepted,
           });
         }
@@ -105,28 +105,54 @@ export class DetailsDanhsachComponent {
     });
   }
   getInviteByMe() {
-    this.TeamserviceService.getInvitWithMe().subscribe((team) => {
-      var newResult = [];
-      for (const v1 of team.data.items) {
-        newResult.push({
-          teamId: v1.team.id,
-          name: v1.team.name,
-          level: v1.team.level,
-          age: v1.team.age,
-          phone: v1.team.phone,
-          myTeamId: v1.inviteTeam.id,
-          nameMyTeam: v1.inviteTeam.name,
-          levelMyTeam: v1.inviteTeam.level,
-          phoneMyTeam: v1.inviteTeam.phone,
-          ageMyteam: v1.inviteTeam.age,
-          fieldName: v1.team.fieldName,
-          fieldAddress: v1.team.fieldAddress,
-          rentalPeriod: v1.team.rentalPeriod
-        });
-      }
-      console.log(newResult, 'newResult');
-      this.inviteMe = newResult;
-    });
+    this.acceptValue = this.route.snapshot.queryParamMap.get('accept');
+    if( this.acceptValue == '2' || this.acceptValue == '5' || this.acceptValue == '6' ){
+      this.TeamserviceService.getInvitedWithMe().subscribe((team) => {
+        var newResult = [];
+        for (const v1 of team.data.items) {
+          newResult.push({
+            teamId: v1.team.id,
+            name: v1.team.name,
+            level: v1.team.level,
+            age: v1.team.age,
+            phone: v1.team.phone,
+            myTeamId: v1.inviteTeam.id,
+            nameMyTeam: v1.inviteTeam.name,
+            levelMyTeam: v1.inviteTeam.level,
+            phoneMyTeam: v1.inviteTeam.phone,
+            ageMyteam: v1.inviteTeam.age,
+            fieldName: v1.fieldName,
+            fieldAddress: v1.fieldAddress,
+            rentalPeriod: v1.rentalPeriod
+          });
+        }
+        console.log(newResult, 'newResult');
+        this.inviteMe = newResult;
+      });
+    }else {
+      this.TeamserviceService.getInvitWithMe().subscribe((team) => {
+        var newResult = [];
+        for (const v1 of team.data.items) {
+          newResult.push({
+            teamId: v1.team.id,
+            name: v1.team.name,
+            level: v1.team.level,
+            age: v1.team.age,
+            phone: v1.team.phone,
+            myTeamId: v1.inviteTeam.id,
+            nameMyTeam: v1.inviteTeam.name,
+            levelMyTeam: v1.inviteTeam.level,
+            phoneMyTeam: v1.inviteTeam.phone,
+            ageMyteam: v1.inviteTeam.age,
+            fieldName: v1.fieldName,
+            fieldAddress: v1.fieldAddress,
+            rentalPeriod: v1.rentalPeriod
+          });
+        }
+        console.log(newResult, 'newResult');
+        this.inviteMe = newResult;
+      });
+    }
   }
   handleDeleteCategory(id: string) {
     if (window.confirm('Are you sure you want to delete'))

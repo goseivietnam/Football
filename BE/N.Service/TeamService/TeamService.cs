@@ -32,7 +32,9 @@ namespace N.Service.TeamService
         {
             try
             {
-                var query = from q in GetQueryable().Where(x => x.Status == 1)
+                var query = from q in GetQueryable()
+                            join book in _bookingRepository.GetQueryable()
+                            on q.UserId equals book.UserId
                             select new TeamDto()
                             {
                                 Id = q.Id,
@@ -44,7 +46,11 @@ namespace N.Service.TeamService
                                 Level = q.Level,
                                 FieldId = q.FieldId,
                                 CreatedDate = q.CreatedDate,
+                                BookingId = book.Id,
+                                Status = q.Status
                             };
+
+                query = query.Where(x => x.Status == 1);
 
                 if (userId.HasValue)
                 {
@@ -55,8 +61,11 @@ namespace N.Service.TeamService
                 {
 
                 }
+
                 query = query.OrderByDescending(x => x.CreatedDate);
+
                 var result = PagedList<TeamDto>.Create(query, search);
+
                 foreach (var item in result.Items)
                 {
                     if (item.FieldId.HasValue)
@@ -64,7 +73,8 @@ namespace N.Service.TeamService
                         item.Field = _fieldRepository.GetById(item.FieldId.Value);
                     }
 
-                }
+                }                
+
                 return new DataResponse<PagedList<TeamDto>>()
                 {
                     Data = result,

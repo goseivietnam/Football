@@ -19,6 +19,7 @@ export class MyTeamComponent {
   myTeam: any = {};
   isDrawerOpen: boolean = false;
   idDt: string = '';
+  bookingId: string = '';
   constructor(
     private categoryService: CategoryService,
     private excelServiceService: ExcelServiceService,
@@ -32,9 +33,12 @@ export class MyTeamComponent {
   getAllTeamByUSer() {
     this.TeamserviceService.getAllTeamByUser().subscribe((team) => {
       console.log(team, 'team 1');
-      this.team = team.data.items.filter(
+      const uniqueItems = [...new Map(team.data.items.map((item: any) =>
+        [item['id'], item])).values()];
+      this.team = uniqueItems.filter(
         (items: any) => items.id !== this.myTeam.id
       );
+      console.log(this.team)
     });
   }
   getAllTeamByMe() {
@@ -49,9 +53,10 @@ export class MyTeamComponent {
         this.getAllTeamByUSer()
       );
   }
-  inviteCreate(id: string) {
+  inviteCreate(id: string, bookingId: string) {
     // const id = this.route.snapshot.paramMap.get('id');
     this.idDt = id;
+    this.bookingId = bookingId;
     this.isDrawerOpen = !this.isDrawerOpen;
     // const data: any = {
     //   teamId: this.myTeam.id,
@@ -70,6 +75,7 @@ export class MyTeamComponent {
       teamId: idMyTeam,
       inviteTeamId: this.idDt,
       description: '',
+      bookingId: this.bookingId,
     };
     this.TeamserviceService.createInvit(data).subscribe(() => {
       this.toastr.success('Add team successfully');

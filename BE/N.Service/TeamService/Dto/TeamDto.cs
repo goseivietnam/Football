@@ -6,6 +6,8 @@ namespace N.Service.TeamService.Dto
     {
         public Field? Field { get; set; }
 
+        public Guid? BookingId { get; set; }
+
         /// <summary>
         /// Tên sân
         /// </summary>
