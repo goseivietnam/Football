@@ -11,7 +11,7 @@ import { TeamserviceService } from 'src/app/services/team/teamservice.service';
 export class TeamCreateComponent {
   title: string = 'Quản lý team';
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên team', 'mô trả', 'Action'];
+  theadTable: string[] = ['STT', 'Tên đội', 'Mô tả', 'Thao tác'];
   team: any[] = [];
   dataDetailsTeam: any;
   constructor(

@@ -15,7 +15,7 @@ export class InvitebymeComponent {
   title2: string = '';
 
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên team', 'số điện thoại', 'level', 'tuổi'];
+  theadTable: string[] = ['STT', 'Tên đội', 'số điện thoại', 'level', 'tuổi'];
   theadTable2: string[] = [
     'STT',
     'team mời',

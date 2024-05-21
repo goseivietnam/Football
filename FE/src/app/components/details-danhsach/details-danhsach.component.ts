@@ -15,7 +15,7 @@ export class DetailsDanhsachComponent {
   title2: string = 'Tất cả bạn đã mời';
   checkShowHide: boolean = false;
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên team', 'Số điện thoại', 'Level', 'Tuổi', 'Tên sân', 'Địa chỉ sân', 'Thời gian thuê'];
+  theadTable: string[] = ['STT', 'Tên đội', 'Số điện thoại', 'Level', 'Tuổi', 'Tên sân', 'Địa chỉ sân', 'Thời gian thuê'];
   theadTable2: string[] = [
     'STT',
     'Team mời',
@@ -26,7 +26,7 @@ export class DetailsDanhsachComponent {
     'Tên sân',
     'Địa chỉ sân',
     'Thời gian thuê',
-    'Action',
+    'Thao tác',
   ];
 
   team: any[] = [];

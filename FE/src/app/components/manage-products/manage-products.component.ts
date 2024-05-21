@@ -28,7 +28,7 @@ export class ManageProductsComponent {
     'Địa chỉ',
     'Giá thuê',
     'Trạng thái',
-    'Action',
+    'Thao tác',
   ];
   routerLink = '/admin/post-add';
   PostsList: any = [];

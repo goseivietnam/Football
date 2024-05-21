@@ -13,7 +13,7 @@
     <div class="col">
       <form (submit)="createTeamByUser()" [formGroup]="addForm" class="mt-5 form">
         <div class="form-group mb-5">
-          <input type="text" placeholder="Tên team" formControlName="name" class="form__input">
+          <input type="text" placeholder="Tên đội" formControlName="name" class="form__input">
           <div *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)"
             class="text-danger">
             <div *ngIf="addForm.get('name')?.errors?.['required']">

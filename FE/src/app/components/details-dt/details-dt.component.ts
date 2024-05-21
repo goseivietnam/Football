@@ -12,7 +12,7 @@ import { TeamserviceService } from 'src/app/services/team/teamservice.service';
 })
 export class DetailsDtComponent {
   title: string = 'Chi tiết';
-  theadTable: string[] = ['STT', 'Tên team', 'Mô tả', 'Level','SĐT','Tuổi', 'Tên sân', 'Địa chỉ sân', 'Thời gian thuê', 'Action'];
+  theadTable: string[] = ['STT', 'Tên đội', 'Mô tả', 'Level','SĐT','Tuổi', 'Tên sân', 'Địa chỉ sân', 'Thời gian thuê', 'Thao tác'];
   team: any[] = [];
   myTeam: any = {};
 

@@ -101,7 +101,7 @@
           </div>
           <div class="col-6">
             <mat-form-field class="form__field">
-              <mat-label>địa chỉ</mat-label>
+              <mat-label>Địa chỉ</mat-label>
               <input type="text" matInput formControlName="address" />
             </mat-form-field>
             <div
@@ -145,25 +145,13 @@
           </div>
           <div class="col-6">
             <mat-form-field class="form__field">
-              <mat-label>Service </mat-label>
+              <mat-label>Dịch vụ </mat-label>
               <mat-select formControlName="service" (selectionChange)="onServiceSelectionChange($event.value)">
                 <mat-option *ngFor="let category of service" [value]="category" [ngClass]="{'selected-item': isItemSelected(category.id)}">
                   {{ category.name }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <div
-              *ngIf="
-                postForm.get('service')?.invalid &&
-                (postForm.get('service')?.dirty ||
-                  postForm.get('service')?.touched)
-              "
-              class="text-danger"
-            >
-              <div *ngIf="postForm.get('service')?.errors?.['required']">
-                Service là bắt buộc.
-              </div>
-            </div>
           </div>
 
           <div class="col-6">
@@ -267,7 +255,7 @@
             </div>
           </div>
         </div>
-        <p>Mô tả sản phẩm</p>
+        <p>Mô tả sân bóng</p>
         <div class="form-group mb-1">
           <ckeditor
             [editor]="Editor"

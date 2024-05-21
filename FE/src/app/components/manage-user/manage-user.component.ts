@@ -33,7 +33,7 @@ export class ManageUserComponent {
     'Giới tính',
     'Email',
     'Quyền',
-    'Action',
+    'Thao tác',
   ];
   usersList: any[] = [];
   userForm = this.builder.group({

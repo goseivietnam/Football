@@ -141,7 +141,7 @@
           </div>
           <div class="col-6">
             <mat-form-field class="form__field">
-              <mat-label>Service</mat-label>
+              <mat-label>Dịch vụ</mat-label>
               <mat-select formControlName="service" (selectionChange)="onServiceSelectionChange($event.value)">
                 <mat-option *ngFor="let category of service2" [value]="category" [ngClass]="{'selected-item': isItemSelected(category.id)}">
                   {{ category.name }}
@@ -234,7 +234,7 @@
             class="text-danger"
           >
             <div *ngIf="EditForm.get('content')?.errors?.['required']">
-              Mô tả sản phẩm là bắt buộc
+              Mô tả sân bóng là bắt buộc
             </div>
           </div>
         </div>

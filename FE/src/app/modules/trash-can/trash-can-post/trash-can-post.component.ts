@@ -16,7 +16,7 @@ export class TrashCanPostComponent {
     'Danh mục',
     'Trạng thái',
     'Xét duyệt',
-    'Action',
+    'Thao tác',
   ];
   posts: IPosts[] = [];
   constructor(

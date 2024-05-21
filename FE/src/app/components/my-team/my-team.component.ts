@@ -12,9 +12,9 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./my-team.component.scss'],
 })
 export class MyTeamComponent {
-  title: string = 'Dánh sách các team đang cần thi đấu';
+  title: string = 'Danh sách các đội chủ nhà';
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên team', 'mô trả', 'Action'];
+  theadTable: string[] = ['STT', 'Tên đội', 'Mô tả', 'Thao tác'];
   team: any[] = [];
   myTeam: any = {};
   isDrawerOpen: boolean = false;

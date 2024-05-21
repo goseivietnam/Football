@@ -9,9 +9,9 @@ import { ServicesService } from 'src/app/services/service/services.service';
   styleUrls: ['./getall-service.component.scss']
 })
 export class GetallServiceComponent {
-  title: string = 'Quản lý service';
+  title: string = 'Quản lý dịch vụ';
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên service', 'mô trả', 'icons' , 'Action'];
+  theadTable: string[] = ['STT', 'Tên service', 'Mô tả', 'icons' , 'Thao tác'];
   categories: any[] = [];
   detailsCategory: any = {};
   constructor(

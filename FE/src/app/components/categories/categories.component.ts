@@ -11,7 +11,7 @@ import { ICategory } from 'src/app/interfaces/Category';
 export class CategoriesComponent {
   title: string = 'Quản lý khu vực';
   routerLink: string = '/admin/add-category';
-  theadTable: string[] = ['STT', 'Tên khu vực', 'mô trả', 'Action'];
+  theadTable: string[] = ['STT', 'Tên khu vực', 'Mô tả', 'Thao tác'];
   categories: any[] = [];
   detailsCategory: any = {};
   constructor(

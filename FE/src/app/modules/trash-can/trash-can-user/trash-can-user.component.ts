@@ -17,7 +17,7 @@ export class TrashCanUserComponent {
     'Email',
     'Quyền',
     'Trạng thái',
-    'Action',
+    'Thao tác',
   ];
   constructor(private toastr: ToastrService, private userService: UserService) {
     this.getAllUserDeleted();

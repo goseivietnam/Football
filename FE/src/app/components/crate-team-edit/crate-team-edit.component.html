@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row g-5">
     <div class="col-6 text-capitalize">
-      <h2>Sửa team</h2>
+      <h2>Sửa đội</h2>
     </div>
     <div class="col-6">
       <div class="d-flex justify-content-end align-items-center">
@@ -13,7 +13,7 @@
     <div class="col">
       <form (submit)="handleSubmitEditCategoryForm()" [formGroup]="addForm" class="mt-5 form">
         <div class="form-group mb-5">
-          <input type="text" placeholder="Tên team" formControlName="name" class="form__input">
+          <input type="text" placeholder="Tên đội" formControlName="name" class="form__input">
           <div *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)"
             class="text-danger">
             <div *ngIf="addForm.get('name')?.errors?.['required']">
@@ -75,8 +75,8 @@
             <mat-form-field class="form__field">
               <mat-label>Trạng thái team</mat-label>
               <mat-select formControlName="statusTeam">
-                <mat-option value="0">Default</mat-option>
-                <mat-option value="1">Used</mat-option>
+                <mat-option value="0">Mặc định</mat-option>
+                <mat-option value="1">Chọn</mat-option>
               </mat-select>
             </mat-form-field>
         </div>
