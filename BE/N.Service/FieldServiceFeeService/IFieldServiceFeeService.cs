@@ -10,5 +10,7 @@ namespace N.Service.FieldServiceFeeService
     {
         Task<DataResponse<PagedList<FieldServiceFeeDto>>> GetData(FieldServiceFeeSearch search);
         Task<DataResponse<FieldServiceFeeDto>> GetDto(Guid id);
+
+        Task<DataResponse<PagedList<FieldServiceFeeDto>>> GetByFieldIdDto(Guid id);
     }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FeeServiceService } from 'src/app/services/feeService/fee-service.service';
 import { OrderService } from 'src/app/services/order/order.service';
+import { ProductsService } from 'src/app/services/products/products.service';
 import { environment } from 'src/environment';
 import * as XLSX from 'xlsx';
 
@@ -20,11 +21,13 @@ export class DetailsBookingComponent {
   //Tổng tiền còn thanh toán
   totalAmount: any = 0;
   urlImage: string = environment.API_URL + '/root/';
+  fieldService: any = [];
   dataToExport: any;
   constructor(
     private orderService: OrderService,
     private params: ActivatedRoute,
     private feeService: FeeServiceService,
+    private productService: ProductsService
   ) {
     this.dataBooking = JSON.parse(localStorage.getItem('booking') || '{}')
 
@@ -36,6 +39,8 @@ export class DetailsBookingComponent {
       }
     });
     this.handelGetDetailsBooking();
+
+    
 
   }
   handelGetDetailsBooking() {
@@ -78,6 +83,11 @@ export class DetailsBookingComponent {
 
       this.totalAmount = this.totalFeeServiceAmount + this.dataDetails.price - this.priceStake;
     });
+
+    this.productService.getByFieldId(id).subscribe((data: any) => {
+      this.fieldService = data.data.items
+      console.log(this.fieldService);
+    })
     
     console.log(this.dataBooking, 'dataBooking')
   }
@@ -105,4 +115,34 @@ export class DetailsBookingComponent {
     XLSX.writeFile(workbook, `hoadon.xlsx`);
   }
 
+  onServiceSelectionChange(selectedService: any) {
+    const quantity = prompt('Nhập số lượng cho dịch vụ', '0');
+    if (quantity !== null && Number(quantity) > 1) {
+      const quantityInt = parseInt(quantity);
+      if (!isNaN(quantityInt)) {
+        var feeService = {
+          ServiceFeeId: selectedService.id,
+          serviceName: selectedService.serviceName,
+          Quantity: quantityInt,
+          Price: selectedService.price,
+          FieldId: selectedService.FieldId,
+          BookingId: selectedService.bookingId
+        };
+
+        console.log(feeService);
+        this.productService.createServiceField(feeService).subscribe((data: any) => {
+          if(data.success){
+          window.location.reload();
+          } else {
+            alert('Dịch vụ đã tồn tại');
+          }
+        })
+       
+      } else {
+        alert('Vui lòng nhập số hợp lệ.');
+      }
+    }else{
+      alert('Vui lòng nhập số hợp lệ.');
+    }
+  }
 }

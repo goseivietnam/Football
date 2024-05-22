@@ -53,6 +53,21 @@ export class ManageOrderComponent {
       this.orderCancel = order.data.items.filter(
         (orderA: any) => orderA.status === 'Cancel'
       );
+  
+    if (order.data.items) {
+      order.data.items.forEach((item: any) => {
+        if (item.services && Array.isArray(item.services)) {
+          let totalAmount = 0;
+          item.services.forEach((x: any) => {
+            totalAmount += (x.price ?? 0) * (x.quantity ?? 1);
+          });
+
+          item.price += totalAmount;
+          
+        }
+      });
+    }
+    
       this.orderDones = order.data.items.filter(
         (orderA: any) => orderA.status === 'Pair'
       );
@@ -70,6 +85,7 @@ export class ManageOrderComponent {
           orderA.status !== 'Cancel' &&
           orderA.status !== 'Pair'
       );
+      
       this.dataSourcePending = this.orderPending;
       this.dataSourceDone = this.orderDones;
       this.dataSourceCancel = this.orderCancel;

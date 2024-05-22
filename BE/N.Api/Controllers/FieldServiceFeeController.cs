@@ -7,6 +7,9 @@ using N.Service.FieldServiceFeeService.Dto;
 using N.Service.Common;
 using N.Service.Dto;
 using N.Service.ServiceFeePaymentService;
+using N.Service.FieladService;
+using N.Service.ServiceFeeService;
+using N.Service.BookingService;
 
 namespace N.Controllers
 {
@@ -15,6 +18,9 @@ namespace N.Controllers
     {
         private readonly IFieldServiceFeeService _fieldServiceFeeService;
         private readonly IServiceFeePaymentService _serviceFeePaymentService;
+        private readonly IBookingService _bookingService;
+        private readonly IServiceFeeService _ServiceFeeService;
+
         private readonly IMapper _mapper;
         private readonly ILogger<FieldServiceFeeController> _logger;
 
@@ -23,11 +29,15 @@ namespace N.Controllers
             IFieldServiceFeeService fieldServiceFeeService,
             IServiceFeePaymentService serviceFeePaymentService,
             IMapper mapper,
-            ILogger<FieldServiceFeeController> logger
+            ILogger<FieldServiceFeeController> logger,
+            IBookingService bookingService,
+            IServiceFeeService ServiceFeeService
             )
         {
             this._fieldServiceFeeService = fieldServiceFeeService;
             this._serviceFeePaymentService = serviceFeePaymentService;
+            this._bookingService = bookingService;
+            this._ServiceFeeService = ServiceFeeService;
             this._mapper = mapper;
             _logger = logger;
         }
@@ -40,6 +50,14 @@ namespace N.Controllers
                 try
                 {
                     var fieldServiceId = Guid.NewGuid();
+
+                    var fieldService = _fieldServiceFeeService.GetQueryable()
+                        .FirstOrDefault(x => x.ServiceFeeId == model.ServiceFeeId && x.FieldId == model.FieldId);
+
+                    if (fieldService != null)
+                    {
+                        return new DataResponse<FieldServiceFee>() { Success = false };
+                    }
 
                     var entity = new FieldServiceFee()
                     {
@@ -60,6 +78,8 @@ namespace N.Controllers
                             FieldServiceFeeId = fieldServiceId,
                             BookingId = model.BookingId,
                             Price = model.Price,
+                            Quantity = model.Quantity,
+                            ServiceName = model.ServiceName,
                             DateTime = DateTime.Now,
                             CreatedDate = DateTime.Now
                         };
@@ -103,6 +123,13 @@ namespace N.Controllers
         public async Task<DataResponse<FieldServiceFeeDto>> Get(Guid id)
         {
             return await _fieldServiceFeeService.GetDto(id);
+        }
+
+        [HttpGet("GetByFieldId/{id}")]
+        public async Task<DataResponse<PagedList<FieldServiceFeeDto>>> GetByFieldId(Guid id)
+        {
+             
+            return await _fieldServiceFeeService.GetByFieldIdDto(id);
         }
 
         [HttpPost("GetData")]

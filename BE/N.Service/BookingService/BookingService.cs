@@ -136,6 +136,8 @@ namespace N.Service.BookingService
                            Description = x.Description,
                            FieldServiceFeeId = x.FieldServiceFeeId,
                            Price = x.Price,
+                           Quantity = x.Quantity,
+                           ServiceName = x.ServiceName
                        }).ToList();
 
                 foreach (var payment in payments)
@@ -229,6 +231,7 @@ namespace N.Service.BookingService
                         Description = x.Description,
                         FieldServiceFeeId = x.FieldServiceFeeId,
                         Price = x.Price,
+                        Quantity = x.Quantity
                     }).ToList();
                 foreach (var payment in payments)
                 {

@@ -9,5 +9,6 @@ namespace N.Api.ViewModels
         public float? Price { get; set; }
         public Guid? BookingId { get; set; }
         public int Quantity { get; set; }
+        public string ServiceName { get; set; }
     }
 }

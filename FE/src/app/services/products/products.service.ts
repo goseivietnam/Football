@@ -69,11 +69,17 @@ export class ProductsService {
   createServiceField(data : any){
     return this.http.post(`${this.baseURL}/api/FieldServiceFee/Create`,data)
   }
+
+  getByFieldId(id: string): Observable<any> {
+    return this.http.get<any>(
+      `${this.baseURL}/api/FieldServiceFee/GetByFieldId/${id}`
+    );
+  }
+
   /* get post by id */
   getPostById(id: string): Observable<any> {
     return this.http.get<any>(
       `${this.baseURL}/api/Field/GetField/${id}`
-      // `http://2c0e-222-252-24-198.ngrok-free.app/api/Field/GetField/${id}`
     );
   }
 

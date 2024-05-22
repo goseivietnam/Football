@@ -13,7 +13,7 @@
                   Tên sân :
                 </span>  <span
                     class=""
-                    >{{dataDetails.field.name}}</span
+                    >{{dataDetails?.field?.name}}</span
                   >
                 </div>
                 <div class="">
@@ -21,7 +21,7 @@
                   <span class="">
                     Giá :
                   </span>
-                  <span class="">{{dataDetails.price?.toLocaleString()}} VND</span>
+                  <span class="">{{dataDetails?.price?.toLocaleString()}} VND</span>
                 </div>
                 </div>
                 <div *ngIf="checkUserOrAdmin" class="">
@@ -42,14 +42,14 @@
                   <div class="">
                     <div  style="padding-top: 15px;padding-bottom: 20px;" class="">
                       <h3 class="">
-                          Người đặt :  {{dataDetails.user.email}}
+                          Người đặt :  {{dataDetails?.user?.email}}
                       </h3>
                     </div>
                     <div class="d-flex gap-5">
                      <p style="color:black">
                       Mô tả :
                      </p> <p style="color:black">
-                      {{dataDetails.description}}
+                      {{dataDetails?.description}}
                       </p>
                     </div>
                   </div>
@@ -63,10 +63,16 @@
         </div>
 
         <div style="display: flex;align-items: center ; gap: 20px;">
-        <button (click)="exportToExcel()" class="btn btn-dark">
-Tạo hoá đơn
-        </button>
-        <img style="width: 80px;" src="../../../assets/images/xls.png" alt="">
+          <div class="col-6">
+            <mat-form-field class="form__field">
+              <mat-label>Dịch vụ </mat-label>
+              <mat-select formControlName="service" (selectionChange)="onServiceSelectionChange($event.value)">
+                <mat-option *ngFor="let service of fieldService" [value]="service" > <!---[ngClass]="{'selected-item': isItemSelected(service.id)}"--> 
+                  {{ service.serviceName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </div>
       </div>
     </div>
@@ -87,25 +93,25 @@ Tạo hoá đơn
                   <tr *ngFor="let icC of this.dataDetails.services; let i = index">
                     <td style="border:1px solid #ccc">{{i + 1}}</td>
                     <td style="border:1px solid #ccc">{{icC.serviceName}}</td>
-                    <td style="border:1px solid #ccc">{{icC.Quantity || 1}}</td>                  
-                    <td style="border:1px solid #ccc">{{icC.price.toLocaleString() || 0}}</td>
+                    <td style="border:1px solid #ccc">{{icC.quantity || 1}}</td>                  
+                    <td style="border:1px solid #ccc">{{icC.price?.toLocaleString() || 0}}</td>
                     <td style="border:1px solid #ccc">{{(icC.price || 0) * (icC.quantity || 1)}}</td>
                   </tr>
                   <tr>
                     <td colspan="4" style="text-align: right;"><strong>Tổng tiền dịch vụ:</strong></td>
-                    <td>{{totalFeeServiceAmount.toLocaleString()}} VND</td>
+                    <td>{{totalFeeServiceAmount?.toLocaleString()}} VND</td>
                   </tr>
                   <tr>
                     <td colspan="4" style="text-align: right;"><strong>Tổng tiền thuê sân:</strong></td>
-                    <td>{{dataDetails.price.toLocaleString()}} VND</td>
+                    <td>{{dataDetails.price?.toLocaleString()}} VND</td>
                   </tr>
                   <tr>
                     <td colspan="4" style="text-align: right;"><strong>Tiền đã đặt cọc:</strong></td>
-                    <td>{{priceStake.toLocaleString()}} VND</td>
+                    <td>{{priceStake?.toLocaleString()}} VND</td>
                   </tr>
                   <tr>
                     <td colspan="4" style="text-align: right;"><strong>Tổng tiền thanh toán:</strong></td>
-                    <td>{{totalAmount.toLocaleString()}} VND</td>
+                    <td>{{totalAmount?.toLocaleString()}} VND</td>
                   </tr>
                 </tbody>
               </table>

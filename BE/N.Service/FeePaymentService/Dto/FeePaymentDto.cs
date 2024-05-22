@@ -7,5 +7,7 @@ namespace N.Service.ServiceFeePaymentService.Dto
     public class ServiceFeePaymentDto : ServiceFeePayment
     {
         public FieldServiceFeeDto? FieldService { get; set; }
+
+        public int? Quantity { get; set; }
     }
 }
